@@ -2,6 +2,7 @@
     color: var(--main-txt);
     line-height: 1.33;
     font-size: 0.75rem;
+    font-weight: 500;
     text-decoration: none;
     transition: opacity 0.7s ease;
 }
@@ -13,3 +14,10 @@
 .NavBar__link:hover {
     opacity: 0.7;
 }
+
+@media (max-width: 375px) {
+    .NavBar__link{
+        font-size: 0.625rem;
+    }
+}
+

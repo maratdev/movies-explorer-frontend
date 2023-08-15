@@ -4,3 +4,15 @@
     margin: 18px auto 0;
     max-width: 1140px;
 }
+
+@media (max-width: 1024px) {
+    .header{
+        max-width: calc(100% - 30px * 2);
+    }
+}
+
+@media (max-width: 375px) {
+    .header{
+        max-width: calc(100% - 14px * 2);
+    }
+}
