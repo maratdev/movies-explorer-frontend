@@ -1,0 +1,6 @@
+@import url('./__title/Promo__title.css');
+@import url('./__wrap/Promo__wrap.css');
+.Promo{
+    margin-top: -77px;
+    background-color: var(--bg-header);
+}

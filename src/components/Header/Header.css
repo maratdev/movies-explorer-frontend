@@ -1,7 +1,6 @@
 .header{
     display: flex;
-    outline: 1px solid red;
-    margin: 18px auto 0;
+    margin: 16px auto 18px;
     max-width: 1140px;
 }
 

@@ -1,0 +1,27 @@
+.Promo__wrap{
+    margin: 0 auto;
+    min-height: 510px;
+    padding: 127px 0 0;
+    max-width: 1140px;
+    background-image: url(../../../images/landing-logo.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 60px right 102px;
+}
+
+@media (max-width: 768px) {
+    .Promo__wrap{
+        min-height:794px;
+        background-size: 680px 230px;
+        background-position: center bottom 70px ;
+    }
+}
+
+@media (max-width: 425px) {
+    .Promo__wrap{
+        max-width: 100%;
+        min-height: 580px;
+        background-size: 680px 230px;
+        background-position: center bottom 40px ;
+    }
+}
+

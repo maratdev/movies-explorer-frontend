@@ -18,6 +18,10 @@
 @media (max-width: 375px) {
     .NavBar__link{
         font-size: 0.625rem;
+        line-height: 1rem; /* 160% */
+    }
+    .NavBar__link:first-child {
+        margin-right: 15px;
     }
 }
 
