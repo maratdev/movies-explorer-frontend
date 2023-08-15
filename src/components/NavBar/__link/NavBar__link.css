@@ -1,0 +1,15 @@
+.NavBar__link{
+    color: var(--main-txt);
+    line-height: 1.33;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: opacity 0.7s ease;
+}
+
+.NavBar__link:first-child {
+    margin-right: 30px;
+}
+
+.NavBar__link:hover {
+    opacity: 0.7;
+}
