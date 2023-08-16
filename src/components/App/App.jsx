@@ -1,7 +1,7 @@
-import Header from "../Header/Header";
-import NavBar from '../NavBar/NavBar';
-import Main from '../Main/Main';
-import './App.css';
+import Main from '../Main/Main.jsx';
+import Header from '../Header/Header.jsx';
+import NavBar from '../NavBar/NavBar.jsx';
+
 function App() {
   return (
       <>

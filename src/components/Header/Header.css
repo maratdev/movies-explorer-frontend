@@ -2,10 +2,12 @@
     display: flex;
     margin: 16px auto 18px;
     max-width: 1140px;
+    width: 93.75vw;
 }
 
 @media (max-width: 1024px) {
     .header{
+        transition: all ease 0.5s;
         max-width: calc(100% - 30px * 2);
     }
 }

@@ -1,0 +1,12 @@
+@import url('./__wrap/AboutProject__wrap.css');
+@import url('./__title/AboutProject__title.css');
+@import url('./__line/AboutProject__line.css');
+@import url('./__items/AboutProject__items.css');
+@import url('./__heading/AboutProject__heading.css');
+@import url('./__paragraph/AboutProject__paragraph.css');
+@import url('./__item/AboutProject__item.css');
+
+.AboutProject{
+    box-sizing: border-box;
+    outline: 1px solid red;
+}

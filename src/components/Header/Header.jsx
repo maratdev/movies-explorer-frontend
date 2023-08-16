@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import './Header.css';
-const Header = ({children}) => {
-    return (
+
+const Header = ({ children }) => (
         <>
         <div className="header">
             <Link to="/#">
@@ -11,7 +11,6 @@ const Header = ({children}) => {
             {children}
         </div>
         </>
-    )
-}
+);
 
 export default Header;

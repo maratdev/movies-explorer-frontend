@@ -1,6 +1,6 @@
 import './Promo.css';
-export const Promo = () => {
-    return (
+
+const Promo = () => (
         <>
             <section className="Promo">
                 <div className="Promo__wrap">
@@ -10,7 +10,6 @@ export const Promo = () => {
             </section>
 
         </>
-    )
-}
+);
 
 export default Promo;

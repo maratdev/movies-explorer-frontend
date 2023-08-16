@@ -28,3 +28,7 @@
     padding: 0;
 }
 
+.reset-list{
+list-style: none;
+}
+

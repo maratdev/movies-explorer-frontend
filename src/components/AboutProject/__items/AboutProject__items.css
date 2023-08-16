@@ -1,0 +1,7 @@
+.AboutProject__items {
+  margin-top: 70px;
+  outline: 1px solid #4285F4;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+}
