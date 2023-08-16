@@ -1,0 +1,5 @@
+.AboutProject__frontend{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

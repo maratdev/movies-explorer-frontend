@@ -4,3 +4,10 @@
     background-color: #dadada;
     margin-top: 23px;
 }
+
+@media (max-width: 375px) {
+  .AboutProject__line{
+    margin-top: 28px;
+  }
+}
+

@@ -17,6 +17,16 @@ const AboutProject = () => (<>
             которые нужно было соблюдать, чтобы успешно защититься.</p>
         </li>
       </ul>
+      <div className="AboutProject__progress">
+        <div className="AboutProject__backend">
+          <span className="AboutProject__backend-duration">1 неделя</span>
+          <span className="AboutProject__scheme-title">Back-end</span>
+        </div>
+        <div className="AboutProject__frontend">
+          <span className="AboutProject__frontend-duration">4 недели</span>
+          <span className="AboutProject__scheme-title">Front-end</span>
+        </div>
+      </div>
     </div>
   </section>
 </>);

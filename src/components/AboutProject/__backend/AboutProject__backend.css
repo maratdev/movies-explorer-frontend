@@ -1,0 +1,19 @@
+.AboutProject__backend {
+  display: flex;
+  flex-direction: column;
+  width: 285px;
+  height: 36px;
+}
+
+@media (max-width: 768px) {
+  .AboutProject__backend {
+    width: 177px;
+  }
+}
+
+@media (max-width: 375px) {
+  .AboutProject__backend {
+    width: 153px;
+  }
+}
+

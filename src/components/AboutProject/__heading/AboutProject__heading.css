@@ -4,3 +4,14 @@
   line-height: normal;
   letter-spacing: -0.05rem;
 }
+
+@media (max-width: 375px) {
+  .AboutProject__heading{
+    font-size: 1.125rem;
+    letter-spacing: -0.045rem;
+  }
+}
+
+
+
+

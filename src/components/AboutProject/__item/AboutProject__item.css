@@ -1,4 +1,21 @@
 .AboutProject__item{
   margin-bottom: 56px;
-  max-width: 550px;
+  max-width: 500px;
 }
+
+.AboutProject__item:nth-child(2n){
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .AboutProject__item:nth-child(2n){
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .AboutProject__item:nth-child(2n){
+    padding-left: 0;
+  }
+}
+

@@ -1,7 +1,14 @@
 .AboutProject__items {
   margin-top: 70px;
-  outline: 1px solid #4285F4;
   display: grid;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  grid-template-columns: 1fr 1fr;
 }
+
+@media (max-width: 375px) {
+  .AboutProject__items {
+    margin-top: 61px;
+    grid-template-columns: 1fr;
+  }
+}
+
+

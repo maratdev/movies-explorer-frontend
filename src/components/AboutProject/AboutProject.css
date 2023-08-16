@@ -5,8 +5,13 @@
 @import url('./__heading/AboutProject__heading.css');
 @import url('./__paragraph/AboutProject__paragraph.css');
 @import url('./__item/AboutProject__item.css');
+@import url('./__progress/AboutProject__progress.css');
+@import url('./__backend/AboutProject__backend.css');
+@import url('./__backend-duration/AboutProject__backend-duration.css');
+@import url('./__scheme-title/AboutProject__scheme-title.css');
+@import url('./__frontend-duration/AboutProject__frontend-duration.css');
+@import url('./__frontend/AboutProject__frontend.css');
 
 .AboutProject{
     box-sizing: border-box;
-    outline: 1px solid red;
 }
