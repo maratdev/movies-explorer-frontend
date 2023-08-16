@@ -1,4 +1,4 @@
-.AboutProject__scheme-title{
+.AboutProject__scheme-title {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.0625rem;
@@ -8,7 +8,7 @@
 }
 
 @media (max-width: 375px) {
-  .AboutProject__scheme-title{
+  .AboutProject__scheme-title {
     margin-top: 10px;
     font-size: 0.6875rem;
   }

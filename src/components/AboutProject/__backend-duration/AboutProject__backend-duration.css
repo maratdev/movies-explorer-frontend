@@ -1,4 +1,4 @@
-.AboutProject__backend-duration{
+.AboutProject__backend-duration {
   text-align: center;
   color: #000;
   background-color: var(--color-green);
@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 375px) {
-  .AboutProject__backend-duration{
+  .AboutProject__backend-duration {
     font-size: 0.6875rem;
     padding: 10px 12px;
   }

@@ -1,27 +1,28 @@
-.NavBar__link{
-    color: var(--main-txt);
-    line-height: 1.33;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: opacity 0.7s ease;
+.NavBar__link {
+  color: var(--main-txt);
+  line-height: 1.33;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.7s ease;
 }
 
 .NavBar__link:first-child {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .NavBar__link:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 @media (max-width: 375px) {
-    .NavBar__link{
-        font-size: 0.625rem;
-        line-height: 1rem; /* 160% */
-    }
-    .NavBar__link:first-child {
-        margin-right: 15px;
-    }
+  .NavBar__link {
+    font-size: 0.625rem;
+    line-height: 1rem; /* 160% */
+  }
+
+  .NavBar__link:first-child {
+    margin-right: 15px;
+  }
 }
 

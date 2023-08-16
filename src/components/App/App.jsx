@@ -4,12 +4,12 @@ import NavBar from '../NavBar/NavBar.jsx';
 
 function App() {
   return (
-      <>
-      <Header >
+    <>
+      <Header>
         <NavBar/>
       </Header>
-    <Main/>
-      </>
+      <Main/>
+    </>
   );
 }
 

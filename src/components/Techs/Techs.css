@@ -1,0 +1,25 @@
+@import url('./__wrap/Techs__wrap.css');
+@import url('./__title/Techs__title.css');
+@import url('./__large-title/Techs__large-title.css');
+@import url('./__description/Techs__description.css');
+@import url('./__list/Techs__list.css');
+@import url('./__list-item/Techs__list-item.css');
+
+.Techs {
+  display: flex;
+  min-height: 625px;
+  background-color: var(--bg-light);
+}
+
+@media (max-width: 768px) {
+  .Techs {
+    min-height: 567px;
+  }
+}
+
+@media (max-width: 375px) {
+  .Techs {
+    min-height: 651px;
+    background-color: var(--bg);
+  }
+}

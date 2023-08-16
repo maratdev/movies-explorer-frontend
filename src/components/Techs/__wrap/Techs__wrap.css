@@ -1,0 +1,18 @@
+.Techs__wrap {
+  width: 93.75vw;
+  max-width: 1140px;
+  margin:0 auto;
+}
+
+@media (max-width: 768px) {
+  .Techs__wrap {
+    max-width: calc(100% - 50px * 2);
+  }
+}
+
+@media (max-width: 375px) {
+  .Techs__wrap {
+    max-width: calc(100% - 19px * 2);
+  }
+}
+

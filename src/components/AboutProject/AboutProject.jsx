@@ -1,10 +1,9 @@
 import './AboutProject.css';
 
-const AboutProject = () => (<>
+const AboutProject = () => (
   <section className="AboutProject">
     <div className="AboutProject__wrap">
       <h2 className="AboutProject__title reset-txt">О проекте</h2>
-      <div className="AboutProject__line"></div>
       <ul className="AboutProject__items reset-list reset-txt">
         <li className="AboutProject__item">
           <h3 className="AboutProject__heading reset-txt">Дипломный проект включал 5 этапов</h3>
@@ -29,6 +28,6 @@ const AboutProject = () => (<>
       </div>
     </div>
   </section>
-</>);
+);
 
 export default AboutProject;

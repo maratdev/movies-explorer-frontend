@@ -1,8 +1,9 @@
 @import url('./__link/NavBar__link.css');
 @import url('./__link/_btn/NavBar__link_btn.css');
-.NavBar{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    align-items: center;
+
+.NavBar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: center;
 }

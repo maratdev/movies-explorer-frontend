@@ -1,21 +1,19 @@
-.AboutProject__wrap{
-    max-width: 1140px;
-    width: 93.75vw;
-    margin: 110px auto 0;
-    min-height: 608px;
+.AboutProject__wrap {
+  max-width: 1140px;
+  width: 93.75vw;
+  margin: 0 auto;
+  min-height: 585px;
 }
 
 @media (max-width: 768px) {
-  .AboutProject__wrap{
+  .AboutProject__wrap {
     max-width: calc(100% - 50px * 2);
-    margin: 90px auto 0;
   }
 }
 
 @media (max-width: 375px) {
-  .AboutProject__wrap{
+  .AboutProject__wrap {
     max-width: calc(100% - 19px * 2);
-    margin: 70px auto 0;
   }
 }
 

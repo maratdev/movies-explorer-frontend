@@ -1,4 +1,4 @@
-.AboutProject__heading{
+.AboutProject__heading {
   font-size: 1.25rem;
   font-weight: normal;
   line-height: normal;
@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 375px) {
-  .AboutProject__heading{
+  .AboutProject__heading {
     font-size: 1.125rem;
     letter-spacing: -0.045rem;
   }

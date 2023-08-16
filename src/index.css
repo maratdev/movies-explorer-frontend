@@ -2,34 +2,34 @@
 @import url(./vendor/fonts/fonts.css);
 
 :root {
-    --bg: #202020;
-    --bg-light: #272727;
-    --bg-header: #073042;
-    --color-btn: #4285F4;
-    --color-green: #2BE080;
-    --color-gray: #303030;
-    --main-txt: #fff;
+  --bg: #202020;
+  --bg-light: #272727;
+  --bg-header: #073042;
+  --color-btn: #4285F4;
+  --color-green: #2BE080;
+  --color-gray: #303030;
+  --main-txt: #fff;
 }
 
 .page {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    font-family: 'Inter', Arial, sans-serif;
-    background-color: var(--bg);
-    color: var(--main-txt);
-    font-weight: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--main-txt);
+  font-weight: normal;
 }
 
-.reset-txt{
-    margin: 0;
-    padding: 0;
+.reset-txt {
+  margin: 0;
+  padding: 0;
 }
 
-.reset-list{
-list-style: none;
+.reset-list {
+  list-style: none;
 }
 

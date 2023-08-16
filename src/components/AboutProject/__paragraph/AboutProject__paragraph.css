@@ -1,4 +1,4 @@
-.AboutProject__paragraph{
+.AboutProject__paragraph {
   font-size: 0.875rem;
   font-weight: normal;
   line-height: 1.25rem;
@@ -6,15 +6,15 @@
 }
 
 @media (max-width: 768px) {
-  .AboutProject__paragraph{
+  .AboutProject__paragraph {
     font-size: 0.75rem;
-    margin-top: 20px;
+    margin-top: 22px;
     line-height: 1.125rem;
   }
 }
 
 @media (max-width: 375px) {
-  .AboutProject__paragraph{
+  .AboutProject__paragraph {
     margin-top: 17px;
     font-size: 0.6875rem;
     line-height: 1rem;

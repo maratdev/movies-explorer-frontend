@@ -1,34 +1,34 @@
-.Promo__wrap{
-    width: 93.75vw;
-    margin: 0 auto;
-    min-height: 510px;
-    padding: 127px 0 0;
-    max-width: 1140px;
-    background-image: url(../../../images/landing-logo.svg);
-    background-repeat: no-repeat;
-    background-position: bottom 60px right 102px;
+.Promo__wrap {
+  width: 93.75vw;
+  margin: 0 auto;
+  min-height: 510px;
+  padding: 127px 0 0;
+  max-width: 1140px;
+  background-image: url(../../../images/landing-logo.svg);
+  background-repeat: no-repeat;
+  background-position: bottom 60px right 102px;
 }
 
 @media (max-width: 1024px) {
-    .Promo__wrap{
-        transition: all ease 0.5s;
-    }
+  .Promo__wrap {
+    transition: all ease 0.4s;
+  }
 }
 
 @media (max-width: 768px) {
-    .Promo__wrap{
-        min-height:794px;
-        background-size: 680px 230px;
-        background-position: center bottom 70px ;
-    }
+  .Promo__wrap {
+    min-height: 794px;
+    background-size: 680px 230px;
+    background-position: center bottom 70px;
+  }
 }
 
 @media (max-width: 425px) {
-    .Promo__wrap{
-        max-width: 100%;
-        min-height: 580px;
-        background-size: 680px 230px;
-        background-position: center bottom 40px ;
-    }
+  .Promo__wrap {
+    width: 100%;
+    min-height: 580px;
+    background-size: 680px 230px;
+    background-position: center bottom 40px;
+  }
 }
 
