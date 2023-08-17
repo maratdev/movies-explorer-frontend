@@ -1,0 +1,10 @@
+@import url('./__wrap/Footer__wrap.css');
+@import url('./__title/Footer__title.css');
+@import url('./__container/Footer__container.css');
+@import url('./__author/Footer__author.css');
+@import url('./__link/Footer__link.css');
+
+.Footer {
+  display: flex;
+  min-height: 172px;
+}

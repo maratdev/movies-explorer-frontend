@@ -5,6 +5,7 @@
   margin-top: 26px;
   max-width: 599px;
 }
+
 @media (max-width: 1024px) {
   .AboutMe__description {
     padding-right: 50px;

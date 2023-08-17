@@ -1,10 +1,6 @@
 
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 H
 src/vendor/normalize.css,2\c\2c748555ade8b3e0437b7be20154b22b7e979951
-A
-public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
 K
 src/images/landing-logo.svg,f\b\fb355a38c2eb6e0c296cb4641ee9ee558a1dd346
 ]
@@ -39,21 +35,14 @@ k
 	.eslintrc,4\b\4be5f5e3cea171c304090be92469b2f2cb51039a
 4
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 N
 src/components/Promo/Promo.jsx,8\8\88cbed17aa09f494b2d9097999d892ce4ee6e21b
 \
 ,src/components/AboutProject/AboutProject.css,6\d\6d0b46b2fd22a9494e3c0c8e7961efc0f47ca228
 \
 ,src/components/AboutProject/AboutProject.jsx,2\0\20b3452131325810d2be49cd4ec9e336392a7bad
-k
-;src/components/AboutProject/__title/AboutProject__title.css,0\e\0e9d7f3d2084624bb86e08dad62601f489a4f5d4
 N
 src/components/Promo/Promo.css,3\f\3fcecef61502ef74ec24f9a35fc7f5d6cb4ccaec
-P
- src/components/Header/Header.css,3\c\3c497d73e6cc2507c8716822a20d10363cbbe3eb
 [
 +src/components/Promo/__wrap/Promo__wrap.css,8\3\83dee5b9b995e142c958803b928d235781321c31
 s

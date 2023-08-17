@@ -9,3 +9,15 @@
   display: flex;
   min-height: 525px;
 }
+
+@media (max-width: 768px) {
+  .Portfolio {
+    min-height: 370px;
+  }
+}
+
+@media (max-width: 425px) {
+  .Portfolio {
+    min-height: 273px;
+  }
+}

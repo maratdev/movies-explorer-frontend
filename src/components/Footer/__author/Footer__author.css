@@ -1,0 +1,15 @@
+.Footer__author {
+  flex: 1 1 auto;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  line-height: normal;
+}
+
+@media (max-width: 425px) {
+  .Footer__author {
+    order: 1;
+    margin-top: 30px;
+    font-size: 0.75rem;
+    color: #8b8b8b;
+  }
+}

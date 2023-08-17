@@ -1,18 +1,18 @@
-.Portfolio__wrap {
+.Footer__wrap {
   width: 93.75vw;
   max-width: 1140px;
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
-  .Portfolio__wrap {
-    max-width: calc(100% - 50px * 2);
+  .Footer__wrap {
+    max-width: calc(100% - 30px * 2);
   }
 }
 
-@media (max-width: 375px) {
-  .Portfolio__wrap {
+
+@media (max-width: 425px) {
+  .Footer__wrap {
     max-width: calc(100% - 14px * 2);
   }
 }
-

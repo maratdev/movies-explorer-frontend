@@ -1,4 +1,6 @@
-.Portfolio__image{
-  display: block;
-  width: 12px;
+@media (max-width: 375px) {
+  .Portfolio__image {
+    display: block;
+    width: 12px;
+  }
 }

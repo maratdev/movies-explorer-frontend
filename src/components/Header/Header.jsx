@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import './Header.css';
 
-const Header = ({ children }) => (
+const Header = ({children}) => (
   <>
-    <div className="header">
+    <header className="Header">
       <Link to="/#">
         <img src={logo} alt="логотип Улыбка"/>
       </Link>
       {children}
-    </div>
+    </header>
   </>
 );
 

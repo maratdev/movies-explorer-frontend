@@ -3,7 +3,7 @@
   justify-content: space-between;
   text-decoration: none;
   width: 99.43%;
-  border-bottom: 1px solid #424242;
+  border-bottom: 1px solid var(--line-light);
   transition: opacity 0.7s ease;
   padding-bottom: 18px;
   margin-bottom: 20px;
@@ -12,6 +12,7 @@
 .Portfolio__link:hover {
   opacity: 0.7;
 }
+
 .Portfolio__link:last-child {
   border: none;
 }

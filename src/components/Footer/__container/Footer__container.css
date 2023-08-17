@@ -1,0 +1,14 @@
+.Footer__container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
+@media (max-width: 425px) {
+  .Footer__container {
+    flex-direction: column;
+    margin-top: 29px;
+  }
+}

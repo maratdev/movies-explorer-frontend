@@ -4,7 +4,7 @@
   font-weight: normal;
   line-height: normal;
   letter-spacing: -0.055rem;
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px solid var(--line);
   padding-bottom: 23px;
   margin-top: 110px;
 }
