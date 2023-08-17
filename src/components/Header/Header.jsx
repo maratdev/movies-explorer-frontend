@@ -1,8 +1,8 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import './Header.css';
 
-const Header = ({children}) => (
+const Header = ({ children }) => (
   <>
     <div className="header">
       <Link to="/#">

@@ -2,11 +2,12 @@
   max-width: 1140px;
   width: 93.75vw;
   margin: 0 auto;
-  min-height: 585px;
+  min-height: 608px;
 }
 
 @media (max-width: 768px) {
   .AboutProject__wrap {
+    min-height: 584px;
     max-width: calc(100% - 50px * 2);
   }
 }

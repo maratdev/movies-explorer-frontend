@@ -1,4 +1,4 @@
-.Techs__list-item{
+.Techs__list-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,17 +13,13 @@
   background-color: var(--color-gray);
 }
 
+
 @media (max-width: 768px) {
   .Techs__list-item {
     font-size: 0.75rem;
     letter-spacing: -0.03rem;
     width: 84px;
     height: 57px;
-  }
-}
-
-@media (max-width: 425px) {
-  .Techs__list-item {
     margin-bottom: 10px;
   }
 }

@@ -17,7 +17,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .Techs {
     min-height: 651px;
     background-color: var(--bg);

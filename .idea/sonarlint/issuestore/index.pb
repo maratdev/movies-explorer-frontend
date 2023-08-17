@@ -15,10 +15,6 @@ f
 6src/components/NavBar/__link/_btn/NavBar__link_btn.css,1\8\18b52ba4c0f2a218fadc1bef3fdfb0630f58ee14
 A
 src/setupTests.js,b\7\b7e8d8f421068b8d51c89805d2035e747be2ff17
-P
- src/components/NavBar/NavBar.jsx,b\4\b463a121ce2ba1e55a2c2677f88f2005689c6cb4
-J
-src/components/App/App.jsx,b\8\b8ed5138c4a0e076fb7a0ea5dc9846fdd81dd1a4
 ]
 -src/components/Promo/__title/Promo__title.css,6\9\692f4537d9b624ad77bdf48157fe5eca801ca933
 J
@@ -48,11 +44,25 @@ k
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 9
 	.eslintrc,4\b\4be5f5e3cea171c304090be92469b2f2cb51039a
-<
-src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-P
- src/components/Header/Header.jsx,c\1\c190362ff4dd89e9c16838b502ca303aeecc3db4
 N
 src/components/Promo/Promo.jsx,8\8\88cbed17aa09f494b2d9097999d892ce4ee6e21b
-L
-src/components/Main/Main.jsx,4\9\49c16fbe81153b87602b175f65273e171ae6ee99
+\
+,src/components/AboutProject/AboutProject.css,6\d\6d0b46b2fd22a9494e3c0c8e7961efc0f47ca228
+\
+,src/components/AboutProject/AboutProject.jsx,2\0\20b3452131325810d2be49cd4ec9e336392a7bad
+k
+;src/components/AboutProject/__title/AboutProject__title.css,0\e\0e9d7f3d2084624bb86e08dad62601f489a4f5d4
+N
+src/components/Promo/Promo.css,3\f\3fcecef61502ef74ec24f9a35fc7f5d6cb4ccaec
+P
+ src/components/Header/Header.css,3\c\3c497d73e6cc2507c8716822a20d10363cbbe3eb
+[
++src/components/Promo/__wrap/Promo__wrap.css,8\3\83dee5b9b995e142c958803b928d235781321c31
+s
+Csrc/components/AboutProject/__paragraph/AboutProject__paragraph.css,a\d\ad3c81c60835b8be5ecbf7e3facac65135a6d7fa
+q
+Asrc/components/AboutProject/__progress/AboutProject__progress.css,5\1\51ed1f8da6a82532c0235ce7ee59e8dc3894c31f
+i
+9src/components/Techs/__large-title/Techs__large-title.css,1\8\18b77605a9af7362aa5ee90b041a4c7efef209ee
+=
+src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4

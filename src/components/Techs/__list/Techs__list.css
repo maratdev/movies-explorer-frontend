@@ -6,6 +6,7 @@
   justify-content: space-between;
 }
 
+
 @media (max-width: 768px) {
   .Techs__list {
     max-width: 648px;
