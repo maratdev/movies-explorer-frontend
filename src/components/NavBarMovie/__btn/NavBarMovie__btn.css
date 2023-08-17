@@ -1,0 +1,10 @@
+.NavBarMovie__btn{
+  font-weight: 500;
+  padding: 8px 34px 8px 8px;
+  background-color: var(--bg);
+  background-image: url(../../../images/icon__COLOR_icon-main.svg);
+  background-size: 26px 26px;
+  background-repeat: no-repeat;
+  background-position:right;
+  border-radius: 40px;
+}

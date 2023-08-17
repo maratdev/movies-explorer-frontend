@@ -1,7 +1,6 @@
 import './Footer.css';
 
 const Footer = () => (
-  <>
     <footer className="Footer">
       <div className="Footer__wrap">
         <h3 className="Footer__title reset-txt">Учебный проект Яндекс.Практикум х BeatFilm.</h3>
@@ -11,9 +10,6 @@ const Footer = () => (
           <a className="Footer__link" href="" target="_blank">Github</a>
         </div>
       </div>
-
     </footer>
-
-  </>
 );
 export default Footer;

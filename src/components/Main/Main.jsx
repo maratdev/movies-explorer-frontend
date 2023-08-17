@@ -5,7 +5,6 @@ import AboutMe from '../AboutMe/AboutMe.jsx';
 import Portfolio from '../Portfolio/Portfolio.jsx';
 
 const Main = () => (
-  <>
     <main>
       <Promo/>
       <AboutProject/>
@@ -13,8 +12,6 @@ const Main = () => (
       <AboutMe/>
       <Portfolio/>
     </main>
-
-  </>
 );
 
 export default Main;
