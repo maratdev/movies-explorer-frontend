@@ -1,0 +1,11 @@
+@import url('./__wrap/Portfolio__wrap.css');
+@import url('./__list/Portfolio__list.css');
+@import url('./__title/Portfolio__title.css');
+@import url('./__link/Portfolio__link.css');
+@import url('./__text/Portfolio__text.css');
+@import url('./__image/Portfolio__image.css');
+
+.Portfolio {
+  display: flex;
+  min-height: 525px;
+}

@@ -1,16 +1,27 @@
 .AboutMe__photo {
   margin-top: 66px;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .AboutMe__photo {
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 @media (max-width: 768px) {
   .AboutMe__photo {
     object-fit: cover;
     max-width: 255px;
+    aspect-ratio: auto;
   }
 }
 
 @media (max-width: 425px) {
   .AboutMe__photo {
+    object-fit: contain;
     max-width: 100%;
     height: 352px;
     margin: 60px auto 0;

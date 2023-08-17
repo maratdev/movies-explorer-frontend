@@ -1,24 +1,29 @@
-.AboutMe__description{
+.AboutMe__description {
   font-size: 0.875rem;
   font-weight: normal;
   line-height: 1.375rem;
   margin-top: 26px;
   max-width: 599px;
 }
+@media (max-width: 1024px) {
+  .AboutMe__description {
+    padding-right: 50px;
+  }
+}
 
 @media (max-width: 768px) {
   .AboutMe__description {
     font-size: 0.75rem;
     line-height: 1.125rem;
-    max-width: 355px;
     margin-top: 20px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 425px) {
   .AboutMe__description {
     font-size: 0.6875rem;
     line-height: 1rem;
+    padding-right: 0;
   }
 }
 

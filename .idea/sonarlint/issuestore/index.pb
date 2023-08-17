@@ -7,8 +7,6 @@ A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
 K
 src/images/landing-logo.svg,f\b\fb355a38c2eb6e0c296cb4641ee9ee558a1dd346
-P
- src/components/NavBar/NavBar.css,d\4\d4e3ea8d5d074ca1ad1634535daed72d09d02c6a
 ]
 -src/components/NavBar/__link/NavBar__link.css,1\8\18a3e0f6b47430bde8def47cf5c55938b57d9e69
 f
@@ -64,5 +62,3 @@ q
 Asrc/components/AboutProject/__progress/AboutProject__progress.css,5\1\51ed1f8da6a82532c0235ce7ee59e8dc3894c31f
 i
 9src/components/Techs/__large-title/Techs__large-title.css,1\8\18b77605a9af7362aa5ee90b041a4c7efef209ee
-=
-src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4

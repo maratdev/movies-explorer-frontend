@@ -1,0 +1,24 @@
+.Portfolio__text {
+  font-size: 1.875rem;
+  font-weight: normal;
+  line-height: 3.125rem;
+  letter-spacing: -0.075rem;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .Portfolio__text {
+    font-size: 1.75rem;
+    letter-spacing: -0.07rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .Portfolio__text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.045rem;
+  }
+}
+
+
