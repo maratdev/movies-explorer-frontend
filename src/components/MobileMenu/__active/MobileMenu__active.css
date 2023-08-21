@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+  .MobileMenu__active{
+    border-bottom: 2px solid #fff;
+    padding-bottom: 4px;
+  }
+}

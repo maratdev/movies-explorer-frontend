@@ -1,0 +1,20 @@
+.SearchForm__switch{
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+.SearchForm__switch input {
+  display:none;
+}
+
+.SearchForm__switch input:checked + .SearchForm__slider-btn:before{
+  background-color: #2BE080;
+}
+
+
+.SearchForm__switch input:checked + .SearchForm__slider-btn:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}

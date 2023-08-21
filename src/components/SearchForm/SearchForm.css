@@ -1,0 +1,16 @@
+@import url('./__wrap/SearchForm__wrap.css');
+@import url('./__form/SearchForm__form.css');
+@import url('./__input/SearchForm__input.css');
+@import url('./__btn/SearchForm__btn.css');
+@import url('./__switch/SearchForm__switch.css');
+@import url('./__slider-btn/SearchForm__slider-btn.css');
+@import url('./__checked-btn/SearchForm__checked-btn.css');
+@import url('./__title/SearchForm__title.css');
+@import url('./__search-checkbox/SearchForm__search-checkbox.css');
+
+.SearchForm{
+  display: flex;
+  min-height: 210px;
+}
+
+

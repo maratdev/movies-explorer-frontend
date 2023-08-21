@@ -1,0 +1,55 @@
+.MobileMenu__mobile-btn{
+  margin-right: -5px;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 3;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 33px;
+  height: 18px;
+}
+
+.MobileMenu__mobile-btn span{
+  height: 2px;
+  width: 100%;
+  transform: scale(1);
+  background-color:#fff;
+}
+
+.MobileMenu__mobile-btn::before, .MobileMenu__mobile-btn::after{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 65%;
+  background-color: #f6f6f6;
+  transition: all 0.3s ease 0s;
+}
+.MobileMenu__mobile-btn::before{
+  top: 0;
+}
+
+.MobileMenu__mobile-btn::after{
+  bottom: 0;
+}
+.MobileMenu__mobile-btn.active span{
+  transform: scale(0);
+}
+
+.MobileMenu__mobile-btn.active::before{
+  top: 50%;
+  transform: rotate(-45deg) translate(0, -70%);
+}
+
+.MobileMenu__mobile-btn.active::after{
+  bottom: 50%;
+  transform: rotate(45deg) translate(0, 70%);
+}
+
+@media (max-width: 768px) {
+  .MobileMenu__mobile-btn{
+    display: flex;
+  }
+}

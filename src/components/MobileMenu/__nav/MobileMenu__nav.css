@@ -1,0 +1,16 @@
+
+@media (max-width: 768px) {
+  .MobileMenu__nav{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #202020;
+    position: absolute;
+    top: 0;
+    left: 247px;
+    right: 0;
+    bottom: 0;
+  }
+}

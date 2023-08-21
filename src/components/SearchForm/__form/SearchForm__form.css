@@ -1,0 +1,9 @@
+.SearchForm__form{
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  background-color: #2F2F2F;
+  height: 72px;
+  border-radius: 9px;
+}

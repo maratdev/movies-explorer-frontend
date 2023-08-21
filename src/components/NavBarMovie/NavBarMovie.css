@@ -1,5 +1,5 @@
-@import url('./__link/NavBarMovie__link.css');
 @import url('./__nav/NavBarMovie__nav.css');
+@import url('./__link/NavBarMovie__link.css');
 @import url('./__btn/NavBarMovie__btn.css');
 @import url('./__active/NavBarMovie__active.css');
 
@@ -10,3 +10,11 @@
   align-items: center;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .NavBarMovie {
+    display: none;
+  }
+}
+
+

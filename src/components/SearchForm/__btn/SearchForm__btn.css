@@ -1,0 +1,12 @@
+.SearchForm__btn{
+  border-radius: 48px;
+  padding: 0 13px;
+  height: 34px;
+  border: none;
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.125rem;
+  background-color: var(  --color-btn);
+  cursor: pointer;
+}

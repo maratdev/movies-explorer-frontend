@@ -9,6 +9,8 @@
   .Header {
     transition: all ease 0.4s;
     max-width: calc(100% - 30px * 2);
+    justify-content: space-between;
+    align-items: center;
   }
 }
 

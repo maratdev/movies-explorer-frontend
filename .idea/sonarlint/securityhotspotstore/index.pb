@@ -75,10 +75,6 @@ c
 3src/components/Portfolio/__text/Portfolio__text.css,1\a\1add772a5f6c093ca099872823bdce69bd3c0a77
 e
 5src/components/AboutMe/__content/AboutMe__content.css,a\9\a9941c5c194d7504573b1c5a5e3cff738f483533
-P
- src/components/Header/Header.css,3\c\3c497d73e6cc2507c8716822a20d10363cbbe3eb
-N
-src/components/Techs/Techs.css,4\d\4de11f464e116f0c3155fd3150e272c1b0ebf20c
 c
 3src/components/Portfolio/__link/Portfolio__link.css,0\1\01773aac378d33fea7e084cb718361e9d3037fe1
 a
@@ -105,12 +101,8 @@ a
 1src/components/Footer/__author/Footer__author.css,e\0\e02c8f7f549ca276cb7d78f897b1cb6a97072723
 g
 7src/components/Footer/__container/Footer__container.css,3\c\3c726a571d96041da61bb30ceb9880c73370ad29
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 D
 public/manifest.json,4\2\42e89cd2213b9d5dfae4f63522702c623170d792
-A
-public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -120,8 +112,6 @@ N
 src/components/Promo/Promo.jsx,8\8\88cbed17aa09f494b2d9097999d892ce4ee6e21b
 \
 ,src/components/AboutProject/AboutProject.jsx,2\0\20b3452131325810d2be49cd4ec9e336392a7bad
-N
-src/components/Techs/Techs.jsx,3\e\3e4fd7af4c6a1ab0fb38f37ab6bedc29e675c56d
 R
 "src/components/AboutMe/AboutMe.jsx,6\9\698ff96a60128a490c2a4cf4ffe752e0beb38ce5
 V
@@ -136,3 +126,11 @@ P
  src/components/NavBar/NavBar.jsx,b\4\b463a121ce2ba1e55a2c2677f88f2005689c6cb4
 P
  src/components/NavBar/NavBar.css,d\4\d4e3ea8d5d074ca1ad1634535daed72d09d02c6a
+a
+1src/components/AboutMe/__photo/AboutMe__photo.css,a\0\a0e9fc8451800cc8a15a262731b438c3aa94d63d
+T
+$src/images/icon__COLOR_icon-main.svg,1\a\1ad075818d3fad2b5e2a25aaf9d5b896a160ff6c
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+A
+public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b

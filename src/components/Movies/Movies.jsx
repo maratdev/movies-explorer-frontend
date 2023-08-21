@@ -1,9 +1,8 @@
-import SearchForm from '../SearchForm/SearchForm.jsx';
+// import SearchForm from '../SearchForm/SearchForm.jsx';
 
 const Movies = () => (
     <main>
-      <SearchForm/>
-      <h2>Movies</h2>
+      {/* <SearchForm/> */}
     </main>
 );
 export default Movies;
