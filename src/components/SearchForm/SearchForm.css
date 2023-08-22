@@ -8,7 +8,7 @@
 @import url('./__title/SearchForm__title.css');
 @import url('./__search-checkbox/SearchForm__search-checkbox.css');
 
-.SearchForm{
+.SearchForm {
   display: flex;
   min-height: 210px;
 }

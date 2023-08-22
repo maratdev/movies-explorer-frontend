@@ -1,0 +1,19 @@
+.MoviesCardList__wrap {
+  width: 93.75vw;
+  max-width: 1140px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line-light);
+}
+
+@media (max-width: 768px) {
+  .MoviesCardList__wrap {
+    max-width: calc(100% - 30px * 2);
+  }
+}
+
+@media (max-width: 375px) {
+  .MoviesCardList__wrap {
+    max-width: calc(100% - 10px * 2);
+  }
+}
+

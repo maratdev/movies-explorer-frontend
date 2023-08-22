@@ -121,8 +121,6 @@ V
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
 P
- src/components/Header/Header.jsx,c\1\c190362ff4dd89e9c16838b502ca303aeecc3db4
-P
  src/components/NavBar/NavBar.jsx,b\4\b463a121ce2ba1e55a2c2677f88f2005689c6cb4
 P
  src/components/NavBar/NavBar.css,d\4\d4e3ea8d5d074ca1ad1634535daed72d09d02c6a
@@ -138,20 +136,10 @@ J
 src/components/App/App.jsx,b\8\b8ed5138c4a0e076fb7a0ea5dc9846fdd81dd1a4
 s
 Csrc/components/SearchForm/__checked-btn/SearchForm__checked-btn.css,6\e\6e777edaafc9f4a6962e09a946918cb345e098f1
-=
-src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
 X
 (src/components/SearchForm/SearchForm.css,f\b\fbd45cdc95387db1b9df76e9189a74c62eef52f8
-c
-3src/components/SearchForm/__btn/SearchForm__btn.css,4\9\49b65d228ae3b223887925c164abbb8e9ceb742b
 P
  src/components/Header/Header.css,3\c\3c497d73e6cc2507c8716822a20d10363cbbe3eb
-N
-src/components/Techs/Techs.css,4\d\4de11f464e116f0c3155fd3150e272c1b0ebf20c
-N
-src/components/Techs/Techs.jsx,3\e\3e4fd7af4c6a1ab0fb38f37ab6bedc29e675c56d
-L
-src/components/Main/Main.jsx,4\9\49c16fbe81153b87602b175f65273e171ae6ee99
 k
 ;src/components/NavBarMovie/__active/NavBarMovie__active.css,b\9\b9a30f81204d8dbd521bc0bfda471a2713b7f1a9
 e
@@ -160,7 +148,5 @@ Z
 *src/components/NavBarMovie/NavBarMovie.jsx,e\0\e0ba54e23624ab7d91bb322161c211902d3e9fa5
 Z
 *src/components/NavBarMovie/NavBarMovie.css,4\0\4047ebd3b63e90e6ccad750ce39e41cf27ff6d22
-g
-7src/components/NavBarMovie/__link/NavBarMovie__link.css,6\5\65b85e8fc57bc715f21bf85df276a342f17c2315
 e
 5src/components/NavBarMovie/__btn/NavBarMovie__btn.css,3\5\3513806e59fa1e66a35ca063b0d4e29466776551

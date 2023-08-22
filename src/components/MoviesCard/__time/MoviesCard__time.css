@@ -1,0 +1,9 @@
+.MoviesCard__time{
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #8B8B8B;
+  margin-top: 8px;
+}

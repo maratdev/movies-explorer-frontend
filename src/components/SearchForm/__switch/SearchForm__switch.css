@@ -1,14 +1,15 @@
-.SearchForm__switch{
+.SearchForm__switch {
   position: relative;
   display: inline-block;
   width: 36px;
   height: 20px;
 }
+
 .SearchForm__switch input {
-  display:none;
+  display: none;
 }
 
-.SearchForm__switch input:checked + .SearchForm__slider-btn:before{
+.SearchForm__switch input:checked + .SearchForm__slider-btn:before {
   background-color: #2BE080;
 }
 
@@ -19,7 +20,7 @@
 }
 
 @media (max-width: 768px) {
-  .SearchForm__switch{
+  .SearchForm__switch {
     width: 37px;
   }
 }

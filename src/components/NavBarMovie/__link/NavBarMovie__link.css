@@ -1,4 +1,4 @@
-.NavBarMovie__link{
+.NavBarMovie__link {
   color: #fff;
   text-decoration: none;
   font-size: 0.8125rem;
@@ -6,12 +6,13 @@
   font-weight: normal;
   line-height: 1.125rem;
   transition: opacity 0.7s ease;
+  margin-right: 17px;
 }
 
-.NavBarMovie__link:hover{
+.NavBarMovie__link:hover {
   opacity: 0.7;
 }
 
-.NavBarMovie__link:first-child{
+.NavBarMovie__link:first-child {
   margin-right: 17px;
 }

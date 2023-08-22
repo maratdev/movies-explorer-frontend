@@ -1,4 +1,4 @@
-.SearchForm__slider-btn{
+.SearchForm__slider-btn {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -9,11 +9,9 @@
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;
-  z-index: -1;
 }
 
 .SearchForm__slider-btn:before {
-
   position: absolute;
   content: "";
   height: 15px;
@@ -26,4 +24,5 @@
   transition: .4s;
   border-radius: 50%;
 }
+
 

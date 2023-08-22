@@ -7,9 +7,9 @@
 @import url('./__active/MobileMenu__active.css');
 @import url('./__acc/MobileMenu__acc.css');
 
-  .MobileMenu {
-    display: none;
-  }
+.MobileMenu {
+  display: none;
+}
 
 
 @media (max-width: 768px) {

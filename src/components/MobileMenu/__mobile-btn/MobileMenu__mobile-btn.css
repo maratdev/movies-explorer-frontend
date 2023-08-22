@@ -1,4 +1,4 @@
-.MobileMenu__mobile-btn{
+.MobileMenu__mobile-btn {
   margin-right: 2px;
   display: none;
   align-items: center;
@@ -13,14 +13,14 @@
   cursor: pointer;
 }
 
-.MobileMenu__mobile-btn span{
+.MobileMenu__mobile-btn span {
   height: 2px;
   width: 100%;
   transform: scale(1);
-  background-color:#fff;
+  background-color: #fff;
 }
 
-.MobileMenu__mobile-btn::before, .MobileMenu__mobile-btn::after{
+.MobileMenu__mobile-btn::before, .MobileMenu__mobile-btn::after {
   content: '';
   position: absolute;
   height: 2px;
@@ -28,25 +28,27 @@
   background-color: #f6f6f6;
   transition: all 0.3s ease 0s;
 }
-.MobileMenu__mobile-btn::before{
+
+.MobileMenu__mobile-btn::before {
   top: 0;
 }
 
-.MobileMenu__mobile-btn::after{
+.MobileMenu__mobile-btn::after {
   bottom: 0;
 }
-.MobileMenu__mobile-btn.active span{
+
+.MobileMenu__mobile-btn.active span {
   transform: scale(0);
 }
 
-.MobileMenu__mobile-btn.active::before{
+.MobileMenu__mobile-btn.active::before {
   width: 22px;
   right: -5px;
   top: 50%;
   transform: rotate(-45deg) translate(0, -20%);
 }
 
-.MobileMenu__mobile-btn.active::after{
+.MobileMenu__mobile-btn.active::after {
   width: 22px;
   right: -5px;
   bottom: 50%;
@@ -55,13 +57,13 @@
 
 
 @media (max-width: 768px) {
-  .MobileMenu__mobile-btn{
+  .MobileMenu__mobile-btn {
     display: flex;
   }
 }
 
 @media (max-width: 375px) {
-  .MobileMenu__mobile-btn{
+  .MobileMenu__mobile-btn {
     margin-right: 3px;
     margin-top: 3px;
     width: 34px;
@@ -69,17 +71,17 @@
   }
 
 
-  .MobileMenu__mobile-btn::before, .MobileMenu__mobile-btn::after{
+  .MobileMenu__mobile-btn::before, .MobileMenu__mobile-btn::after {
     width: 22px;
   }
 
-  .MobileMenu__mobile-btn.active::before{
+  .MobileMenu__mobile-btn.active::before {
     top: 0;
     right: 0;
     transform: rotate(-45deg) translate(-1px, -50%);
   }
 
-  .MobileMenu__mobile-btn.active::after{
+  .MobileMenu__mobile-btn.active::after {
     top: 0;
     right: 0;
     transform: rotate(45deg) translate(-1px, 30%);

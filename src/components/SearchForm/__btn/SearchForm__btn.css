@@ -1,4 +1,4 @@
-.SearchForm__btn{
+.SearchForm__btn {
   border-radius: 48px;
   padding: 0 13px;
   height: 34px;
@@ -7,6 +7,11 @@
   font-size: 0.6875rem;
   font-weight: 500;
   line-height: 1.125rem;
-  background-color: var(  --color-btn);
+  background-color: var(--color-btn);
   cursor: pointer;
+  transition: opacity 0.7s ease;
+}
+
+.SearchForm__btn:hover {
+  opacity: 0.8;
 }

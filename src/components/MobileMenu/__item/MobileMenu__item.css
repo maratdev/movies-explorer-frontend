@@ -1,19 +1,19 @@
 @media (max-width: 768px) {
-  .MobileMenu__item{
+  .MobileMenu__item {
     margin-bottom: 28px;
   }
 
-  .MobileMenu__item:first-child{
+  .MobileMenu__item:first-child {
     margin-bottom: 29px;
   }
 }
 
 @media (max-width: 375px) {
-  .MobileMenu__item{
+  .MobileMenu__item {
     margin-bottom: 24px;
   }
 
-  .MobileMenu__item:first-child{
+  .MobileMenu__item:first-child {
     margin-bottom: 26px;
   }
 }

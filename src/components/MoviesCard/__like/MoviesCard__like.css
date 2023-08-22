@@ -1,0 +1,12 @@
+.MoviesCard__like {
+  width: 24px;
+  height: 24px;
+  background: #313131 url(../../../images/movie-like.svg) no-repeat center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px;
+}
+.MoviesCard__like_active{
+  background: #313131 url(../../../images/movie-card-active.svg) no-repeat center;
+}

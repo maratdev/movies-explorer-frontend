@@ -1,6 +1,5 @@
-
 @media (max-width: 768px) {
-  .MobileMenu__nav{
+  .MobileMenu__nav {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -15,14 +14,15 @@
     z-index: 2;
   }
 }
+
 @media (max-width: 767px) {
-  .MobileMenu__nav{
+  .MobileMenu__nav {
     left: 123px;
   }
 }
 
 @media (max-width: 375px) {
-  .MobileMenu__nav{
+  .MobileMenu__nav {
     left: 0;
   }
 }

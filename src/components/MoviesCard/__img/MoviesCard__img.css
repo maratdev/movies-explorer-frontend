@@ -1,0 +1,22 @@
+.MoviesCard__img {
+  display: block;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  cursor: pointer;
+  background-color: var(--bg);
+  min-height: 151px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .MoviesCard__img {
+    min-height: 190px;
+    aspect-ratio: 2 / 1;
+  }
+}
+
+@media (max-width: 425px) {
+  .MoviesCard__img {
+    min-height:168px;
+  }
+}

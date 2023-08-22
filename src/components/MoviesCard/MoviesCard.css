@@ -1,0 +1,10 @@
+@import url('./__item/MoviesCard__item.css');
+@import url('./__img/MoviesCard__img.css');
+@import url('./__desc/MoviesCard__desc.css');
+@import url('./__title/MoviesCard__title.css');
+@import url('./__like/MoviesCard__like.css');
+@import url('./__time/MoviesCard__time.css');
+
+.MoviesCard {
+  overflow: hidden;
+}

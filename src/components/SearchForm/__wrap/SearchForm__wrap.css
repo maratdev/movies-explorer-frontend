@@ -1,11 +1,11 @@
-.SearchForm__wrap{
+.SearchForm__wrap {
   width: 93.75vw;
   max-width: 1140px;
   margin: 0 auto;
 }
 
 @media (max-width: 768px) {
-  .SearchForm__wrap{
+  .SearchForm__wrap {
     max-width: calc(100% - 30px * 2);
   }
 }

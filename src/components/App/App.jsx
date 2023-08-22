@@ -12,12 +12,12 @@ function App() {
   return (
     <>
       <Header>
-        {loggedIn ? <NavBarMovie/> : <NavBar/> }
+        {loggedIn ? <NavBarMovie/> : <NavBar/>}
       </Header>
-    <Routes>
-      <Route path="/" element={<Main/>}/>
-      <Route path="/movies" element={<Movies/>}/>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/movies" element={<Movies/>}/>
+      </Routes>
       <Footer/>
     </>
   );

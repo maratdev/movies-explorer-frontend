@@ -1,12 +1,12 @@
 @media (max-width: 768px) {
-  .MobileMenu__active{
+  .MobileMenu__active {
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
   }
 }
 
 @media (max-width: 375px) {
-  .MobileMenu__active{
+  .MobileMenu__active {
     padding-bottom: 5px;
   }
 }

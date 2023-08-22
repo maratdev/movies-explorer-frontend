@@ -1,0 +1,10 @@
+@import url('./__wrap/MoviesCardList__wrap.css');
+@import url('./__grid/MoviesCardList__grid.css');
+@import url('./__more/MoviesCardList__more.css');
+@import url('./__btn-more/MoviesCardList__btn-more.css');
+
+@media (max-width: 768px) {
+  .MoviesCardList {
+    padding-top: 50px;
+  }
+}

@@ -1,0 +1,7 @@
+.MoviesCardList__more{
+  display: flex;
+  margin: 0 auto;
+  min-height: 175px;
+  justify-content: center;
+  align-items: center;
+}

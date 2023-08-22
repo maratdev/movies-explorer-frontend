@@ -5,13 +5,13 @@ import AboutMe from '../AboutMe/AboutMe.jsx';
 import Portfolio from '../Portfolio/Portfolio.jsx';
 
 const Main = () => (
-    <main>
-      <Promo/>
-      <AboutProject/>
-      <Techs/>
-      <AboutMe/>
-      <Portfolio/>
-    </main>
+  <main>
+    <Promo/>
+    <AboutProject/>
+    <Techs/>
+    <AboutMe/>
+    <Portfolio/>
+  </main>
 );
 
 export default Main;

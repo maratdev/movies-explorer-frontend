@@ -1,0 +1,13 @@
+.MoviesCard__title {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: normal;
+  overflow: hidden;
+  flex-basis: 200px;
+}
+
+@media (max-width: 375px) {
+  .MoviesCard__title {
+    font-size: 0.75rem;
+  }
+}
