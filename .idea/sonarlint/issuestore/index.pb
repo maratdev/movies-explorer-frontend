@@ -132,8 +132,6 @@ $src/images/icon__COLOR_icon-main.svg,1\a\1ad075818d3fad2b5e2a25aaf9d5b896a160f
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
-J
-src/components/App/App.jsx,b\8\b8ed5138c4a0e076fb7a0ea5dc9846fdd81dd1a4
 s
 Csrc/components/SearchForm/__checked-btn/SearchForm__checked-btn.css,6\e\6e777edaafc9f4a6962e09a946918cb345e098f1
 X

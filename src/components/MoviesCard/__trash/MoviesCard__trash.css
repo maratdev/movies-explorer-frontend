@@ -1,0 +1,10 @@
+.MoviesCard__trash {
+  opacity: 1;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px;
+  background: #313131 url(../../../images/movie-trash.svg) no-repeat center;
+}

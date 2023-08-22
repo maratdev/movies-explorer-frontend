@@ -4,6 +4,7 @@
 @import url('./__title/MoviesCard__title.css');
 @import url('./__like/MoviesCard__like.css');
 @import url('./__time/MoviesCard__time.css');
+@import url('./__trash/MoviesCard__trash.css');
 
 .MoviesCard {
   overflow: hidden;
