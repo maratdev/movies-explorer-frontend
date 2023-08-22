@@ -3,3 +3,16 @@
   max-width: 1140px;
   margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+  .SearchForm__wrap{
+    max-width: calc(100% - 30px * 2);
+  }
+}
+
+@media (max-width: 375px) {
+  .SearchForm__wrap {
+    max-width: calc(100% - 10px * 2);
+  }
+}
+

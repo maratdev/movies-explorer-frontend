@@ -4,3 +4,9 @@
     padding-bottom: 4px;
   }
 }
+
+@media (max-width: 375px) {
+  .MobileMenu__active{
+    padding-bottom: 5px;
+  }
+}

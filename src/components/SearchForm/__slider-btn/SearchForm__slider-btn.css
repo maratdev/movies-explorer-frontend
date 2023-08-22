@@ -9,9 +9,11 @@
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;
+  z-index: -1;
 }
 
 .SearchForm__slider-btn:before {
+
   position: absolute;
   content: "";
   height: 15px;

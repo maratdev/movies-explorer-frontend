@@ -7,3 +7,23 @@
   height: 72px;
   border-radius: 9px;
 }
+
+
+@media (max-width: 768px) {
+  .SearchForm__form{
+    margin-top: 79px;
+  }
+}
+
+@media (max-width: 660px) {
+  .SearchForm__form{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .SearchForm__form{
+    flex-wrap: wrap;
+  }
+}

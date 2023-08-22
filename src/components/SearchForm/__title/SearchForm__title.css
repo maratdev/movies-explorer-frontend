@@ -3,4 +3,12 @@
   font-weight: normal;
   line-height: 1.125rem;
   margin-left: 13px;
+  margin-right:20px;
+}
+
+@media (max-width: 375px) {
+  .SearchForm__title {
+    font-size: 0.6875rem;
+    line-height: 1.125rem;
+  }
 }

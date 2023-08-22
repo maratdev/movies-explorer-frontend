@@ -12,9 +12,14 @@
   background-color: #2BE080;
 }
 
-
 .SearchForm__switch input:checked + .SearchForm__slider-btn:before {
   -webkit-transform: translateX(16px);
   -ms-transform: translateX(16px);
   transform: translateX(16px);
+}
+
+@media (max-width: 768px) {
+  .SearchForm__switch{
+    width: 37px;
+  }
 }

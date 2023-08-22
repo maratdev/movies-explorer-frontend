@@ -16,3 +16,26 @@
   border: none;
   outline: none;
 }
+
+
+@media (max-width: 768px) {
+  .SearchForm__input{
+    flex-basis: 768px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 660px) {
+  .SearchForm__input{
+    max-width: calc(80%);
+  }
+}
+
+@media (max-width: 320px) {
+  .SearchForm__input{
+    max-width: 202px;
+    font-size: 0.875rem;
+    padding-left: 0;
+    background: none;
+  }
+}

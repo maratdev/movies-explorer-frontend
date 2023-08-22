@@ -9,5 +9,16 @@
     left: 0;
     right: 0;
     bottom: 0;
+    animation: burgerAnimation 0.4s;
   }
+}
+
+.MobileMenu__wrap_none{
+  display: none;
+
+}
+
+@keyframes burgerAnimation {
+  from {opacity: 0}
+  to{opacity: 1}
 }
