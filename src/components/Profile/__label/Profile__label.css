@@ -1,0 +1,17 @@
+.Profile__label{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 98%;
+  margin: 0 auto;
+}
+
+.Profile__label:first-child{
+  border-bottom: 1px solid var(--line-light);
+}
+
+@media (max-width: 425px) {
+  .Profile__label {
+    max-width: 89%;
+  }
+}

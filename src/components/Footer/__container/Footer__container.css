@@ -9,6 +9,6 @@
 @media (max-width: 425px) {
   .Footer__container {
     flex-direction: column;
-    margin-top: 29px;
+    margin-top: 31px;
   }
 }

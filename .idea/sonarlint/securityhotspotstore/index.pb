@@ -5,8 +5,6 @@ K
 src/images/landing-logo.svg,f\b\fb355a38c2eb6e0c296cb4641ee9ee558a1dd346
 ]
 -src/components/NavBar/__link/NavBar__link.css,1\8\18a3e0f6b47430bde8def47cf5c55938b57d9e69
-f
-6src/components/NavBar/__link/_btn/NavBar__link_btn.css,1\8\18b52ba4c0f2a218fadc1bef3fdfb0630f58ee14
 A
 src/setupTests.js,b\7\b7e8d8f421068b8d51c89805d2035e747be2ff17
 ]
@@ -91,23 +89,17 @@ e
 5src/components/Portfolio/__image/Portfolio__image.css,f\d\fd6f402066b92195ab62331d35382675215ec9c8
 ]
 -src/components/Footer/__wrap/Footer__wrap.css,7\5\75074b5fc6d43d63d036dd43843b38f2d205a3df
-_
-/src/components/Footer/__title/Footer__title.css,c\e\ce3b2aac2eb0b9839eb16c3da2ede7eae9ffafe5
 ]
 -src/components/Footer/__link/Footer__link.css,4\6\4644d8e67973ee7dd0b54b9bc6f991fef9af097e
 V
 &src/components/Portfolio/Portfolio.css,5\3\53fe6e54c854b56cb0145cd939f69f64155f6867
 a
 1src/components/Footer/__author/Footer__author.css,e\0\e02c8f7f549ca276cb7d78f897b1cb6a97072723
-g
-7src/components/Footer/__container/Footer__container.css,3\c\3c726a571d96041da61bb30ceb9880c73370ad29
 D
 public/manifest.json,4\2\42e89cd2213b9d5dfae4f63522702c623170d792
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-P
- src/components/Footer/Footer.jsx,8\4\84de595dd37f8f39153190e1cdc83f3b03a3975f
 N
 src/components/Promo/Promo.jsx,8\8\88cbed17aa09f494b2d9097999d892ce4ee6e21b
 \
@@ -120,10 +112,6 @@ V
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-P
- src/components/NavBar/NavBar.jsx,b\4\b463a121ce2ba1e55a2c2677f88f2005689c6cb4
-P
- src/components/NavBar/NavBar.css,d\4\d4e3ea8d5d074ca1ad1634535daed72d09d02c6a
 a
 1src/components/AboutMe/__photo/AboutMe__photo.css,a\0\a0e9fc8451800cc8a15a262731b438c3aa94d63d
 T
@@ -134,8 +122,6 @@ A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
 s
 Csrc/components/SearchForm/__checked-btn/SearchForm__checked-btn.css,6\e\6e777edaafc9f4a6962e09a946918cb345e098f1
-X
-(src/components/SearchForm/SearchForm.css,f\b\fbd45cdc95387db1b9df76e9189a74c62eef52f8
 P
  src/components/Header/Header.css,3\c\3c497d73e6cc2507c8716822a20d10363cbbe3eb
 k
@@ -143,8 +129,58 @@ k
 e
 5src/components/NavBarMovie/__nav/NavBarMovie__nav.css,7\9\797857c086c0562a5617423d598d06981e12aea2
 Z
-*src/components/NavBarMovie/NavBarMovie.jsx,e\0\e0ba54e23624ab7d91bb322161c211902d3e9fa5
-Z
 *src/components/NavBarMovie/NavBarMovie.css,4\0\4047ebd3b63e90e6ccad750ce39e41cf27ff6d22
 e
-5src/components/NavBarMovie/__btn/NavBarMovie__btn.css,3\5\3513806e59fa1e66a35ca063b0d4e29466776551
+5src/components/MobileMenu/__link/MobileMenu__link.css,7\0\704c4c6c9759eca9d9e856fb92dd9e68a5c40b94
+e
+5src/components/MobileMenu/__item/MobileMenu__item.css,3\3\33742e6ed7cffced2887021c6a3c09ddc0ae99e1
+i
+9src/components/MobileMenu/__active/MobileMenu__active.css,f\f\ff282f4c3b05d5d9f93717b812120036052b74aa
+i
+9src/components/SearchForm/__switch/SearchForm__switch.css,d\5\d596a404169d714719ff9ec6e1c6bf4267e4223a
+{
+Ksrc/components/SearchForm/__search-checkbox/SearchForm__search-checkbox.css,2\2\221647a5f42b20ad495e5febb7891134241fab9c
+g
+7src/components/SearchForm/__title/SearchForm__title.css,a\3\a36f679c6eeb604bfa41dac7c8049f58fd9d6d0c
+g
+7src/components/SearchForm/__input/SearchForm__input.css,c\5\c54b497c6d902ead128887b861744bf9f92df29f
+e
+5src/components/MobileMenu/__list/MobileMenu__list.css,1\8\182851eb321853fd74422bcf96676a74d53b7310
+U
+%src/components/Preloader/Preloader.js,8\f\8f16598e9c4db3b207e75ff4e14918cdd4e58e23
+V
+&src/components/Preloader/Preloader.css,3\0\300c7b673cf08d5a7fb849aaea0dfb8784bb9848
+e
+5src/components/MoviesCard/__item/MoviesCard__item.css,e\c\ecd9aac2f879236e30a748da94ac3c53a27457ae
+e
+5src/components/SearchForm/__wrap/SearchForm__wrap.css,e\b\ebc03ff12b320e73147ef69818c41823a50bc412
+q
+Asrc/components/SearchForm/__slider-btn/SearchForm__slider-btn.css,1\2\124674a064462a50593e5b1b554b6761f8f35816
+X
+(src/components/SearchForm/SearchForm.jsx,8\0\80b8597bd5f70033e62ea68da186634114240c5a
+c
+3src/components/SearchForm/__btn/SearchForm__btn.css,4\9\49b65d228ae3b223887925c164abbb8e9ceb742b
+e
+5src/components/MoviesCard/__time/MoviesCard__time.css,2\0\203a3d79928ef8f7fe9081c400d8663fcecb10f5
+`
+0src/components/MoviesCardList/MoviesCardList.css,b\d\bd157bbad463d474b50eeb7b8af7f31fbbf73bda
+m
+=src/components/MoviesCardList/__wrap/MoviesCardList__wrap.css,9\5\95f38cce6257570b8d30e22bdba08ba6bfe4e54d
+m
+=src/components/MoviesCardList/__grid/MoviesCardList__grid.css,b\3\b3cdf43d8fe82415ad418f8e3133aa3fd1eb5b79
+g
+7src/components/MoviesCard/__title/MoviesCard__title.css,d\1\d1587170837a6f50c8aec6a037b79aa741a352dc
+e
+5src/components/MoviesCard/__desc/MoviesCard__desc.css,a\6\a65f966658b2b129290c0a4794c076851110a824
+c
+3src/components/MoviesCard/__img/MoviesCard__img.css,6\2\621aadb53330ff4dfd2739879d56b2bc9253c1bd
+Z
+*src/components/SavedMovies/SavedMovies.css,1\9\199ee31b628c1c4de09b5b9a5916730473f65182
+L
+src/components/Main/Main.jsx,4\9\49c16fbe81153b87602b175f65273e171ae6ee99
+X
+(src/components/MoviesCard/MoviesCard.css,6\6\66e5590f267f29c98a1c0a88479d8193efd2fcda
+e
+5src/components/MoviesCard/__like/MoviesCard__like.css,6\a\6a4391982cc42d3890dbdcce029e9eba3558dd67
+g
+7src/components/MoviesCard/__trash/MoviesCard__trash.css,7\f\7f8dd57995accb494f5ea21f3e168d3aa03206f4

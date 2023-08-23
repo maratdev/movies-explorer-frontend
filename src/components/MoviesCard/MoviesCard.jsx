@@ -14,7 +14,7 @@ const MoviesCard = ({ card }) => {
           <img className="MoviesCard__img" src={`https://api.nomoreparties.co/${card.image.url}`}
                alt={card.image.name}/>
           <div className="MoviesCard__desc">
-            <h2 className="MoviesCard__title reset-txt">{card.nameRU}</h2>
+            <h2 className="MoviesCard__title list">{card.nameRU}</h2>
             {
               !trashFilms && (
                 <button className={`MoviesCard__like ${savedFilms ? 'MoviesCard__like_active' : ''} `}

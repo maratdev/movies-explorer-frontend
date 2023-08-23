@@ -5,7 +5,7 @@ import moviesBd from '../../utils/MainApi.json';
 const Movies = () => (
   <main>
     <SearchForm/>
-    <MoviesCardList cards={moviesBd}/>
+    <MoviesCardList cards={moviesBd} isSavedFilms={true}/>
   </main>
 );
 export default Movies;

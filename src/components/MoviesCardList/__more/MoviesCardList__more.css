@@ -5,3 +5,16 @@
   justify-content: center;
   align-items: center;
 }
+
+
+@media (max-width: 768px) {
+  .MoviesCardList__more {
+    min-height: 115px;
+  }
+}
+
+@media (max-width: 375px) {
+  .MoviesCardList__more {
+    min-height: 135px;
+  }
+}

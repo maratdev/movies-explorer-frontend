@@ -6,7 +6,7 @@
     justify-content: space-between;
     text-align: center;
     background-color: #202020;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 247px;
     right: 0;

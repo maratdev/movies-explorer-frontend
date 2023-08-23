@@ -1,0 +1,16 @@
+.Profile__input{
+  background-color: transparent;
+  width: 80%;
+  text-align: right;
+  font-size: 0.6875rem;
+  font-weight: normal;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 16px 0 17px 0;
+}
+
+.Profile__input:focus{
+  border: none;
+  outline: none;
+}

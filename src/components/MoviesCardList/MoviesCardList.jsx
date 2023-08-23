@@ -1,7 +1,7 @@
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 
-const MoviesCardList = ({ cards }) => (
+const MoviesCardList = ({ cards, isSavedFilms }) => (
   <section className="MoviesCardList">
     <div className="MoviesCardList__wrap">
       <ul className="MoviesCardList__grid">
@@ -10,7 +10,7 @@ const MoviesCardList = ({ cards }) => (
         ))}
       </ul>
       <div className="MoviesCardList__more">
-        <button aria-label="Еще" className="MoviesCardList__btn-more">Еще</button>
+        {isSavedFilms && <button aria-label="Еще" className="MoviesCardList__btn-more">Еще</button>}
       </div>
     </div>
   </section>

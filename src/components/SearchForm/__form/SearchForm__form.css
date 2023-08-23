@@ -1,5 +1,5 @@
 .SearchForm__form {
-  margin-top: 70px;
+  margin-top: 69px;
   display: flex;
   align-items: center;
   max-width: 100%;
@@ -25,5 +25,6 @@
 @media (max-width: 375px) {
   .SearchForm__form {
     flex-wrap: wrap;
+    margin-top: 78px;
   }
 }

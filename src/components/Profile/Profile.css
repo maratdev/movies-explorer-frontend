@@ -1,0 +1,19 @@
+@import url('./__wrap/Profile__wrap.css');
+@import url('./__title/Profile__title.css');
+@import url('./__form/Profile__form.css');
+@import url('./__label/Profile__label.css');
+@import url('./__label-text/Profile__label-text.css');
+@import url('./__input/Profile__input.css');
+@import url('./__btn-wrap/Profile__btn-wrap.css');
+@import url('./__btn-edit/Profile__btn-edit.css');
+
+.Profile{
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .Profile {
+    max-width: calc(100% - 14px * 2);
+    margin: 0 auto;
+  }
+}

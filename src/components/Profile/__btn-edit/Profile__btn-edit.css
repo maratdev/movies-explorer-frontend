@@ -1,0 +1,32 @@
+.Profile__btn-edit{
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: opacity 0.7s ease;
+}
+
+.Profile__btn-edit_exit{
+  color: #EE3465;
+  margin-top: 16px;
+}
+
+.Profile__btn-edit:hover{
+  opacity: 0.7;
+}
+
+@media (max-width: 425px) {
+  .Profile__btn-edit {
+    font-size: 0.75rem;
+    font-weight: normal;
+  }
+}
+
+
+
+
+

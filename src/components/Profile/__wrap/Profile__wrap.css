@@ -1,0 +1,21 @@
+.Profile__wrap{
+  display: flex;
+  flex-direction: column;
+  max-width: 418px;
+  margin: 0 auto;
+  min-height: 556px;
+  transition: all ease 0.7s;
+}
+
+@media (max-width: 768px) {
+  .Profile__wrap {
+    min-height: 681px;
+  }
+}
+
+
+@media (max-width: 425px) {
+  .Profile__wrap {
+    min-height: 666px;
+  }
+}

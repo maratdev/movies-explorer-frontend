@@ -1,0 +1,20 @@
+.Profile__title{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 72px;
+  transition: all ease 0.7s;
+}
+
+
+@media (max-width: 768px) {
+  .Profile__title {
+    margin-top: 234px;
+  }
+}
+
+@media (max-width: 425px) {
+  .Profile__title {
+    margin-top: 69px;
+  }
+}

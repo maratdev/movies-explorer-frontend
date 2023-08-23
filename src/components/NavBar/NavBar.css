@@ -1,5 +1,5 @@
 @import url('./__link/NavBar__link.css');
-@import url('./__link/_btn/NavBar__link_btn.css');
+@import url('./_btn/NavBar__link_btn.css');
 
 .NavBar {
   display: flex;

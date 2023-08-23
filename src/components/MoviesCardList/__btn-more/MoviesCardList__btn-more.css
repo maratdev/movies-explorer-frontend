@@ -1,5 +1,5 @@
 .MoviesCardList__btn-more {
-  margin-bottom: 18px;
+  margin-bottom: 28px;
   width: 320px;
   height: 36px;
   background-color: #2F2F2F;
@@ -17,5 +17,19 @@
 
 .MoviesCardList__btn-more:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .MoviesCardList__btn-more {
+    margin-top: 27px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .MoviesCardList__btn-more {
+    margin-top: 10px;
+    width: 240px;
+  }
 }
 

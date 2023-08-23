@@ -6,10 +6,11 @@ import NavBarMovie from '../NavBarMovie/NavBarMovie.jsx';
 import Footer from '../Footer/Footer.jsx';
 import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies.jsx';
+import Profile from '../Profile/Profile.jsx';
 
 function App() {
-  const location = useLocation();
-  const loggedIn = location.pathname === '/movies' || location.pathname === '/saved-movies';
+  const { pathname } = useLocation();
+  const loggedIn = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
   return (
     <>
       <Header>
@@ -19,8 +20,9 @@ function App() {
         <Route path="/" element={<Main/>}/>
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/saved-movies" element={<SavedMovies/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
-      <Footer/>
+      <Footer date={new Date().getFullYear()}/>
     </>
   );
 }

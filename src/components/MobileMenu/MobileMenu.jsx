@@ -19,7 +19,7 @@ const MobileMenu = () => {
               <li className="MobileMenu__item"><Link className="MobileMenu__link" to="/moies">Сохранённые фильмы</Link>
               </li>
             </ul>
-            <Link className="MobileMenu__acc NavBarMovie__btn" to="/">Аккаунт</Link>
+            <Link className="MobileMenu__acc MobileMenu__btn" to="/">Аккаунт</Link>
           </nav>
         </div>
 

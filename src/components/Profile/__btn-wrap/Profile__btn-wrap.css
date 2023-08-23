@@ -1,0 +1,7 @@
+.Profile__btn-wrap{
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  align-items: center;
+  transition: all ease 0.7s;
+}
