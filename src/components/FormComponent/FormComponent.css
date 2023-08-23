@@ -1,0 +1,9 @@
+@import url('./__label-txt/FormComponent__label-txt.css');
+@import url('./__input/FormComponent__input.css');
+@import url('./__err-txt/FormComponent__err-txt.css');
+
+.FormComponent{
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}

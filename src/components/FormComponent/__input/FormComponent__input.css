@@ -1,0 +1,21 @@
+.FormComponent__input{
+  margin-top: 6px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: normal;
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.FormComponent__input_error{
+  color: #ee3465;
+}
+
+.FormComponent__input:focus{
+  transition: border-bottom-color ease 0.5s;
+  border-bottom-color: var(--color-btn);
+}

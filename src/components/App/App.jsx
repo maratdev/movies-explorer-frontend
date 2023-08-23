@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer.jsx';
 import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies.jsx';
 import Profile from '../Profile/Profile.jsx';
+import Register from '../Register/Register.jsx';
 
 function App() {
   const { pathname } = useLocation();
@@ -21,6 +22,7 @@ function App() {
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/saved-movies" element={<SavedMovies/>}/>
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/signup" element={<Register/>}/>
       </Routes>
       <Footer date={new Date().getFullYear()}/>
     </>

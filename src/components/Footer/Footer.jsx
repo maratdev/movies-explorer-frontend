@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = ({ date }) => {
   const { pathname } = useLocation();
-  const visibleFooter = pathname === '/profile' || pathname === '/signin' || pathname === '/profile' || pathname === '/404';
+  const visibleFooter = pathname === '/profile' || pathname === '/signin' || pathname === '/profile' || pathname === '/signup' || pathname === '/404';
   return (
     <>
       {

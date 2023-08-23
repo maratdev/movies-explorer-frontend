@@ -1,0 +1,11 @@
+@import url('./__title/FormList__title.css');
+@import url('./__form/FormList__form.css');
+@import url('./__btn/FormList__btn.css');
+@import url('./__txt/FormList__txt.css');
+@import url('./__link/FormList__link.css');
+
+.FormList{
+  min-height: 560px;
+  max-width: 396px;
+  margin: 69px auto 0;
+}

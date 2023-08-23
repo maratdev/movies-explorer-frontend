@@ -1,0 +1,12 @@
+.FormList__link{
+  color: var(--color-btn);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: normal;
+  text-decoration: none;
+  transition: opacity 0.7s ease;
+}
+
+.FormList__link:hover {
+  opacity: 0.7;
+}
