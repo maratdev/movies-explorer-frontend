@@ -3,8 +3,13 @@
 @import url('./__more/MoviesCardList__more.css');
 @import url('./__btn-more/MoviesCardList__btn-more.css');
 
+.MoviesCardList {
+  min-height: 552px;
+}
+
 @media (max-width: 768px) {
   .MoviesCardList {
     padding-top: 50px;
+    margin-bottom: -22px;
   }
 }

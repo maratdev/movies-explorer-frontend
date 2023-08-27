@@ -11,7 +11,7 @@ const AboutProject = () => (
             добавление функциональности и финальные доработки. </p>
         </li>
         <li className="AboutProject__item">
-          <h3 className="AboutProject__heading ">На выполнение диплома ушло 5 недель</h3>
+          <h3 className="AboutProject__heading list">На выполнение диплома ушло 5 недель</h3>
           <p className="AboutProject__paragraph list">У каждого этапа был мягкий и жёсткий дедлайн,
             которые нужно было соблюдать, чтобы успешно защититься.</p>
         </li>

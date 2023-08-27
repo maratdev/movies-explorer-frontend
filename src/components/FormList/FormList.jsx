@@ -4,7 +4,7 @@ import logo from '../../images/logo.svg';
 
 const FormList = ({
   children, nameTitle, buttonText, nameForm,
-  RegisterBtnTxt, RegisterBtnTxtLink,
+  RegisterBtnTxt, RegisterBtnTxtLink, toLink,
 }) => (
   <>
     <section className="FormList">
@@ -20,8 +20,9 @@ const FormList = ({
         </div>
         <button className="FormList__btn" type="submit" aria-label="Регистрация">{buttonText}</button>
       </form>
-      <p className="FormList__txt list">{RegisterBtnTxt}<Link className="FormList__link"
-                                                              to='/sign-in'> {RegisterBtnTxtLink}</Link></p>
+      <p className="FormList__txt list">{RegisterBtnTxt}
+        <Link className="FormList__link" to={toLink}> {RegisterBtnTxtLink}</Link>
+      </p>
     </section>
   </>
 );

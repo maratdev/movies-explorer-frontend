@@ -8,6 +8,7 @@ const Register = () => (
     buttonText={'Зарегистрироваться'}
     RegisterBtnTxt={'Уже зарегистрированы?'}
     RegisterBtnTxtLink={'Войти'}
+    toLink = {'/signin'}
   >
 
     <FormComponent name={'Имя'} type={'text'} nameInput={'name'} required/>
