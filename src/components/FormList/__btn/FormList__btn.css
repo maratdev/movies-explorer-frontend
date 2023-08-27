@@ -1,4 +1,4 @@
-.FormList__btn{
+.FormList__btn {
   font-size: 0.875rem;
   font-weight: 500;
   margin-top: 132px;
@@ -16,3 +16,9 @@
   opacity: 0.7;
 }
 
+@media (max-width: 425px) {
+  .FormList__btn {
+    margin-top: 221px;
+    font-size: 0.75rem;
+  }
+}

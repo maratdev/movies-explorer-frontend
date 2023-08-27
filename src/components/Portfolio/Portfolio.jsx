@@ -8,15 +8,15 @@ const Portfolio = () => (
       <nav className="Portfolio__list">
         <a className="Portfolio__link" href="https://maratdev.github.io/how-to-learn/" target="_blank">
           <p className="Portfolio__text list">Статичный сайт</p> <img className="Portfolio__image" src={arrow}
-                                                                           alt=""/>
+                                                                      alt=""/>
         </a>
         <a className="Portfolio__link" href="https://maratdev.github.io/russian-travel/" target="_blank">
           <p className="Portfolio__text list">Адаптивный сайт</p> <img className="Portfolio__image" src={arrow}
-                                                                            alt=""/>
+                                                                       alt=""/>
         </a>
         <a className="Portfolio__link" href="https://maratdev.github.io/react-mesto-auth/" target="_blank">
           <p className="Portfolio__text list">Одностраничное приложение</p> <img className="Portfolio__image"
-                                                                                      src={arrow} alt=""/>
+                                                                                 src={arrow} alt=""/>
         </a>
       </nav>
     </div>

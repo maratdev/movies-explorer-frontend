@@ -1,4 +1,4 @@
-.FormComponent__input{
+.FormComponent__input {
   margin-top: 6px;
   background-color: transparent;
   border: 0;
@@ -11,11 +11,11 @@
   border-bottom: 1px solid var(--line-light);
 }
 
-.FormComponent__input_error{
+.FormComponent__input_error {
   color: #ee3465;
 }
 
-.FormComponent__input:focus{
+.FormComponent__input:focus {
   transition: border-bottom-color ease 0.5s;
   border-bottom-color: var(--color-btn);
 }

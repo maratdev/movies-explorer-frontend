@@ -1,4 +1,4 @@
-.FormList__link{
+.FormList__link {
   color: var(--color-btn);
   text-align: center;
   font-size: 0.875rem;
@@ -10,3 +10,10 @@
 .FormList__link:hover {
   opacity: 0.7;
 }
+
+@media (max-width: 425px) {
+  .FormList__link {
+    font-size: 0.75rem;
+  }
+}
+

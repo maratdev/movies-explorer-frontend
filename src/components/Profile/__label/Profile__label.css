@@ -1,4 +1,4 @@
-.Profile__label{
+.Profile__label {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.Profile__label:first-child{
+.Profile__label:first-child {
   border-bottom: 1px solid var(--line-light);
 }
 

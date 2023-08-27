@@ -1,5 +1,11 @@
-.FormList__title{
+.FormList__title {
   font-size: 1.5rem;
   font-weight: 500;
   margin-top: 37px;
+}
+
+@media (max-width: 425px) {
+  .FormList__title {
+    margin-top: 46px;
+  }
 }

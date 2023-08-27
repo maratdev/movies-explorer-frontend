@@ -1,3 +1,15 @@
 .FormList__form {
   margin-top: 40px;
 }
+
+@media (max-width: 768px) {
+  .FormList__form {
+    margin-top: 39px;
+  }
+}
+
+@media (max-width: 425px) {
+  .FormList__form {
+    margin-top: 80px;
+  }
+}

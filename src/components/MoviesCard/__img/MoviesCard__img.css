@@ -17,6 +17,6 @@
 
 @media (max-width: 425px) {
   .MoviesCard__img {
-    min-height:168px;
+    min-height: 168px;
   }
 }

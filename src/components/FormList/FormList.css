@@ -1,11 +1,28 @@
 @import url('./__title/FormList__title.css');
+@import url('./__head/FormList__head.css');
 @import url('./__form/FormList__form.css');
 @import url('./__btn/FormList__btn.css');
 @import url('./__txt/FormList__txt.css');
 @import url('./__link/FormList__link.css');
 
-.FormList{
+.FormList {
   min-height: 560px;
   max-width: 396px;
   margin: 69px auto 0;
+  transition: margin-top ease 0.7s;
 }
+
+@media (max-width: 768px) {
+  .FormList {
+    margin: 232px auto 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .FormList {
+    max-width: calc(100% - 30px * 2);
+    margin: 56px auto 0;
+  }
+}
+
+

@@ -7,6 +7,7 @@
   cursor: pointer;
   margin-top: -5px;
 }
-.MoviesCard__like_active{
+
+.MoviesCard__like_active {
   background: #313131 url(../../../images/movie-card-active.svg) no-repeat center;
 }

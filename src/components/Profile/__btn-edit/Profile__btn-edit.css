@@ -1,4 +1,4 @@
-.Profile__btn-edit{
+.Profile__btn-edit {
   text-align: center;
   font-size: 0.8125rem;
   font-weight: normal;
@@ -10,12 +10,12 @@
   transition: opacity 0.7s ease;
 }
 
-.Profile__btn-edit_exit{
+.Profile__btn-edit_exit {
   color: #EE3465;
   margin-top: 16px;
 }
 
-.Profile__btn-edit:hover{
+.Profile__btn-edit:hover {
   opacity: 0.7;
 }
 
