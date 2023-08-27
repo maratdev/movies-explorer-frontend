@@ -94,8 +94,6 @@ D
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 R
 "src/components/AboutMe/AboutMe.jsx,6\9\698ff96a60128a490c2a4cf4ffe752e0beb38ce5
-V
-&src/components/Portfolio/Portfolio.jsx,9\c\9c8f06168d38aeabc336ba8b2188347f1092d15d
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 a

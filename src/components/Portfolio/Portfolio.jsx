@@ -14,7 +14,7 @@ const Portfolio = () => (
           <p className="Portfolio__text list">Адаптивный сайт</p> <img className="Portfolio__image" src={arrow}
                                                                        alt=""/>
         </a>
-        <a className="Portfolio__link" href="https://maratdev.github.io/react-mesto-auth/" target="_blank">
+        <a className="Portfolio__link" href="https://voredev.nomoredomains.xyz/signin" target="_blank">
           <p className="Portfolio__text list">Одностраничное приложение</p> <img className="Portfolio__image"
                                                                                  src={arrow} alt=""/>
         </a>
