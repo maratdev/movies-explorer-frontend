@@ -1,4 +1,3 @@
-import './Register.css';
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 

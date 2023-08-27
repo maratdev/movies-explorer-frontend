@@ -116,8 +116,6 @@ a
 1src/components/AboutMe/__photo/AboutMe__photo.css,a\0\a0e9fc8451800cc8a15a262731b438c3aa94d63d
 T
 $src/images/icon__COLOR_icon-main.svg,1\a\1ad075818d3fad2b5e2a25aaf9d5b896a160ff6c
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 A
 public/index.html,f\4\f43ecdf8d666ee908aacce037b4cd72159e4741b
 s
@@ -252,16 +250,8 @@ a
 1src/components/Profile/__label/Profile__label.css,d\1\d19e8677da6f6b1d1367ff36ff51fd2cd46fdc48
 P
  src/components/NavBar/NavBar.jsx,b\4\b463a121ce2ba1e55a2c2677f88f2005689c6cb4
-P
- src/components/Header/Header.jsx,c\1\c190362ff4dd89e9c16838b502ca303aeecc3db4
-P
- src/components/Footer/Footer.jsx,8\4\84de595dd37f8f39153190e1cdc83f3b03a3975f
 N
 src/components/Techs/Techs.jsx,3\e\3e4fd7af4c6a1ab0fb38f37ab6bedc29e675c56d
-T
-$src/components/Register/Register.css,b\5\b5a1aba0ce07708f93a30eaebb4592d03e75b5f4
-J
-src/components/App/App.jsx,b\8\b8ed5138c4a0e076fb7a0ea5dc9846fdd81dd1a4
 u
 Esrc/components/FormComponent/__label-txt/FormComponent__label-txt.css,8\9\8980f61f7174f5ba32d8a6449034664056d6ca24
 q
@@ -272,5 +262,3 @@ m
 =src/components/FormComponent/__input/FormComponent__input.css,5\e\5edde826f193a52ee5d4a6d68971da2423eb1cb3
 ^
 .src/components/FormComponent/FormComponent.jsx,0\8\08ec6d1dd5135697f2e47ef4610507f3224acfcf
-=
-src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4

@@ -1,0 +1,12 @@
+.NotFound__title{
+  text-align: center;
+  font-size: 8.75rem;
+  font-weight: normal;
+  transition: font-size ease 0.7s;
+}
+
+@media (max-width: 425px) {
+  .NotFound__title{
+    font-size: 5rem;
+  }
+}

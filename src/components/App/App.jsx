@@ -8,6 +8,8 @@ import Movies from '../Movies/Movies.jsx';
 import SavedMovies from '../SavedMovies/SavedMovies.jsx';
 import Profile from '../Profile/Profile.jsx';
 import Register from '../Register/Register.jsx';
+import Login from '../Login/Login.jsx';
+import NotFound from '../NotFound/NotFound.jsx';
 
 function App() {
   const { pathname } = useLocation();
@@ -23,6 +25,8 @@ function App() {
         <Route path="/saved-movies" element={<SavedMovies/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/signup" element={<Register/>}/>
+        <Route path="/signin" element={<Login/>}/>
+        <Route path="/404" element={<NotFound/>}/>
       </Routes>
       <Footer date={new Date().getFullYear()}/>
     </>

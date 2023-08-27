@@ -48,7 +48,7 @@
 
 **🧩 Брифы:**
 
-- [Figma диплома](https://www.figma.com/file/JtzrkKwtX6TNmyOsHtBBuE/dark-1?type=design&node-id=891-3857&mode=design&t=ahtp0ny0zlqnubnE-0)
+- [Figma диплома](https://www.figma.com/file/JtzrkKwtX6TNmyOsHtBBuE/dark-1?type=design&node-id=891-3857&mode=design&t=ahtp0ny0zlqnubnE-0) (dark-1)
 
 **📄 Чеклисты:**
 
