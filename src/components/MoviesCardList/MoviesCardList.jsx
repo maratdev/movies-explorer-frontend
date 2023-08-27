@@ -10,7 +10,7 @@ const MoviesCardList = ({ cards, isSavedFilms }) => (
         ))}
       </ul>
       <div className="MoviesCardList__more">
-        {isSavedFilms && <button aria-label="Еще" className="MoviesCardList__btn-more">Еще</button>}
+        {isSavedFilms && <button aria-label="Еще" type="button" className="MoviesCardList__btn-more">Еще</button>}
       </div>
     </div>
   </section>

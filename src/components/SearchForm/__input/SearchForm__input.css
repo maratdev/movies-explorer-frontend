@@ -10,11 +10,12 @@
   font-size: 1.125rem;
   font-weight: normal;
   line-height: 1.25rem;
+  border-bottom-left-radius: 9px;
 
 }
 
 .SearchForm__input:focus {
-  border: none;
+  border-bottom: 1px solid var(--line-light);
   outline: none;
 }
 

@@ -11,13 +11,15 @@ const Register = () => (
     toLink = {'/signin'}
   >
 
-    <FormComponent name={'Имя'} type={'text'} nameInput={'name'} required/>
+    <FormComponent name={'Имя'} type={'text'} maxLength={30} minLength={2} nameInput={'name'} required/>
     <FormComponent name={'E-mail'} type={'email'} nameInput={'email'} required/>
     <FormComponent
       name={'Пароль'}
       type={'password'}
       nameInput={'password'}
       errorTxt={'Что-то пошло не так...'}
+      maxLength={30}
+      minLength={2}
       required/>
   </FormList>
 );

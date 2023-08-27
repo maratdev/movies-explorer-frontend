@@ -3,10 +3,15 @@
   display: inline-block;
   width: 36px;
   height: 20px;
+  cursor: pointer;
 }
 
 .SearchForm__switch input {
   display: none;
+}
+
+.SearchForm__switch:hover{
+  box-shadow: 0 4px 8px 0 rgba(50, 50, 71, 0.06), 0 4px 4px 0 rgba(50, 50, 71, 0.08);
 }
 
 .SearchForm__switch input:checked + .SearchForm__slider-btn:before {

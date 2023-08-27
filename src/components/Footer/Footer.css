@@ -2,7 +2,9 @@
 @import url('./__title/Footer__title.css');
 @import url('./__container/Footer__container.css');
 @import url('./__author/Footer__author.css');
+@import url('./__nav/Footer__nav.css');
 @import url('./__link/Footer__link.css');
+@import url('./__item/Footer__item.css');
 
 .Footer {
   display: flex;

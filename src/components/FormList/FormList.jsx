@@ -6,13 +6,13 @@ const FormList = ({
   children, nameTitle, buttonText, nameForm,
   RegisterBtnTxt, RegisterBtnTxtLink, toLink,
 }) => (
-  <>
+  <main>
     <section className="FormList">
       <div className="FormList__head">
         <Link to="/">
           <img src={logo} alt="логотип"/>
         </Link>
-        <h2 className="FormList__title list">{nameTitle}</h2>
+        <h1 className="FormList__title list">{nameTitle}</h1>
       </div>
       <form name={nameForm} className="FormList__form">
         <div className="FormList__labels">
@@ -24,6 +24,6 @@ const FormList = ({
         <Link className="FormList__link" to={toLink}> {RegisterBtnTxtLink}</Link>
       </p>
     </section>
-  </>
+  </main>
 );
 export default FormList;

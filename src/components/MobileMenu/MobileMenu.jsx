@@ -7,7 +7,7 @@ const MobileMenu = () => {
   return (
     <>
       <div className="MobileMenu">
-        <button className={`MobileMenu__mobile-btn ${checked ? 'active' : ''}`} onClick={() => setChecked(!checked)}>
+        <button type="button" className={`MobileMenu__mobile-btn ${checked ? 'active' : ''}`} onClick={() => setChecked(!checked)}>
           <span></span>
         </button>
         <div className={`MobileMenu__wrap ${!checked ? 'MobileMenu__wrap_none' : ''} `}>
