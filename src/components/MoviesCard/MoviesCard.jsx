@@ -2,7 +2,8 @@ import './MoviesCard.css';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const MoviesCard = ({ card }) => {
+const MoviesCard = ({ movie }) => {
+  console.log(movie.nameRU)
   const [savedFilms, setSavedFilms] = useState(false);
   const location = useLocation();
   const trashFilms = location.pathname === '/saved-movies';
@@ -11,10 +12,10 @@ const MoviesCard = ({ card }) => {
     <>
       <li className="MoviesCard" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
         <article className="MoviesCard__item">
-          <img className="MoviesCard__img" src={`https://api.nomoreparties.co/${card.image.url}`}
-               alt={card.image.name}/>
+          <img className="MoviesCard__img" src={`https://api.nomoreparties.co/${movie.image.url}`}
+               alt={movie.image.name}/>
           <div className="MoviesCard__desc">
-            <h2 className="MoviesCard__title list">{card.nameRU}</h2>
+            <h2 className="MoviesCard__title list">{movie.nameRU}</h2>
             {
               !trashFilms && (
                 <button className={`MoviesCard__like ${savedFilms ? 'MoviesCard__like_active' : ''} `}
@@ -29,7 +30,7 @@ const MoviesCard = ({ card }) => {
               )
             }
           </div>
-          <span className="MoviesCard__time">{Math.floor(card.duration / 60)}ч {card.duration % 60}м</span>
+          <span className="MoviesCard__time">{Math.floor(movie.duration / 60)}ч {movie.duration % 60}м</span>
         </article>
       </li>
     </>);

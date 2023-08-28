@@ -16,7 +16,8 @@
   ],
   "rules": {
     "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error"
+    "react/jsx-uses-vars": "error",
+    "no-underscore-dangle":  ["error", { "allow": ["_id", "_request", "_getResponseData", "_api"] }]
   },
   "settings": {
     "react": {
