@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes, useLocation } from 'react-router-dom';
+import React, {useState, useEffect} from "react";
+import {Route, Routes, useLocation} from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import Header from '../Header/Header.jsx';
 import NavBar from '../NavBar/NavBar.jsx';
@@ -17,9 +17,9 @@ import * as MoviesApi from '../../utils/MoviesApi.js';
 
 function App() {
 
+  // ---------------------Инициализация MoviesApi------------------------/
   const [movieList, setMovieList] = useState([]);
 
-  // Инициализация MoviesApi
   function loadUserAndCards() {
     MoviesApi.getInitialCards()
       .then((newMovie) => {
@@ -34,7 +34,8 @@ function App() {
 
 
 
-  const { pathname } = useLocation();
+
+  const {pathname} = useLocation();
   const loggedIn = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
   return (
     <>
@@ -43,7 +44,11 @@ function App() {
       </Header>
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path="/movies" element={<Movies movies={movieList}/>}/>
+        <Route path="/movies" element={
+          <Movies
+            movies={movieList}
+           />
+        }/>
 
         <Route path="/saved-movies" element={<SavedMovies/>}/>
         <Route path="/profile" element={<Profile/>}/>

@@ -290,8 +290,6 @@ X
 (src/components/SearchForm/SearchForm.css,f\b\fbd45cdc95387db1b9df76e9189a74c62eef52f8
 =
 src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
-X
-(src/components/SearchForm/SearchForm.jsx,8\0\80b8597bd5f70033e62ea68da186634114240c5a
 g
 7src/components/SearchForm/__input/SearchForm__input.css,c\5\c54b497c6d902ead128887b861744bf9f92df29f
 T

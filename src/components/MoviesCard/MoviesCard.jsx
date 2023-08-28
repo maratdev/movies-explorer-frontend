@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const MoviesCard = ({ movie }) => {
-  console.log(movie.nameRU)
   const [savedFilms, setSavedFilms] = useState(false);
   const location = useLocation();
   const trashFilms = location.pathname === '/saved-movies';
