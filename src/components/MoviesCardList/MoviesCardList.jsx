@@ -4,6 +4,7 @@ import Preloader from '../Preloader/Preloader.jsx';
 
 
 const MoviesCardList = ({isSavedFilms, movieList, isLoader, isInfoTooltip}) => {
+  console.log(isInfoTooltip)
   return (
       <section className="MoviesCardList">
         <div className="MoviesCardList__wrap">
@@ -11,7 +12,7 @@ const MoviesCardList = ({isSavedFilms, movieList, isLoader, isInfoTooltip}) => {
             <>
               {isInfoTooltip && <p className="MoviesCardList__not-result list">{isInfoTooltip}</p>}
               <ul className="MoviesCardList__grid">
-                {movieList?.slice(0, 12).map((movies) => (
+                {movieList?.slice(0, 100).map((movies) => (
                   <MoviesCard key={movies.id} movie={movies}/>
                 ))}
               </ul>

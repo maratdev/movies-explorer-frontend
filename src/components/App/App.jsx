@@ -15,17 +15,20 @@ import NotFound from '../NotFound/NotFound.jsx';
 // ---------------------------API--------------------------------------/
 import * as MoviesApi from '../../utils/MoviesApi.js';
 
+
 function App() {
+  // -----------------------------------Подсказки-----------------/
+  const [isInfoTooltip, setIsInfoTooltip] = useState('');
 
   // ---------------------Инициализация MoviesApi------------------------/
-  const [movieList, setMovieList] = useState([]);
+  const [movieList, setMovieList] = useState({});
 
   function loadUserAndCards() {
     MoviesApi.getInitialCards()
       .then((newMovie) => {
-        setMovieList(newMovie.reverse());
+       setMovieList(newMovie);
       })
-      .catch(console.error);
+      .catch(()=>setIsInfoTooltip('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.'));
   }
 
   useEffect(() => {
@@ -46,6 +49,8 @@ function App() {
         <Route path="/" element={<Main/>}/>
         <Route path="/movies" element={
           <Movies
+            setIsInfoTooltip={setIsInfoTooltip}
+            isInfoTooltip={isInfoTooltip}
             movies={movieList}
            />
         }/>
