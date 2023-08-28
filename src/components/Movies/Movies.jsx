@@ -6,19 +6,26 @@ const Movies = ({movies}) => {
 
 //----------------------------------Поиск фильмов------------------------/
   const [filteredCards, setFilteredCards] = useState([]);
-
+  const [isLoader, setIsLoader] = useState(false);
+  const [isInfoTooltip, setIsInfoTooltip] = useState('');
   const movieQuery = (query) => {
-    if (query.length) {
-      let arr = movies.filter((card) => card.nameRU.toLowerCase().indexOf(query) >= 0)
-      setFilteredCards(arr)
-    }
-  }
+    setIsLoader(true)
+    setTimeout(()=>{
+      if (query.length) {
+        let arr = movies.filter((card) => card.nameRU.toLowerCase().indexOf(query) >= 0)
+        !arr.length ? setIsInfoTooltip('Ничего не найдено') :setIsInfoTooltip('') //вывод "ничего не найдено"
+        setFilteredCards(arr)
+      }
+      setIsLoader(false)
+    }, 600)
 
+
+  }
 
   return (
     <main>
       <SearchForm movieQuery={movieQuery}/>
-      <MoviesCardList movieList={filteredCards} isSavedFilms={true}/>
+      <MoviesCardList isLoader={isLoader} isInfoTooltip={isInfoTooltip} movieList={filteredCards} isSavedFilms={true}/>
     </main>
     )
 

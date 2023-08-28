@@ -2,6 +2,7 @@
 @import url('./__grid/MoviesCardList__grid.css');
 @import url('./__more/MoviesCardList__more.css');
 @import url('./__btn-more/MoviesCardList__btn-more.css');
+@import url('./__not-result/MoviesCardList__not-result.css');
 
 .MoviesCardList {
   min-height: 552px;

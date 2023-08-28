@@ -114,10 +114,6 @@ g
 7src/components/SearchForm/__title/SearchForm__title.css,a\3\a36f679c6eeb604bfa41dac7c8049f58fd9d6d0c
 e
 5src/components/MobileMenu/__list/MobileMenu__list.css,1\8\182851eb321853fd74422bcf96676a74d53b7310
-U
-%src/components/Preloader/Preloader.js,8\f\8f16598e9c4db3b207e75ff4e14918cdd4e58e23
-V
-&src/components/Preloader/Preloader.css,3\0\300c7b673cf08d5a7fb849aaea0dfb8784bb9848
 e
 5src/components/MoviesCard/__item/MoviesCard__item.css,e\c\ecd9aac2f879236e30a748da94ac3c53a27457ae
 e
@@ -252,8 +248,6 @@ Z
 *src/components/SavedMovies/SavedMovies.jsx,2\9\29d79e96b6216d5e6c2eb18474e112031cf263e8
 m
 =src/components/MoviesCardList/__more/MoviesCardList__more.css,c\f\cfd62c90ee3dadb7c2298812eec68c235fd68d58
-`
-0src/components/MoviesCardList/MoviesCardList.css,b\d\bd157bbad463d474b50eeb7b8af7f31fbbf73bda
 _
 /src/components/FormList/__btn/FormList__btn.css,d\0\d0b1b386a53af17b53d6a59d50a0a905701b240d
 N
@@ -288,8 +282,6 @@ i
 9src/components/SearchForm/__switch/SearchForm__switch.css,d\5\d596a404169d714719ff9ec6e1c6bf4267e4223a
 X
 (src/components/SearchForm/SearchForm.css,f\b\fbd45cdc95387db1b9df76e9189a74c62eef52f8
-=
-src/index.css,c\5\c5d38a62d1faae90a2acaa34b79a7ef365c917e4
 g
 7src/components/SearchForm/__input/SearchForm__input.css,c\5\c54b497c6d902ead128887b861744bf9f92df29f
 ^
