@@ -16,11 +16,10 @@ function _request(url, options) {
   return fetch(url, options).then(_getResponseData);
 }
 
-// Api------------------------------------------------------------------> Card
-
 // Инициализация Card
-export const getInitialCards = () => _request(`${_api.BASE_URL}beatfilm-movies`, {
+export const getAllMovies = () => _request(`${_api.BASE_URL}beatfilm-movies`, {
   method: 'GET',
   headers: _api.HEADERS,
 });
 
+export default { getAllMovies };

@@ -242,8 +242,6 @@ m
 =src/components/MoviesCardList/__grid/MoviesCardList__grid.css,b\3\b3cdf43d8fe82415ad418f8e3133aa3fd1eb5b79
 m
 =src/components/MoviesCardList/__more/MoviesCardList__more.css,c\f\cfd62c90ee3dadb7c2298812eec68c235fd68d58
-Z
-*src/components/SavedMovies/SavedMovies.jsx,2\9\29d79e96b6216d5e6c2eb18474e112031cf263e8
 _
 /src/components/FormList/__btn/FormList__btn.css,d\0\d0b1b386a53af17b53d6a59d50a0a905701b240d
 T
@@ -292,8 +290,6 @@ D
 	.eslintrc,4\b\4be5f5e3cea171c304090be92469b2f2cb51039a
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
-F
-src/utils/MoviesApi.js,a\c\acdfc8563d0436560e0fed6742befe44dfb9f281
 L
 src/components/Main/Main.jsx,4\9\49c16fbe81153b87602b175f65273e171ae6ee99
 V
@@ -308,3 +304,7 @@ Isrc/components/MoviesCardList/__not-result/MoviesCardList__not-result.css,2\c\
 0src/components/MoviesCardList/MoviesCardList.css,b\d\bd157bbad463d474b50eeb7b8af7f31fbbf73bda
 X
 (src/components/MoviesCard/MoviesCard.jsx,8\4\848914072100e0c16ee472c1b109ae71bad872df
+H
+src/utils/MoviesApi.json,d\b\dbe88aee35aae8f6e4908611c8c45add68f14163
+F
+src/utils/MoviesApi.js,a\c\acdfc8563d0436560e0fed6742befe44dfb9f281

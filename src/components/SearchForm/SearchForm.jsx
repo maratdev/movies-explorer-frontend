@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import './SearchForm.css';
 
-const SearchForm = ({movieQuery, shortMovies, handleShortFilms}) => {
-  const [searchValue, setSearchValue] = useState('')
+const SearchForm = ({ movieQuery, shortMovies, handleShortFilms }) => {
+  const [searchValue, setSearchValue] = useState('');
 
   const handleSubmit = (evt) => {
-   evt.preventDefault();
-   if (!searchValue){
+    evt.preventDefault();
+    if (!searchValue) {
       return;
-   }
-    movieQuery(searchValue.trim())
-  }
+    }
+    movieQuery(searchValue.trim());
+  };
   const onChangeSearchInput = (evt) => {
     setSearchValue(evt.target.value);
   };
@@ -23,7 +23,7 @@ const SearchForm = ({movieQuery, shortMovies, handleShortFilms}) => {
           <button className="SearchForm__btn" type="submit" aria-label="поиск">Найти</button>
           <div className="SearchForm__search-checkbox">
             <label className="SearchForm__switch">
-              <input className="SearchForm__checked-btn" onChange={handleShortFilms}  defaultChecked={!!shortMovies}
+              <input className="SearchForm__checked-btn" onChange={handleShortFilms} defaultChecked={!!shortMovies}
                      type="checkbox" />
               <span className="SearchForm__slider-btn"></span>
             </label>
@@ -35,6 +35,6 @@ const SearchForm = ({movieQuery, shortMovies, handleShortFilms}) => {
 
     </section>
   );
-}
+};
 
 export default SearchForm;

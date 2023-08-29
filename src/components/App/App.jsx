@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Route, Routes, useLocation} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import Header from '../Header/Header.jsx';
 import NavBar from '../NavBar/NavBar.jsx';
@@ -13,8 +13,8 @@ import Login from '../Login/Login.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
 
 // ---------------------------API--------------------------------------/
-import * as MoviesApi from '../../utils/MoviesApi.js';
 
+import { getAllMovies } from '../../utils/MoviesApi';
 
 function App() {
   // -----------------------------------Подсказки-----------------/
@@ -24,21 +24,18 @@ function App() {
   const [movieList, setMovieList] = useState({});
 
   function loadUserAndCards() {
-    MoviesApi.getInitialCards()
+    getAllMovies()
       .then((newMovie) => {
-       setMovieList(newMovie);
+        setMovieList(newMovie);
       })
-      .catch(()=>setIsInfoTooltip('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.'));
+      .catch(() => setIsInfoTooltip('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.'));
   }
 
   useEffect(() => {
     loadUserAndCards();
   }, []);
 
-
-
-
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const loggedIn = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
   return (
     <>
