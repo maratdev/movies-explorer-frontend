@@ -3,7 +3,7 @@ import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
 
 const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
-// ----------------------------------Поиск фильмов--------------------------------------------/
+// ----------------------------------Поиск фильмов------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
 
@@ -47,6 +47,7 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
         setFilteredMovies(
           shortMovies ? filterShortMovies(moviesList) : moviesList,
         );
+
         if (filteredMovies.length === 0) {
           setIsInfoTooltip('ничего не найдено');
         }
@@ -60,8 +61,10 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
       <SearchForm
         shortMovies={shortMovies}
         handleShortFilms={handleShortFilms}
-        movieQuery={movieQuery}/>
+        movieQuery={movieQuery}
+      />
       <MoviesCardList
+        movieQuery={movieQuery}
         isLoader={isLoader}
         isInfoTooltip={isInfoTooltip}
         movieList={filteredMovies}

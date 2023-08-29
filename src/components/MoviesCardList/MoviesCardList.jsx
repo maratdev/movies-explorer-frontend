@@ -1,23 +1,21 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Preloader from '../Preloader/Preloader.jsx';
 
-
 const MoviesCardList = ({
-  isSavedFilms, movieList, isLoader, isInfoTooltip,
+  isSavedFilms, movieList, isLoader, isInfoTooltip, movieQuery,
 }) => {
   const [showMovieList, setShowMovieList] = useState([]);
   const [cardsShowDetails, setCardsShowDetails] = useState({ total: 12, more: 4 });
 
-
   useEffect(() => {
-    setCardsShowDetails({ total: 12, more: 4 })
-    if (movieList.length) {
+    setCardsShowDetails({ total: 12, more: 4 });
+    if (movieList !== null) {
       const res = movieList.filter((item, i) => i < cardsShowDetails.total);
       setShowMovieList(res);
     }
-  }, [movieList]);
+  }, [movieQuery, cardsShowDetails.total]);
 
   // добавление карточек при клике по кнопке "Еще"
   function handleClickMoreMovies() {
@@ -43,14 +41,15 @@ const MoviesCardList = ({
               ))}
             </ul>
             <div className="MoviesCardList__more">
-              {isSavedFilms
-                && <button aria-label="Еще" type="button" onClick={handleClickMoreMovies} className="MoviesCardList__btn-more">Еще</button>}
+              {isSavedFilms && showMovieList?.length < movieList?.length
+                && <button aria-label="Еще" type="button" onClick={handleClickMoreMovies}
+                           className="MoviesCardList__btn-more">Еще</button>}
             </div>
           </>
         )}
       </div>
     </section>
-  )
+  );
 };
 
 export default MoviesCardList;
