@@ -6,41 +6,69 @@ const Movies = ({movies, setIsInfoTooltip, isInfoTooltip}) => {
 
 //----------------------------------Поиск фильмов------------------------/
   const [isLoader, setIsLoader] = useState(false);
+  const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
 
-  //----------------------------------Чекбокс---------------------------/
-  const [filteredMovies, setFilteredMovies] = useState([]); // отфильтрованные по чекбоксу и запросу фильмы
+  //----------------------------------Фильтр-----------------------------------------/
+
+  const [filteredMovies, setFilteredMovies] = useState([]); // отфильтрованные по чекбоксу
 
   // фильтрация по длительности
   function filterShortMovies(movies) {
     return movies.filter(movie => movie.duration < 40);
   }
 
-  const [shortMovies, setShortMovies] = useState(false); // состояние чекбокса
-  // состояние чекбокса
-  function handleShortFilms() {
-    setShortMovies(!shortMovies);
-    console.log('чекбокс')
+  function filterMovies(movies, userQuery) {
+    return movies.filter((movie) => {
+      const movieRu = String(movie.nameRU).toLowerCase().trim();
+      const movieEn = String(movie.nameEN).toLowerCase().trim();
+      const userMovie = userQuery.toLowerCase().trim();
+      return movieRu.indexOf(userMovie) !== -1 || movieEn.indexOf(userMovie) !== -1;
+    })
   }
 
 
-  const movieQuery = (query) => {
-    String(query).trim().toLowerCase()
+
+// ----------------------- Состояние чекбокса -----------------------/
+  const [shortMovies, setShortMovies] = useState(false);
+
+  function handleShortFilms() {
     setIsLoader(true)
+    setShortMovies(!shortMovies);
+    setTimeout(()=>{
+      if (!shortMovies) {
+        setFilteredMovies(filterShortMovies(initialMovies));
+      } else {
+        setFilteredMovies(initialMovies);
+      }
+      setIsLoader(false)
+    }, 600)
+
+  }
+
+
+
+//--------------------------------------------------------------------------/
+
+  const movieQuery = (query) => {
+    setIsLoader(true)
+
     setTimeout(()=>{
       if (query.length) {
-        let arr = movies.filter((card) => card.nameRU.indexOf(query) >= 0)
-
+        const moviesList = filterMovies(movies, query);
+        setInitialMovies(moviesList);
         setFilteredMovies(
-          shortMovies ? filterShortMovies(arr) : arr
+          shortMovies ? filterShortMovies(moviesList) : moviesList
         );
 
-       !arr.length || shortMovies ? setIsInfoTooltip('Ничего не найдено') : setIsInfoTooltip('') //вывод "ничего не найдено"
+       !moviesList.length || shortMovies ? setIsInfoTooltip('Ничего не найдено') : setIsInfoTooltip('') //вывод "ничего не найдено"
 
       }
       setIsLoader(false)
     }, 600)
 
   }
+
+
 
   return (
     <main>
