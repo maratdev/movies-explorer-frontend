@@ -6,7 +6,10 @@ const SearchForm = ({movieQuery, shortMovies, handleShortFilms}) => {
 
   const handleSubmit = (evt) => {
    evt.preventDefault();
-    movieQuery(searchValue)
+   if (!searchValue){
+      return;
+   }
+    movieQuery(searchValue.trim())
   }
   const onChangeSearchInput = (evt) => {
     setSearchValue(evt.target.value);
@@ -20,7 +23,7 @@ const SearchForm = ({movieQuery, shortMovies, handleShortFilms}) => {
           <button className="SearchForm__btn" type="submit" aria-label="поиск">Найти</button>
           <div className="SearchForm__search-checkbox">
             <label className="SearchForm__switch">
-              <input className="SearchForm__checked-btn" onChange={handleShortFilms}  defaultChecked={shortMovies ? true : false}
+              <input className="SearchForm__checked-btn" onChange={handleShortFilms}  defaultChecked={!!shortMovies}
                      type="checkbox" />
               <span className="SearchForm__slider-btn"></span>
             </label>

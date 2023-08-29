@@ -17,12 +17,13 @@ const Movies = ({movies, setIsInfoTooltip, isInfoTooltip}) => {
     return movies.filter(movie => movie.duration < 40);
   }
 
+
   function filterMovies(movies, userQuery) {
     return movies.filter((movie) => {
-      const movieRu = String(movie.nameRU).toLowerCase().trim();
-      const movieEn = String(movie.nameEN).toLowerCase().trim();
+      const movieRu = movie.nameRU.toLowerCase();
+      const movieEn = movie.nameEN.toLowerCase();
       const userMovie = userQuery.toLowerCase().trim();
-      return movieRu.indexOf(userMovie) !== -1 || movieEn.indexOf(userMovie) !== -1;
+      return movieRu.includes(userMovie) || movieEn.includes(userMovie);
     })
   }
 
@@ -40,6 +41,8 @@ const Movies = ({movies, setIsInfoTooltip, isInfoTooltip}) => {
       } else {
         setFilteredMovies(initialMovies);
       }
+      console.log(filterShortMovies.length)
+
       setIsLoader(false)
     }, 600)
 
@@ -53,14 +56,17 @@ const Movies = ({movies, setIsInfoTooltip, isInfoTooltip}) => {
     setIsLoader(true)
 
     setTimeout(()=>{
+
       if (query.length) {
+
         const moviesList = filterMovies(movies, query);
         setInitialMovies(moviesList);
         setFilteredMovies(
           shortMovies ? filterShortMovies(moviesList) : moviesList
         );
-
-       !moviesList.length || shortMovies ? setIsInfoTooltip('Ничего не найдено') : setIsInfoTooltip('') //вывод "ничего не найдено"
+        if (filteredMovies.length === 0) {
+          setIsInfoTooltip('ничего не найдено');
+        }
 
       }
       setIsLoader(false)

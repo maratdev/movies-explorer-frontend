@@ -134,10 +134,6 @@ X
 (src/components/MoviesCard/MoviesCard.css,6\6\66e5590f267f29c98a1c0a88479d8193efd2fcda
 g
 7src/components/MoviesCard/__trash/MoviesCard__trash.css,7\f\7f8dd57995accb494f5ea21f3e168d3aa03206f4
-F
-src/utils/MainApi.json,f\0\f02bcc608f998bff7de25cf0d256c3d1d0071e4a
-H
-src/utils/MoviesApi.json,d\b\dbe88aee35aae8f6e4908611c8c45add68f14163
 Z
 *src/components/NavBarMovie/NavBarMovie.jsx,e\0\e0ba54e23624ab7d91bb322161c211902d3e9fa5
 X
