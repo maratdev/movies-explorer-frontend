@@ -1,11 +1,15 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
+import { NOTHING_FOUND } from '../../utils/constants';
 
 const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
 // ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
+  const [searchText, setSearchText] = useState('');
+  const storageMovies = localStorage.getItem('movies');
+  const storageSearch = localStorage.getItem('search');
 
   // ----------------------------------Фильтр----------------------------------/
 
@@ -37,8 +41,8 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
   }, [shortMovies, initialMovies]);
 
   // -----------------------------Вывод фильмов-----------------------------------/
-
   const movieQuery = (query) => {
+    console.log(query)
     setIsLoader(true);
     setTimeout(() => {
       if (query.length) {
@@ -47,15 +51,30 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
         setFilteredMovies(
           shortMovies ? filterShortMovies(moviesList) : moviesList,
         );
-        if (filteredMovies.length === 0) setIsInfoTooltip('Ничего не найдено 🤷‍♂️');
+        if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
+        localStorage.setItem('movies', JSON.stringify(moviesList));
+        localStorage.setItem('search', JSON.stringify({
+          query,
+        }));
       }
       setIsLoader(false);
     }, 600);
   };
+  useEffect(() => {
+    if (storageMovies) {
+      const arr = JSON.parse(storageMovies);
+      setFilteredMovies(arr);
+    }
+    if (storageSearch !== null) {
+      const { query } = JSON.parse(storageSearch);
+      setSearchText(query || '');
+    }
+  }, []);
 
   return (
     <main>
       <SearchForm
+        searchText={searchText}
         shortMovies={shortMovies}
         handleShortFilms={handleShortFilms}
         movieQuery={movieQuery}

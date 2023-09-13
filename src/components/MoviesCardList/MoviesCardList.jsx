@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Preloader from '../Preloader/Preloader.jsx';
-import DEVICE_SIZE from '../../utils/constants';
+import { DEVICE_SIZE } from '../../utils/constants';
 
 const MoviesCardList = ({
   isSavedFilms, movieList, isLoader, isInfoTooltip,
@@ -12,22 +12,26 @@ const MoviesCardList = ({
   const [showMovieList, setShowMovieList] = useState([]);
   const [cardsShowDetails, setCardsShowDetails] = useState({ total: 16, more: 4 });
 
-  // количество отображаемых карточек при разной ширине экрана
-  useEffect(() => {
-    if (width > desktop.width) {
-      setCardsShowDetails(desktop.cards);
-    } else if (width <= desktop.width && width > mobile.width) {
+  // ----------- Количество отображаемых карточек при разной ширине экрана------------//
+  const getRenderedMovies = (widthDevice, desktopDevice) => {
+    if (widthDevice > desktopDevice.width) {
+      setCardsShowDetails(desktopDevice.cards);
+    } else if (widthDevice <= desktopDevice.width && widthDevice > mobile.width) {
       setCardsShowDetails(tablet.cards);
     } else {
       setCardsShowDetails(mobile.cards);
     }
+  };
+
+  useEffect(() => {
+    getRenderedMovies(width, desktop);
     if (movieList !== null) {
       const res = movieList.filter((item, i) => i < cardsShowDetails.total);
       setShowMovieList(res);
     }
   }, [width, movieList, cardsShowDetails.total]);
 
-  // удаление сайд эффектов
+  // -----------------------------Удаление сайд эффектов-------------------- /
   useEffect(() => {
     let timeoutId = null;
 
@@ -43,7 +47,7 @@ const MoviesCardList = ({
     };
   }, []);
 
-  // добавление карточек при клике по кнопке "Еще"
+  // ------------------------ Добавление карточек при клике по кнопке "Еще" ---- /
   const handleClickMoreMovies = () => {
     const start = showMovieList.length;
     const end = start + cardsShowDetails.more;

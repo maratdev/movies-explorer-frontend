@@ -11,6 +11,7 @@ import Profile from '../Profile/Profile.jsx';
 import Register from '../Register/Register.jsx';
 import Login from '../Login/Login.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
+import { SERVER_REQUEST_ERROR } from '../../utils/constants';
 
 // ---------------------------API--------------------------------------/
 
@@ -28,7 +29,7 @@ const App = () => {
       .then((newMovie) => {
         setMovieList(newMovie);
       })
-      .catch(() => setIsInfoTooltip('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.'));
+      .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
   };
 
   useEffect(() => {

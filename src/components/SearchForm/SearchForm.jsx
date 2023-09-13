@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import './SearchForm.css';
 
-const SearchForm = ({ movieQuery, shortMovies, handleShortFilms }) => {
+const SearchForm = ({
+  movieQuery, shortMovies, handleShortFilms, searchText,
+}) => {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSubmit = (evt) => {
@@ -14,7 +16,7 @@ const SearchForm = ({ movieQuery, shortMovies, handleShortFilms }) => {
     <section className="SearchForm">
       <div className="SearchForm__wrap">
         <form className="SearchForm__form" onSubmit={handleSubmit}>
-          <input className="SearchForm__input list" onChange={onChangeSearchInput} value={searchValue} required
+          <input className="SearchForm__input list" onChange={onChangeSearchInput} defaultValue={searchText} required
                  type="text" placeholder="Фильм"/>
           <button className="SearchForm__btn" type="submit" aria-label="поиск">Найти</button>
           <div className="SearchForm__search-checkbox">
