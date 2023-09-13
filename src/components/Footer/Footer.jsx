@@ -18,7 +18,8 @@ const Footer = ({ date }) => {
                     <a className="Footer__link" href="https://practicum.yandex.ru/" target="_blank">Яндекс.Практикум</a>
                   </li>
                   <li className="Footer__item">
-                    <a className="Footer__link" href="https://github.com/maratdev/movies-explorer-frontend" target="_blank">Github</a>
+                    <a className="Footer__link" href="https://github.com/maratdev/movies-explorer-frontend"
+                       target="_blank">Github</a>
                   </li>
                 </ul>
               </div>

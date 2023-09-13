@@ -2,23 +2,49 @@ import { useState, useEffect } from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Preloader from '../Preloader/Preloader.jsx';
+import DEVICE_SIZE from '../../utils/constants';
 
 const MoviesCardList = ({
-  isSavedFilms, movieList, isLoader, isInfoTooltip, movieQuery,
+  isSavedFilms, movieList, isLoader, isInfoTooltip,
 }) => {
+  const [width, setWidth] = useState(window.innerWidth); // ширина экрана
+  const { desktop, tablet, mobile } = DEVICE_SIZE;
   const [showMovieList, setShowMovieList] = useState([]);
-  const [cardsShowDetails, setCardsShowDetails] = useState({ total: 12, more: 4 });
+  const [cardsShowDetails, setCardsShowDetails] = useState({ total: 16, more: 4 });
 
+  // количество отображаемых карточек при разной ширине экрана
   useEffect(() => {
-    setCardsShowDetails({ total: 12, more: 4 });
+    if (width > desktop.width) {
+      setCardsShowDetails(desktop.cards);
+    } else if (width <= desktop.width && width > mobile.width) {
+      setCardsShowDetails(tablet.cards);
+    } else {
+      setCardsShowDetails(mobile.cards);
+    }
     if (movieList !== null) {
       const res = movieList.filter((item, i) => i < cardsShowDetails.total);
       setShowMovieList(res);
     }
-  }, [movieQuery, cardsShowDetails.total]);
+  }, [width, movieList, cardsShowDetails.total]);
+
+  // удаление сайд эффектов
+  useEffect(() => {
+    let timeoutId = null;
+
+    const resizeListener = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setWidth(window.innerWidth), 150);
+    };
+
+    window.addEventListener('resize', resizeListener, false);
+
+    return () => {
+      window.removeEventListener('resize', resizeListener);
+    };
+  }, []);
 
   // добавление карточек при клике по кнопке "Еще"
-  function handleClickMoreMovies() {
+  const handleClickMoreMovies = () => {
     const start = showMovieList.length;
     const end = start + cardsShowDetails.more;
     const additional = movieList.length - start;
@@ -27,7 +53,7 @@ const MoviesCardList = ({
       const newCards = movieList.slice(start, end);
       setShowMovieList([...showMovieList, ...newCards]);
     }
-  }
+  };
 
   return (
     <section className="MoviesCardList">

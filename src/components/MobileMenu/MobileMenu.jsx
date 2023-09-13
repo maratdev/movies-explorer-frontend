@@ -7,7 +7,8 @@ const MobileMenu = () => {
   return (
     <>
       <div className="MobileMenu">
-        <button type="button" className={`MobileMenu__mobile-btn ${checked ? 'active' : ''}`} onClick={() => setChecked(!checked)}>
+        <button type="button" className={`MobileMenu__mobile-btn ${checked ? 'active' : ''}`}
+                onClick={() => setChecked(!checked)}>
           <span></span>
         </button>
         <div className={`MobileMenu__wrap ${!checked ? 'MobileMenu__wrap_none' : ''} `}>
@@ -16,7 +17,8 @@ const MobileMenu = () => {
               <li className="MobileMenu__item"><Link className="MobileMenu__link" to="/">Главная</Link></li>
               <li className="MobileMenu__item"><Link className="MobileMenu__link MobileMenu__active"
                                                      to="/movies">Фильмы</Link></li>
-              <li className="MobileMenu__item"><Link className="MobileMenu__link" to="/saved-movies">Сохранённые фильмы</Link>
+              <li className="MobileMenu__item"><Link className="MobileMenu__link" to="/saved-movies">Сохранённые
+                фильмы</Link>
               </li>
             </ul>
             <Link className="MobileMenu__acc MobileMenu__btn" to="/profile">Аккаунт</Link>

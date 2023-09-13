@@ -3,15 +3,15 @@ import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
 
 const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
-// ----------------------------------Поиск фильмов------------------------/
+// ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
 
-  // ----------------------------------Фильтр-----------------------------------------/
+  // ----------------------------------Фильтр----------------------------------/
 
   const [filteredMovies, setFilteredMovies] = useState([]); // отфильтрованные по чекбоксу
 
-  // фильтрация по длительности
+  // фильтрация по длительности (короткометражки)
   const filterShortMovies = (request) => request.filter((movie) => movie.duration < 40);
   // фильтрация по названию
   const filterMovies = (arr, userQuery) => movies.filter((movie) => {
@@ -21,7 +21,7 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
     return movieRu.includes(userMovie) || movieEn.includes(userMovie);
   });
 
-  // ----------------------- Состояние чекбокса -----------------------/
+  // ----------------------- Состояние чекбокса --------------------------------/
   const [shortMovies, setShortMovies] = useState(false);
   const handleShortFilms = useCallback(() => {
     setIsLoader(true);
@@ -36,7 +36,7 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
     }, 600);
   }, [shortMovies, initialMovies]);
 
-  // -----------------------------Вывод фильмов---------------------------------------------/
+  // -----------------------------Вывод фильмов-----------------------------------/
 
   const movieQuery = (query) => {
     setIsLoader(true);
@@ -47,10 +47,7 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
         setFilteredMovies(
           shortMovies ? filterShortMovies(moviesList) : moviesList,
         );
-
-        if (filteredMovies.length === 0) {
-          setIsInfoTooltip('ничего не найдено');
-        }
+        if (filteredMovies.length === 0) setIsInfoTooltip('Ничего не найдено 🤷‍♂️');
       }
       setIsLoader(false);
     }, 600);
@@ -64,7 +61,6 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
         movieQuery={movieQuery}
       />
       <MoviesCardList
-        movieQuery={movieQuery}
         isLoader={isLoader}
         isInfoTooltip={isInfoTooltip}
         movieList={filteredMovies}

@@ -16,20 +16,20 @@ import NotFound from '../NotFound/NotFound.jsx';
 
 import { getAllMovies } from '../../utils/MoviesApi';
 
-function App() {
+const App = () => {
   // -----------------------------------Подсказки-----------------/
   const [isInfoTooltip, setIsInfoTooltip] = useState('');
 
   // ---------------------Инициализация MoviesApi------------------------/
   const [movieList, setMovieList] = useState({});
 
-  function loadUserAndCards() {
+  const loadUserAndCards = () => {
     getAllMovies()
       .then((newMovie) => {
         setMovieList(newMovie);
       })
       .catch(() => setIsInfoTooltip('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.'));
-  }
+  };
 
   useEffect(() => {
     loadUserAndCards();
@@ -49,7 +49,7 @@ function App() {
             setIsInfoTooltip={setIsInfoTooltip}
             isInfoTooltip={isInfoTooltip}
             movies={movieList}
-           />
+          />
         }/>
 
         <Route path="/saved-movies" element={<SavedMovies/>}/>
@@ -62,6 +62,6 @@ function App() {
       <Footer date={new Date().getFullYear()}/>
     </>
   );
-}
+};
 
 export default App;

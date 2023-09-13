@@ -8,7 +8,7 @@ const Register = () => (
     buttonText={'Зарегистрироваться'}
     RegisterBtnTxt={'Уже зарегистрированы?'}
     RegisterBtnTxtLink={'Войти'}
-    toLink = {'/signin'}
+    toLink={'/signin'}
   >
 
     <FormComponent name={'Имя'} type={'text'} maxLength={30} minLength={2} nameInput={'name'} required/>

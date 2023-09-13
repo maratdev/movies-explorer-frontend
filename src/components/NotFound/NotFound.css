@@ -3,7 +3,7 @@
 @import url('./__description/NotFound__description.css');
 @import url('./__link/NotFound__link.css');
 
-.NotFound{
+.NotFound {
   display: flex;
   justify-content: center;
 }

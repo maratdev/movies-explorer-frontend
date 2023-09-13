@@ -6,25 +6,21 @@ const SearchForm = ({ movieQuery, shortMovies, handleShortFilms }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (!searchValue) {
-      return;
-    }
+    if (!searchValue) return;
     movieQuery(searchValue.trim());
   };
-  const onChangeSearchInput = (evt) => {
-    setSearchValue(evt.target.value);
-  };
-
+  const onChangeSearchInput = (evt) => setSearchValue(evt.target.value);
   return (
     <section className="SearchForm">
       <div className="SearchForm__wrap">
         <form className="SearchForm__form" onSubmit={handleSubmit}>
-          <input className="SearchForm__input list" onChange={onChangeSearchInput} value={searchValue} required type="text" placeholder="Фильм"/>
+          <input className="SearchForm__input list" onChange={onChangeSearchInput} value={searchValue} required
+                 type="text" placeholder="Фильм"/>
           <button className="SearchForm__btn" type="submit" aria-label="поиск">Найти</button>
           <div className="SearchForm__search-checkbox">
             <label className="SearchForm__switch">
               <input className="SearchForm__checked-btn" onChange={handleShortFilms} defaultChecked={!!shortMovies}
-                     type="checkbox" />
+                     type="checkbox"/>
               <span className="SearchForm__slider-btn"></span>
             </label>
             <p className="SearchForm__title list">Короткометражки</p>
