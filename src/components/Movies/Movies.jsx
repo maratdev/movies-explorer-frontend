@@ -7,9 +7,12 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
 // ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState(''); // запрос с инпута
+  const [shortMovies, setShortMovies] = useState(false); // чекбокс
+
   const storageMovies = localStorage.getItem('movies');
   const storageSearch = localStorage.getItem('search');
+  const storageShort = localStorage.getItem('short');
 
   // ----------------------------------Фильтр----------------------------------/
 
@@ -26,7 +29,6 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
   });
 
   // ----------------------- Состояние чекбокса --------------------------------/
-  const [shortMovies, setShortMovies] = useState(false);
   const handleShortFilms = useCallback(() => {
     setIsLoader(true);
     setShortMovies(!shortMovies);
@@ -36,13 +38,13 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
       } else {
         setFilteredMovies(initialMovies);
       }
+      localStorage.setItem('short', JSON.stringify({ check: !shortMovies }));
       setIsLoader(false);
     }, 600);
   }, [shortMovies, initialMovies]);
 
   // -----------------------------Вывод фильмов-----------------------------------/
   const movieQuery = (query) => {
-    console.log(query)
     setIsLoader(true);
     setTimeout(() => {
       if (query.length) {
@@ -53,21 +55,28 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
         );
         if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
         localStorage.setItem('movies', JSON.stringify(moviesList));
-        localStorage.setItem('search', JSON.stringify({
-          query,
-        }));
+        localStorage.setItem('search', JSON.stringify({ query }));
       }
       setIsLoader(false);
     }, 600);
   };
   useEffect(() => {
-    if (storageMovies) {
-      const arr = JSON.parse(storageMovies);
+    let arr = [];
+    if (storageMovies !== null) {
+      arr = JSON.parse(storageMovies);
+      setInitialMovies(arr);
       setFilteredMovies(arr);
     }
     if (storageSearch !== null) {
       const { query } = JSON.parse(storageSearch);
       setSearchText(query || '');
+    }
+    if (storageShort !== null) {
+      const { check } = JSON.parse(storageShort);
+      setShortMovies(check);
+      if (check) {
+        setFilteredMovies(filterShortMovies(arr));
+      }
     }
   }, []);
 

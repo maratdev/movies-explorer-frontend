@@ -318,3 +318,5 @@ X
 0src/components/MoviesCardList/MoviesCardList.jsx,b\2\b245d70467c57151cbacda720591e305547b22ae
 P
  src/components/Movies/Movies.jsx,3\8\380ac8fdd36c96b49c67c2e4914c86b4f7549c9f
+F
+src/utils/constants.js,7\b\7b96eb7a8f02e0511edf9001063dd0258f6f40d2
