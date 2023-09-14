@@ -53,7 +53,12 @@ const App = () => {
           />
         }/>
 
-        <Route path="/saved-movies" element={<SavedMovies/>}/>
+        <Route path="/saved-movies" element={
+          <SavedMovies
+            setIsInfoTooltip={setIsInfoTooltip}
+            isInfoTooltip={isInfoTooltip}
+            movies={movieList}
+          />}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/signup" element={<Register/>}/>
         <Route path="/signin" element={<Login/>}/>

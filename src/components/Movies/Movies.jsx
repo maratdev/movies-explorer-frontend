@@ -60,19 +60,20 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
       setIsLoader(false);
     }, 600);
   };
+  // ----------------------------Вывод фильмов из localStorage --------------------------------- /
   useEffect(() => {
-    let arr = [];
+    let arr = {};
     if (storageMovies !== null) {
-      arr = JSON.parse(storageMovies);
+      arr = JSON.parse(storageMovies); // отфильтрованые фильмы
       setInitialMovies(arr);
       setFilteredMovies(arr);
     }
     if (storageSearch !== null) {
-      const { query } = JSON.parse(storageSearch);
+      const { query } = JSON.parse(storageSearch); // поисковый запрос
       setSearchText(query || '');
     }
     if (storageShort !== null) {
-      const { check } = JSON.parse(storageShort);
+      const { check } = JSON.parse(storageShort); // чекбокс true/false
       setShortMovies(check);
       if (check) {
         setFilteredMovies(filterShortMovies(arr));
