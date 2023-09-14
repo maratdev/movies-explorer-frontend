@@ -20,14 +20,14 @@ const _request = (url, options) => fetch(url, options).then(_getResponseData);
 // Инициализация Movies
 export const getSavedMovies = () => _request(`${_api.BASE_URL}/movies`, {
   method: 'GET',
-  credentials: "include",
+  credentials: 'include',
   headers: _api.HEADERS,
 });
 
 // Добавление фильма
 export const addToSavedMovies = (movie) => _request(`${_api.BASE_URL}/movies`, {
   method: 'POST',
-  credentials: "include",
+  credentials: 'include',
   headers: _api.HEADERS,
   body: JSON.stringify({
     country: movie.country,

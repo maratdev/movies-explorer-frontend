@@ -1,9 +1,10 @@
 import { useCallback, useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
-import { NOTHING_FOUND } from '../../utils/constants';
+import { NOTHING_FOUND, SERVER_REQUEST_ERROR } from '../../utils/constants';
+import { getAllMovies } from '../../utils/MoviesApi';
 
-const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
+const Movies = ({ setIsInfoTooltip, isInfoTooltip }) => {
 // ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
@@ -14,6 +15,20 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
   const storageSearch = localStorage.getItem('search');
   const storageShort = localStorage.getItem('short');
 
+  // ---------------------Инициализация MoviesApi------------------------/
+  const [movieListAll, setMovieListAll] = useState([]);
+  const loadUserAndMovie = () => {
+    getAllMovies()
+      .then((newMovie) => {
+        setMovieListAll(newMovie);
+      })
+      .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
+  };
+
+  useEffect(() => {
+    loadUserAndMovie();
+  }, []);
+
   // ----------------------------------Фильтр----------------------------------/
 
   const [filteredMovies, setFilteredMovies] = useState([]); // отфильтрованные по чекбоксу
@@ -21,7 +36,7 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
   // фильтрация по длительности (короткометражки)
   const filterShortMovies = (request) => request.filter((movie) => movie.duration < 40);
   // фильтрация по названию
-  const filterMovies = (arr, userQuery) => movies.filter((movie) => {
+  const filterMovies = (arr, userQuery) => movieListAll.filter((movie) => {
     const movieRu = movie.nameRU.toLowerCase();
     const movieEn = movie.nameEN.toLowerCase();
     const userMovie = userQuery.toLowerCase().trim();
@@ -48,11 +63,12 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
     setIsLoader(true);
     setTimeout(() => {
       if (query.length) {
-        const moviesList = filterMovies(movies, query);
+        const moviesList = filterMovies(movieListAll, query);
         setInitialMovies(moviesList);
         setFilteredMovies(
           shortMovies ? filterShortMovies(moviesList) : moviesList,
         );
+        console.log(filteredMovies.length);
         if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
         localStorage.setItem('movies', JSON.stringify(moviesList));
         localStorage.setItem('search', JSON.stringify({ query }));
@@ -60,6 +76,7 @@ const Movies = ({ movies, setIsInfoTooltip, isInfoTooltip }) => {
       setIsLoader(false);
     }, 600);
   };
+
   // ----------------------------Вывод фильмов из localStorage --------------------------------- /
   useEffect(() => {
     let arr = {};

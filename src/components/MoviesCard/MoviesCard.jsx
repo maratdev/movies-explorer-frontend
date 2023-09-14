@@ -9,8 +9,8 @@ const MoviesCard = ({ movie }) => {
   const trashFilms = location.pathname === '/saved-movies';
   const [isShown, setIsShown] = useState(false);
 
-  const {pathname} = useLocation();
-  const image = pathname === `${"/movies"}` ? `https://api.nomoreparties.co${movie.image.url}`: `${movie.image}`;
+  const { pathname } = useLocation();
+  const image = pathname === '/movies' ? `https://api.nomoreparties.co${movie.image.url}` : `${movie.image}`;
 
   const handleLikeClick = () => {
     const checkIsSaved = [movie].some((item) => item.id === movie.id);

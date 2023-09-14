@@ -67,7 +67,7 @@ const MoviesCardList = ({
             {movieList.length === 0 && <p className="MoviesCardList__not-result list">{isInfoTooltip}</p>}
             <ul className="MoviesCardList__grid">
               {showMovieList.map((movies) => (
-                <MoviesCard key={movies.id} movie={movies}/>
+                <MoviesCard key={movies.id || movies._id} movie={movies}/>
               ))}
             </ul>
             <div className="MoviesCardList__more">

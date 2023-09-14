@@ -11,6 +11,7 @@ const SearchForm = ({
     movieQuery(searchValue.trim());
   };
   const onChangeSearchInput = (evt) => setSearchValue(evt.target.value);
+
   return (
     <section className="SearchForm">
       <div className="SearchForm__wrap">

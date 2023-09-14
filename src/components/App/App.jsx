@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import Header from '../Header/Header.jsx';
@@ -11,30 +11,10 @@ import Profile from '../Profile/Profile.jsx';
 import Register from '../Register/Register.jsx';
 import Login from '../Login/Login.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
-import { SERVER_REQUEST_ERROR } from '../../utils/constants';
-
-// ---------------------------API--------------------------------------/
-
-import { getAllMovies } from '../../utils/MoviesApi';
 
 const App = () => {
   // -----------------------------------Подсказки-----------------/
   const [isInfoTooltip, setIsInfoTooltip] = useState('');
-
-  // ---------------------Инициализация MoviesApi------------------------/
-  const [movieList, setMovieList] = useState({});
-
-  const loadUserAndCards = () => {
-    getAllMovies()
-      .then((newMovie) => {
-        setMovieList(newMovie);
-      })
-      .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
-  };
-
-  useEffect(() => {
-    loadUserAndCards();
-  }, []);
 
   const { pathname } = useLocation();
   const loggedIn = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
@@ -49,7 +29,6 @@ const App = () => {
           <Movies
             setIsInfoTooltip={setIsInfoTooltip}
             isInfoTooltip={isInfoTooltip}
-            movies={movieList}
           />
         }/>
 
@@ -57,7 +36,6 @@ const App = () => {
           <SavedMovies
             setIsInfoTooltip={setIsInfoTooltip}
             isInfoTooltip={isInfoTooltip}
-            movies={movieList}
           />}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/signup" element={<Register/>}/>
