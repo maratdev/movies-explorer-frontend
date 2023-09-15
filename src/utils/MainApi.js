@@ -43,4 +43,11 @@ export const addToSavedMovies = (movie) => _request(`${_api.BASE_URL}/movies`, {
   }),
 });
 
-export default { addToSavedMovies, getSavedMovies };
+// Удаление фильма
+export const deleteSavedMovies = (movieId) => _request(`${_api.BASE_URL}/movies/${movieId}`, {
+  method: 'DELETE',
+  credentials: 'include',
+  headers: _api.HEADERS,
+});
+
+export default { addToSavedMovies, getSavedMovies, deleteSavedMovies };

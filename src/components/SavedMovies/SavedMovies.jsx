@@ -22,6 +22,8 @@ const SavedMovies = ({ setIsInfoTooltip, isInfoTooltip }) => {
         setInitialMovies(initialMovie);
       })
       .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
+
+    if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
   }, []);
 
   // ----------------------- Состояние чекбокса --------------------------------/
@@ -52,7 +54,7 @@ const SavedMovies = ({ setIsInfoTooltip, isInfoTooltip }) => {
       setIsLoader(false);
     }, 600);
   };
-  if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
+
   return (
     <main>
       <SearchForm

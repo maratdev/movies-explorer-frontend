@@ -3,16 +3,56 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Preloader from '../Preloader/Preloader.jsx';
 import { DEVICE_SIZE } from '../../utils/constants';
+import { getSavedMovies, addToSavedMovies, deleteSavedMovies } from '../../utils/MainApi';
 
 const MoviesCardList = ({
   isSavedFilms, movieList, isLoader, isInfoTooltip,
 }) => {
   const [width, setWidth] = useState(window.innerWidth); // ширина экрана
   const { desktop, tablet, mobile } = DEVICE_SIZE;
-  const [showMovieList, setShowMovieList] = useState([]);
   const [cardsShowDetails, setCardsShowDetails] = useState({ total: 16, more: 4 });
 
-  // ----------- Количество отображаемых карточек при разной ширине экрана------------//
+  // --------------------------- Фильмы добавленые в сохраненые -------------------------------- /
+  const [localMovieList, setLocalMovieList] = useState([]);
+  useEffect(() => {
+    getSavedMovies()
+      .then((savedMovie) => {
+        setLocalMovieList(savedMovie);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  // --------------------------- Удаление из избранное -------------------------------- /
+  const handleDeleteFavoriteMovie = (movie) => {
+    const savedUserMovie = localMovieList.find((userMovie) => userMovie.movieId === movie.id);
+
+    deleteSavedMovies(savedUserMovie._id)
+      .then(() => {
+        const newUserMovieList = localMovieList
+          .filter((userMovie) => userMovie.movieId !== movie.id);
+        setLocalMovieList(newUserMovieList);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // --------------------------- Добавление в избранное -------------------------------- /
+  const handleFavoriteMovie = (movie) => {
+    const isSavedMovie = localMovieList.some((userMovie) => userMovie.movieId === movie.id);
+
+    if (isSavedMovie) {
+      handleDeleteFavoriteMovie(movie);
+    } else {
+      addToSavedMovies(movie)
+        .then((addNewMovie) => setLocalMovieList([...localMovieList, addNewMovie]))
+        .catch((err) => console.log(err));
+    }
+  };
+
+  // ------------------------ Отображение лайка избранных фильмов -------------------------------- /
+  const findFavoriteMovies = (userMoviesArr, movie) => userMoviesArr
+    .find((item) => item.movieId === movie.id);
+
+  // ----------- Количество отображаемых карточек при разной ширине экрана------------ /
   const getRenderedMovies = (widthDevice, desktopDevice) => {
     if (widthDevice > desktopDevice.width) {
       setCardsShowDetails(desktopDevice.cards);
@@ -22,7 +62,9 @@ const MoviesCardList = ({
       setCardsShowDetails(mobile.cards);
     }
   };
+  // -----------------------------Фильмы сохраненые в localStorage-------------------- /
 
+  const [showMovieList, setShowMovieList] = useState([]);
   useEffect(() => {
     getRenderedMovies(width, desktop);
     if (movieList !== null) {
@@ -67,7 +109,11 @@ const MoviesCardList = ({
             {movieList.length === 0 && <p className="MoviesCardList__not-result list">{isInfoTooltip}</p>}
             <ul className="MoviesCardList__grid">
               {showMovieList.map((movies) => (
-                <MoviesCard key={movies.id || movies._id} movie={movies}/>
+                <MoviesCard
+                  toDelete={handleDeleteFavoriteMovie}
+                  toSaved={handleFavoriteMovie}
+                  toFavorite={findFavoriteMovies(localMovieList, movies)}
+                  key={movies.id || movies._id} movie={movies} />
               ))}
             </ul>
             <div className="MoviesCardList__more">
