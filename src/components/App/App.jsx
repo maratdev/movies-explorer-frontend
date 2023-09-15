@@ -14,7 +14,7 @@ import NotFound from '../NotFound/NotFound.jsx';
 
 const App = () => {
   // -----------------------------------Подсказки-----------------/
-  const [isInfoTooltip, setIsInfoTooltip] = useState('');
+  const [isInfoTooltip, setIsInfoTooltip] = useState(false);
 
   const { pathname } = useLocation();
   const loggedIn = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';

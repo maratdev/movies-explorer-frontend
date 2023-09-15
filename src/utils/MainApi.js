@@ -20,7 +20,6 @@ const _request = (url, options) => fetch(url, options).then(_getResponseData);
 // Инициализация Movies
 export const getSavedMovies = () => _request(`${_api.BASE_URL}/movies`, {
   method: 'GET',
-  credentials: 'include',
   headers: _api.HEADERS,
 });
 

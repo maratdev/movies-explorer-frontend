@@ -32,9 +32,9 @@ const MoviesCardList = ({
   }, [width, movieList, cardsShowDetails.total]);
 
   // -----------------------------Удаление сайд эффектов-------------------- /
+
   useEffect(() => {
     let timeoutId = null;
-
     const resizeListener = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => setWidth(window.innerWidth), 150);
@@ -72,8 +72,12 @@ const MoviesCardList = ({
             </ul>
             <div className="MoviesCardList__more">
               {isSavedFilms && showMovieList?.length < movieList?.length
-                && <button aria-label="Еще" type="button" onClick={handleClickMoreMovies}
-                           className="MoviesCardList__btn-more">Еще</button>}
+                && <button
+                  aria-label="Еще"
+                  type="button"
+                  onClick={handleClickMoreMovies}
+                  className="MoviesCardList__btn-more">Еще
+              </button>}
             </div>
           </>
         )}
