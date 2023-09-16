@@ -1,4 +1,5 @@
 const SERVER_REQUEST_ERROR = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
+const SERVER_REQUEST_BAD = 'Ошибка запроса на сервер';
 const NOTHING_FOUND = 'Ничего не найдено 🤷‍♂️';
 const DEVICE_SIZE = {
   desktop: {
@@ -24,4 +25,6 @@ const DEVICE_SIZE = {
   },
 };
 
-export { DEVICE_SIZE, SERVER_REQUEST_ERROR, NOTHING_FOUND };
+export {
+  DEVICE_SIZE, SERVER_REQUEST_ERROR, NOTHING_FOUND, SERVER_REQUEST_BAD,
+};

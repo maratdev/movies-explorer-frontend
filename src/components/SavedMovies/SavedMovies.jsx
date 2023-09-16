@@ -2,11 +2,12 @@ import { useState, useEffect, useCallback } from 'react';
 import './SavedMovies.css';
 import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
-import { getSavedMovies } from '../../utils/MainApi';
 import { filterShortMovies, filterMovies } from '../../utils/utilities';
-import { NOTHING_FOUND, SERVER_REQUEST_ERROR } from '../../utils/constants';
+import { NOTHING_FOUND } from '../../utils/constants';
 
-const SavedMovies = ({ setIsInfoTooltip, isInfoTooltip }) => {
+const SavedMovies = ({
+  setIsInfoTooltip, isInfoTooltip, toDelete, toSaved, localMovieList,
+}) => {
   const [isLoader, setIsLoader] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]); // отфильтрованные фильмы
   const [shortMovies, setShortMovies] = useState(false); // чекбокс
@@ -15,16 +16,11 @@ const SavedMovies = ({ setIsInfoTooltip, isInfoTooltip }) => {
   // ---------------------Инициализация MainApi------------------------/
   const [savedMovies, setSavedMovies] = useState([]);
   useEffect(() => {
-    getSavedMovies()
-      .then((initialMovie) => {
-        setSavedMovies(initialMovie);
-        setFilteredMovies(initialMovie);
-        setInitialMovies(initialMovie);
-      })
-      .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
-
+    setSavedMovies(localMovieList);
+    setFilteredMovies(localMovieList);
+    setInitialMovies(localMovieList);
     if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
-  }, []);
+  }, [localMovieList]);
 
   // ----------------------- Состояние чекбокса --------------------------------/
   const handleShortFilms = useCallback(() => {
@@ -63,6 +59,9 @@ const SavedMovies = ({ setIsInfoTooltip, isInfoTooltip }) => {
         movieQuery={movieQuery}
       />
       <MoviesCardList
+        toDelete={toDelete}
+        toSaved={toSaved}
+        localMovieList={localMovieList}
         isLoader={isLoader}
         isInfoTooltip={isInfoTooltip}
         movieList={filteredMovies}

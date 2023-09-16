@@ -5,6 +5,7 @@ const SearchForm = ({
   movieQuery, shortMovies, handleShortFilms, searchText,
 }) => {
   const [searchValue, setSearchValue] = useState('');
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (!searchValue) return;

@@ -3,54 +3,22 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Preloader from '../Preloader/Preloader.jsx';
 import { DEVICE_SIZE } from '../../utils/constants';
-import { getSavedMovies, addToSavedMovies, deleteSavedMovies } from '../../utils/MainApi';
+import { findFavoriteMovies } from '../../utils/utilities';
 
 const MoviesCardList = ({
-  isSavedFilms, movieList, isLoader, isInfoTooltip,
+  isSavedFilms,
+  movieList,
+  isLoader,
+  isInfoTooltip,
+  toDelete,
+  toSaved,
+  localMovieList,
+  serverInfo,
 }) => {
   const [width, setWidth] = useState(window.innerWidth); // ширина экрана
   const { desktop, tablet, mobile } = DEVICE_SIZE;
   const [cardsShowDetails, setCardsShowDetails] = useState({ total: 16, more: 4 });
-
-  // --------------------------- Фильмы добавленые в сохраненые -------------------------------- /
-  const [localMovieList, setLocalMovieList] = useState([]);
-  useEffect(() => {
-    getSavedMovies()
-      .then((savedMovie) => {
-        setLocalMovieList(savedMovie);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  // --------------------------- Удаление из избранное -------------------------------- /
-  const handleDeleteFavoriteMovie = (movie) => {
-    const savedUserMovie = localMovieList.find((userMovie) => userMovie.movieId === movie.id);
-
-    deleteSavedMovies(savedUserMovie._id)
-      .then(() => {
-        const newUserMovieList = localMovieList
-          .filter((userMovie) => userMovie.movieId !== movie.id);
-        setLocalMovieList(newUserMovieList);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  // --------------------------- Добавление в избранное -------------------------------- /
-  const handleFavoriteMovie = (movie) => {
-    const isSavedMovie = localMovieList.some((userMovie) => userMovie.movieId === movie.id);
-
-    if (isSavedMovie) {
-      handleDeleteFavoriteMovie(movie);
-    } else {
-      addToSavedMovies(movie)
-        .then((addNewMovie) => setLocalMovieList([...localMovieList, addNewMovie]))
-        .catch((err) => console.log(err));
-    }
-  };
-
-  // ------------------------ Отображение лайка избранных фильмов -------------------------------- /
-  const findFavoriteMovies = (userMoviesArr, movie) => userMoviesArr
-    .find((item) => item.movieId === movie.id);
+  const [showMovieList, setShowMovieList] = useState([]);
 
   // ----------- Количество отображаемых карточек при разной ширине экрана------------ /
   const getRenderedMovies = (widthDevice, desktopDevice) => {
@@ -63,15 +31,13 @@ const MoviesCardList = ({
     }
   };
   // -----------------------------Фильмы сохраненые в localStorage-------------------- /
-
-  const [showMovieList, setShowMovieList] = useState([]);
   useEffect(() => {
     getRenderedMovies(width, desktop);
     if (movieList !== null) {
       const res = movieList.filter((item, i) => i < cardsShowDetails.total);
       setShowMovieList(res);
     }
-  }, [width, movieList, cardsShowDetails.total]);
+  }, [width, movieList, cardsShowDetails.total, isInfoTooltip]);
 
   // -----------------------------Удаление сайд эффектов-------------------- /
 
@@ -100,20 +66,21 @@ const MoviesCardList = ({
       setShowMovieList([...showMovieList, ...newCards]);
     }
   };
-
   return (
     <section className="MoviesCardList">
       <div className="MoviesCardList__wrap">
         {isLoader ? <Preloader/> : (
           <>
-            {movieList.length === 0 && <p className="MoviesCardList__not-result list">{isInfoTooltip}</p>}
+            {<p
+              className="MoviesCardList__not-result list">{(movieList.length === 0 && isInfoTooltip) || (serverInfo && serverInfo.text)}</p>}
             <ul className="MoviesCardList__grid">
               {showMovieList.map((movies) => (
                 <MoviesCard
-                  toDelete={handleDeleteFavoriteMovie}
-                  toSaved={handleFavoriteMovie}
+                  toDelete={toDelete}
+                  toSaved={toSaved}
                   toFavorite={findFavoriteMovies(localMovieList, movies)}
-                  key={movies.id || movies._id} movie={movies} />
+                  key={movies.id || movies._id}
+                  movie={movies}/>
               ))}
             </ul>
             <div className="MoviesCardList__more">
@@ -123,7 +90,7 @@ const MoviesCardList = ({
                   type="button"
                   onClick={handleClickMoreMovies}
                   className="MoviesCardList__btn-more">Еще
-              </button>}
+                </button>}
             </div>
           </>
         )}

@@ -11,4 +11,8 @@ export const filterMovies = (moviesArr, userQuery) => moviesArr.filter((movie) =
   return movieRu.includes(userMovie) || movieEn.includes(userMovie);
 });
 
-export default { filterShortMovies, filterMovies };
+// ------------------------ Отображение лайка избранных фильмов -------------------------------- /
+export const findFavoriteMovies = (userMoviesArr, movie) => userMoviesArr
+  .find((item) => item.movieId === movie.id);
+
+export default { filterShortMovies, filterMovies, findFavoriteMovies };

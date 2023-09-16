@@ -5,7 +5,9 @@ import { NOTHING_FOUND, SERVER_REQUEST_ERROR } from '../../utils/constants';
 import { getAllMovies } from '../../utils/MoviesApi';
 import { filterShortMovies, filterMovies } from '../../utils/utilities';
 
-const Movies = ({ setIsInfoTooltip, isInfoTooltip }) => {
+const Movies = ({
+  setIsInfoTooltip, isInfoTooltip, toDelete, toSaved, localMovieList, serverInfo,
+}) => {
 // ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
@@ -17,6 +19,7 @@ const Movies = ({ setIsInfoTooltip, isInfoTooltip }) => {
   const storageSearch = localStorage.getItem('search');
   const storageShort = localStorage.getItem('short');
 
+  // console.log(triggerValue)
   // ---------------------Инициализация MoviesApi------------------------/
   const [movieListAll, setMovieListAll] = useState([]);
   const loadUserAndMovie = () => {
@@ -95,6 +98,10 @@ const Movies = ({ setIsInfoTooltip, isInfoTooltip }) => {
         movieQuery={movieQuery}
       />
       <MoviesCardList
+        serverInfo={serverInfo}
+        localMovieList={localMovieList}
+        toDelete={toDelete}
+        toSaved={toSaved}
         isLoader={isLoader}
         isInfoTooltip={isInfoTooltip}
         movieList={filteredMovies}

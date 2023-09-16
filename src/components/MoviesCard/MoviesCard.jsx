@@ -15,10 +15,10 @@ const MoviesCard = ({
   const handleFavoriteMovie = () => toSaved(movie);
   const handleDeleteFavoriteMovie = () => toDelete(movie);
 
-  // onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}
   return (
     <>
-      <li key={movie.id || movie._id} className="MoviesCard">
+      <li key={movie.id || movie._id} className="MoviesCard" onMouseEnter={() => setIsShown(true)}
+          onMouseLeave={() => setIsShown(false)}>
         <article className="MoviesCard__item">
           <a href={movie.trailerLink} target='_blank'>
             <img className="MoviesCard__img" src={image}
@@ -37,7 +37,12 @@ const MoviesCard = ({
               )}
             {
               (isShown && trashFilms) && (
-                <button className="MoviesCard__trash" type="button" aria-label="удалить"></button>
+                <button
+                  className="MoviesCard__trash"
+                  type="button"
+                  aria-label="удалить"
+                  onClick={handleDeleteFavoriteMovie}>
+                </button>
               )
             }
           </div>
