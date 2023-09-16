@@ -91,7 +91,11 @@ const App = () => {
             localMovieList={localMovieList}
           />}/>
         <Route path="/profile" element={<Profile/>}/>
-        <Route path="/signup" element={<Register/>}/>
+        <Route path="/signup" element={
+          <Register
+            serverInfo={serverInfo}
+            setServerInfo={setServerInfo}
+          />}/>
         <Route path="/signin" element={<Login/>}/>
         {/* <Route path="/*" element={<NotFound/>}/> */}
         <Route path="/404" element={<NotFound/>}/>
