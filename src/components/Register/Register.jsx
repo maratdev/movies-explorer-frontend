@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, } from 'react';
+import { useNavigate } from "react-router-dom"; // импортируем Routes
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 import { registerUser } from '../../utils/auth';
@@ -10,6 +11,7 @@ import {
 } from '../../utils/constants';
 
 const Register = ({ serverInfo, setServerInfo }) => {
+  const navigate = useNavigate();
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation({
@@ -23,6 +25,7 @@ const Register = ({ serverInfo, setServerInfo }) => {
     registerUser(name, password, email)
       .then(() => {
         setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
+        setTimeout(() => { navigate('/signin',{ replace: false })}, 2000)
       })
       .catch((err) => {
         if (err.message === '409') {
@@ -48,6 +51,7 @@ const Register = ({ serverInfo, setServerInfo }) => {
         password: values.password,
         email: values.email,
       });
+
     }
   };
 
@@ -64,6 +68,7 @@ const Register = ({ serverInfo, setServerInfo }) => {
       RegisterBtnTxtLink={'Войти'}
       toLink={'/signin'}
       handleSubmit={handleSubmit}
+      isValid={isValid}
       serverInfo={serverInfo}
     >
 

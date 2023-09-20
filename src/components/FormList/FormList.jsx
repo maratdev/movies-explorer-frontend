@@ -4,7 +4,7 @@ import logo from '../../images/logo.svg';
 
 const FormList = ({
   children, nameTitle, buttonText, nameForm,
-  RegisterBtnTxt, RegisterBtnTxtLink, toLink, handleSubmit, serverInfo,
+  RegisterBtnTxt, RegisterBtnTxtLink, toLink, handleSubmit, serverInfo, isValid,
 }) => (
   <main>
     <section className="FormList">
@@ -20,7 +20,7 @@ const FormList = ({
         </div>
         <p
           className={`FormList__err${serverInfo.errorStatus === 'successRegistration' ? '_success' : ''} list`}>{serverInfo.text}</p>
-        <button className="FormList__btn" type="submit" aria-label="Регистрация">{buttonText}</button>
+        <button disabled={!isValid} className={`FormList__btn${!isValid ? '_disabled' : ''}`} type="submit" aria-label="Регистрация">{buttonText}</button>
       </form>
       <p className="FormList__txt list">{RegisterBtnTxt}
         <Link className="FormList__link" to={toLink}> {RegisterBtnTxtLink}</Link>

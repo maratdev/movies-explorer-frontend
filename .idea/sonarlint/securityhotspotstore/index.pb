@@ -258,8 +258,6 @@ V
 0src/components/MoviesCardList/MoviesCardList.css,b\d\bd157bbad463d474b50eeb7b8af7f31fbbf73bda
 y
 Isrc/components/MoviesCardList/__not-result/MoviesCardList__not-result.css,2\c\2c25c7b726b3551d870f3207574b01e63830f665
-H
-src/utils/MoviesApi.json,d\b\dbe88aee35aae8f6e4908611c8c45add68f14163
 J
 src/components/App/App.jsx,b\8\b8ed5138c4a0e076fb7a0ea5dc9846fdd81dd1a4
 R
@@ -322,3 +320,9 @@ F
 src/utils/constants.js,7\b\7b96eb7a8f02e0511edf9001063dd0258f6f40d2
 F
 src/utils/utilities.js,8\0\80a1e38566fe3932e117a247b7b64ec81817bdcf
+A
+src/utils/auth.js,2\9\29b0fa21d661adfca301a9fd66223759c6d6c836
+_
+/src/components/FormList/__err/FormList__err.css,2\c\2c72d030dceb0b37a9efa9278b7d7e2f0194af69
+R
+"src/hooks/useFormWithValidation.js,d\8\d860d07ad3dc6eaae2ca9f0fcdd359d57fa84928

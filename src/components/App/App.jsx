@@ -50,7 +50,7 @@ const App = () => {
       })
       .catch(() => setServerInfo({ errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD }));
   };
-  // console.log(isInfoTooltip)
+
   // --------------------------- Добавление в избранное -------------------------------- /
   const handleFavoriteMovie = (movie) => {
     const isSavedMovie = localMovieList.some((userMovie) => userMovie.movieId === movie.movieId);
