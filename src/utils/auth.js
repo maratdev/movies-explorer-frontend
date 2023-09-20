@@ -23,4 +23,13 @@ export const registerUser = (name, password, email) => _request(`${_api.BASE_URL
   body: JSON.stringify({ name, password, email }),
 });
 
-export default { registerUser };
+// Регистрация пользователя
+export const authorizeUser = (password, email) => _request(`${_api.BASE_URL}/signin`, {
+  method: 'POST',
+  credentials: 'include',
+  headers: _api.HEADERS,
+  body: JSON.stringify({ password, email }),
+});
+
+
+export default { registerUser, authorizeUser };

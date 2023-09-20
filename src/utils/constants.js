@@ -4,7 +4,7 @@ const NOTHING_FOUND = 'Ничего не найдено 🤷‍♂️';
 
 const successRegistration = 'Вы успешно зарегистрировались!';
 const duplicateEmailError = 'Пользователь с таким email уже существует';
-const wrongCredentialsError = 'Неправильная почта или пароль';
+const wrongCredentialsError = 'Неверный адрес электронной почты или пароль!';
 const DEVICE_SIZE = {
   desktop: {
     width: 1024,

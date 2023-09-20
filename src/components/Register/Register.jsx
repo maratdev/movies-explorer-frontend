@@ -1,5 +1,5 @@
 import { useEffect, } from 'react';
-import { useNavigate } from "react-router-dom"; // импортируем Routes
+import { useNavigate } from "react-router-dom";
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 import { registerUser } from '../../utils/auth';

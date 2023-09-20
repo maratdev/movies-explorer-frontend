@@ -18,8 +18,7 @@ const App = () => {
   // -----------------------------------Подсказки-----------------/
   const [isInfoTooltip, setIsInfoTooltip] = useState('');
   const [serverInfo, setServerInfo] = useState({ errorStatus: '', text: '' });// стэйт для данных ошибки сервера
-  const { pathname } = useLocation();
-  const loggedIn = pathname === '/movies' || pathname === '/saved-movies' || pathname === '/profile';
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // --------------------------- Фильмы добавленые в сохраненые -------------------------------- /
   const [updatedUserMovieList, setUpdatedUserMovieList] = useState([]); // Trigger render
@@ -90,13 +89,20 @@ const App = () => {
             toSaved={handleFavoriteMovie}
             localMovieList={localMovieList}
           />}/>
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile" element={
+          <Profile/>}/>
         <Route path="/signup" element={
           <Register
             serverInfo={serverInfo}
             setServerInfo={setServerInfo}
           />}/>
-        <Route path="/signin" element={<Login/>}/>
+        <Route path="/signin" element={
+          <Login
+            setLoggedIn={setLoggedIn}
+            loadApiMovies={loadApiMovies}
+            serverInfo={serverInfo}
+            setServerInfo={setServerInfo}
+          />}/>
         {/* <Route path="/*" element={<NotFound/>}/> */}
         <Route path="/404" element={<NotFound/>}/>
       </Routes>
