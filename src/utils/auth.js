@@ -18,18 +18,25 @@ const _request = (url, options) => fetch(url, options).then(_getResponseData);
 // Регистрация пользователя
 export const registerUser = (name, password, email) => _request(`${_api.BASE_URL}/signup`, {
   method: 'POST',
-  credentials: 'include',
   headers: _api.HEADERS,
-  body: JSON.stringify({ name, password, email }),
+  body: JSON.stringify({name, password, email}),
 });
 
-// Регистрация пользователя
+// Авторизация пользователя
 export const authorizeUser = (password, email) => _request(`${_api.BASE_URL}/signin`, {
   method: 'POST',
-  credentials: 'include',
   headers: _api.HEADERS,
-  body: JSON.stringify({ password, email }),
+  body: JSON.stringify({password, email}),
+});
+
+// Аутинфикация пользователя
+export const checkTokenUser = () => _request(`${_api.BASE_URL}/users/me`, {
+  method: "GET",
+  headers: {
+    ..._api.HEADERS,
+    authorization: `Bearer ${localStorage.getItem('jwt')}`
+  },
 });
 
 
-export default { registerUser, authorizeUser };
+export default {registerUser, authorizeUser, checkTokenUser};

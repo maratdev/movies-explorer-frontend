@@ -8,7 +8,7 @@ import {
 SERVER_REQUEST_BAD, SERVER_REQUEST_ERROR,
   wrongCredentialsError
 } from "../../utils/constants";
-const Login = ({ serverInfo, setServerInfo, loadApiMovies, setLoggedIn }) => {
+const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
   const navigate = useNavigate();
   const {
     values, handleChange, errors, isValid, resetForm,
@@ -19,12 +19,16 @@ const Login = ({ serverInfo, setServerInfo, loadApiMovies, setLoggedIn }) => {
 
   // --------------------- Авторизация пользователя ---------------- /
   const handleAuthorizeUser = ({ password, email }) => {
-    console.log(email, password)
     authorizeUser(password, email)
-      .then(() => {
+      .then((res) => {
+        const jwt = localStorage.getItem('jwt');
+        setLoggedIn(true);
+        if (jwt !== null) {
+          localStorage.clear();
+        }
+        localStorage.setItem('jwt', res.token);
         navigate("/movies", { replace: true });
-        loadApiMovies();
-        setLoggedIn(true)
+        setServerInfo('')
       })
       .catch((err) => {
         if (err.message === '401') {
@@ -37,6 +41,7 @@ const Login = ({ serverInfo, setServerInfo, loadApiMovies, setLoggedIn }) => {
         }
         setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
       })
+
   };
 
   const handleSubmit = (evt) => {
