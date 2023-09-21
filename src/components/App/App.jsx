@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Routes} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import Header from '../Header/Header.jsx';
 import NavBar from '../NavBar/NavBar.jsx';
@@ -11,52 +11,59 @@ import Profile from '../Profile/Profile.jsx';
 import Register from '../Register/Register.jsx';
 import Login from '../Login/Login.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
-import {addToSavedMovies, deleteSavedMovies, getSavedMovies} from '../../utils/MainApi';
-import {checkTokenUser} from '../../utils/auth';
-import {SERVER_REQUEST_ERROR, SERVER_REQUEST_BAD} from '../../utils/constants';
+import {
+  addToSavedMovies, deleteSavedMovies, getUserData, getSavedMovies,
+} from '../../utils/MainApi';
+import { checkTokenUser } from '../../utils/auth';
+import { SERVER_REQUEST_ERROR, SERVER_REQUEST_BAD, REQUEST_USERDATA_ERROR } from '../../utils/constants';
 
 const App = () => {
   // -----------------------------------Подсказки-----------------/
-  const [isInfoTooltip, setIsInfoTooltip] = useState('');
-  const [serverInfo, setServerInfo] = useState({errorStatus: '', text: ''});// стэйт для данных ошибки сервера
-  const [loggedIn, setLoggedIn] = useState(false);
-
+  const [isInfoTooltip, setIsInfoTooltip] = useState(''); // ошибки сервера
+  const [serverInfo, setServerInfo] = useState({ errorStatus: '', text: '' }); // ошибки при регистрации и авторизации
   // --------------------------- Фильмы добавленые в сохраненые -------------------------------- /
   const [updatedUserMovieList, setUpdatedUserMovieList] = useState([]); // Trigger render
-  const [localMovieList, setLocalMovieList] = useState([]);
+  const [localMovieList, setLocalMovieList] = useState([]); // фильмы сохраненые пользователем
   // --------------------------- Пользователь -------------------------------- /
-  const [currentUser, setCurrentUser] = useState({}); // User data state
+  const [currentUser, setCurrentUser] = useState({}); // User data
+  const [loggedIn, setLoggedIn] = useState(false);
 
-
-
-
+  // Аутинфикация
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
-      checkTokenUser()
-        .then((res) => {
-          setLoggedIn(true);
-          setCurrentUser(res.data);
-        })
-        .catch(console.error);
+      checkTokenUser(jwt)
+        .then(() => setLoggedIn(true))
+        .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
     }
+  }, []);
 
-  }, [loggedIn]);
-
-
+  // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
   const loadApiMovies = () => {
     getSavedMovies()
-      .then((savedMovie) => {
-        setLocalMovieList(savedMovie);
-      })
+      .then((savedMovie) => setLocalMovieList(
+        savedMovie.filter((userMovie) => userMovie.owner._id === currentUser._id),
+      ))
       .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
   };
 
+  useEffect(
+    () => {
+      if (loggedIn && currentUser) {
+        loadApiMovies();
+      }
+    },
+    [updatedUserMovieList, currentUser],
+  );
+
+  // --------------------------- Инициализация User -------------------------------- /
   useEffect(() => {
-    if (loggedIn){
-      loadApiMovies();
+    if (loggedIn && currentUser) {
+      getUserData()
+        .then((user) => setCurrentUser(user))
+        .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
     }
-  }, [loggedIn, updatedUserMovieList]);
+  }, [loggedIn]);
 
   // --------------------------- Удаление из избранного -------------------------------- /
   const handleDeleteFavoriteMovie = (movie) => {
@@ -64,12 +71,12 @@ const App = () => {
       .find((userMovie) => userMovie.movieId === movie.id || userMovie.movieId === movie.movieId);
     deleteSavedMovies(savedUserMovie._id)
       .then(() => {
-        const newUserMovieList = localMovieList
-          .filter((userMovie) => userMovie.movieId !== movie.movieId);
+        const newUserMovieList =
+          localMovieList.filter((userMovie) => userMovie.movieId !== movie.movieId);
         setLocalMovieList(newUserMovieList);
         setUpdatedUserMovieList(newUserMovieList);
       })
-      .catch(() => setServerInfo({errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD}));
+      .catch(() => setIsInfoTooltip(SERVER_REQUEST_BAD));
   };
 
   // --------------------------- Добавление в избранное -------------------------------- /
@@ -81,12 +88,9 @@ const App = () => {
     } else {
       addToSavedMovies(movie)
         .then((addNewMovie) => setLocalMovieList([...localMovieList, addNewMovie]))
-        .catch(() => setServerInfo({errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD}));
+        .catch(() => setIsInfoTooltip(SERVER_REQUEST_BAD));
     }
   };
-
-  // ---------------------------------------------------------> Аутинфикация пользователя
-
 
   return (<>
     <Header>

@@ -1,13 +1,14 @@
-import {useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
-import useFormWithValidation from "../../hooks/useFormWithValidation";
+import useFormWithValidation from '../../hooks/useFormWithValidation';
 import { authorizeUser } from '../../utils/auth';
 import {
-SERVER_REQUEST_BAD, SERVER_REQUEST_ERROR,
-  wrongCredentialsError
-} from "../../utils/constants";
+  SERVER_REQUEST_BAD, SERVER_REQUEST_ERROR,
+  wrongCredentialsError,
+} from '../../utils/constants';
+
 const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
   const navigate = useNavigate();
   const {
@@ -27,8 +28,8 @@ const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
           localStorage.clear();
         }
         localStorage.setItem('jwt', res.token);
-        navigate("/movies", { replace: true });
-        setServerInfo('')
+        navigate('/movies', { replace: true });
+        setServerInfo('');
       })
       .catch((err) => {
         if (err.message === '401') {
@@ -40,8 +41,7 @@ const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
           return;
         }
         setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
-      })
-
+      });
   };
 
   const handleSubmit = (evt) => {
@@ -58,7 +58,7 @@ const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
     resetForm();
   }, []);
 
-  return(
+  return (
     <FormList
       nameForm={'login'}
       nameTitle={'Рады видеть!'}
@@ -87,7 +87,6 @@ const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
         errors={errors.password}
         required/>
     </FormList>
-    )
-
+  );
 };
 export default Login;

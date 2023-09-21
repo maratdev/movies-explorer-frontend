@@ -15,12 +15,21 @@ const _getResponseData = (res) => {
 
 const _request = (url, options) => fetch(url, options).then(_getResponseData);
 
+// Инициализация User
+export const getUserData = () => _request(`${_api.BASE_URL}/users/me`, {
+  method: 'GET',
+  headers: {
+    ..._api.HEADERS,
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  },
+});
+
 // Инициализация Movies
 export const getSavedMovies = () => _request(`${_api.BASE_URL}/movies`, {
   method: 'GET',
   headers: {
     ..._api.HEADERS,
-    authorization: `Bearer ${localStorage.getItem('jwt')}`
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 
@@ -29,7 +38,7 @@ export const addToSavedMovies = (movie) => _request(`${_api.BASE_URL}/movies`, {
   method: 'POST',
   headers: {
     ..._api.HEADERS,
-    authorization: `Bearer ${localStorage.getItem('jwt')}`
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
   body: JSON.stringify({
     country: movie.country || '',
@@ -51,8 +60,10 @@ export const deleteSavedMovies = (movieId) => _request(`${_api.BASE_URL}/movies/
   method: 'DELETE',
   headers: {
     ..._api.HEADERS,
-    authorization: `Bearer ${localStorage.getItem('jwt')}`
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 
-export default { addToSavedMovies, getSavedMovies, deleteSavedMovies };
+export default {
+  addToSavedMovies, getSavedMovies, getUserData, deleteSavedMovies,
+};

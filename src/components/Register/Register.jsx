@@ -1,5 +1,5 @@
-import { useEffect, } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 import { registerUser } from '../../utils/auth';
@@ -25,7 +25,9 @@ const Register = ({ serverInfo, setServerInfo }) => {
     registerUser(name, password, email)
       .then(() => {
         setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
-        setTimeout(() => { navigate('/signin',{ replace: false })}, 2000)
+        setTimeout(() => {
+          navigate('/signin', { replace: false });
+        }, 2000);
       })
       .catch((err) => {
         if (err.message === '409') {
@@ -37,9 +39,6 @@ const Register = ({ serverInfo, setServerInfo }) => {
           return;
         }
         setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
-      })
-      .finally(() => {
-        console.log('зарег');
       });
   }
 
@@ -51,7 +50,6 @@ const Register = ({ serverInfo, setServerInfo }) => {
         password: values.password,
         email: values.email,
       });
-
     }
   };
 

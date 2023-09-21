@@ -1,6 +1,7 @@
 const SERVER_REQUEST_ERROR = 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
 const SERVER_REQUEST_BAD = 'Ошибка запроса на сервер';
 const NOTHING_FOUND = 'Ничего не найдено 🤷‍♂️';
+const REQUEST_USERDATA_ERROR = 'Ошибка получения данных о пользователе';
 
 const successRegistration = 'Вы успешно зарегистрировались!';
 const duplicateEmailError = 'Пользователь с таким email уже существует';
@@ -34,6 +35,7 @@ export {
   SERVER_REQUEST_ERROR,
   NOTHING_FOUND,
   SERVER_REQUEST_BAD,
+  REQUEST_USERDATA_ERROR,
   duplicateEmailError,
   wrongCredentialsError,
   successRegistration,
