@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import Header from '../Header/Header.jsx';
 import NavBar from '../NavBar/NavBar.jsx';
@@ -52,7 +52,7 @@ const App = () => {
         loadApiMovies();
       }
     },
-    [updatedUserMovieList, currentUser], 
+    [updatedUserMovieList, currentUser],
   );
 
   // --------------------------- Инициализация User -------------------------------- /
@@ -91,6 +91,15 @@ const App = () => {
     }
   };
 
+  // --------------------------- Выход из аккаунта-------------------------------- /
+  const navigate = useNavigate();
+  const fullLogout = () => {
+    localStorage.clear();
+    setLoggedIn(!loggedIn);
+    setCurrentUser({});
+    navigate('/');
+  };
+
   return (<>
     <Header>
       {loggedIn ? <NavBarMovie/> : <NavBar/>}
@@ -121,6 +130,7 @@ const App = () => {
           setServerInfo={setServerInfo}
           currentUser={currentUser}
           serverInfo={serverInfo}
+          fullLogout={fullLogout}
         />}/>
       <Route path="/signup" element={
         <Register

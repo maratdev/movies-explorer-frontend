@@ -5,7 +5,7 @@ import useFormWithValidation from '../../hooks/useFormWithValidation';
 import './Profile.css';
 import { wrongValidation, successProfile } from '../../utils/constants';
 
-const Profile = ({ currentUser, setServerInfo, serverInfo }) => {
+const Profile = ({ currentUser, setServerInfo, serverInfo, fullLogout }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
   const {
@@ -62,6 +62,11 @@ const Profile = ({ currentUser, setServerInfo, serverInfo }) => {
         email: values.email,
       });
     }
+  };
+
+
+  const handleOnSignOut = () => {
+    fullLogout();
   };
 
   return (
@@ -130,6 +135,7 @@ const Profile = ({ currentUser, setServerInfo, serverInfo }) => {
                 <button
                   className="Profile__btn-edit Profile__btn-edit_exit"
                   type="button"
+                  onClick={handleOnSignOut}
                   aria-label="выход из аккаунта">
                   Выйти из аккаунта
                 </button>

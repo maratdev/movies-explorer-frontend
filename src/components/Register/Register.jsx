@@ -27,11 +27,15 @@ const Register = ({ serverInfo, setServerInfo }) => {
         setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
         setTimeout(() => {
           navigate('/signin', { replace: false });
+          setServerInfo({});
         }, 2000);
       })
       .catch((err) => {
         if (err.message === '409') {
           setServerInfo({ errorStatus: 'duplicateEmailError', text: duplicateEmailError });
+          setTimeout(() => {
+            setServerInfo({});
+          }, 3000)
           return;
         }
         if (err.message === '400') {
