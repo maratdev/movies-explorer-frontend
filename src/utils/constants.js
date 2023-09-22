@@ -4,8 +4,10 @@ const NOTHING_FOUND = 'Ничего не найдено 🤷‍♂️';
 const REQUEST_USERDATA_ERROR = 'Ошибка получения данных о пользователе';
 
 const successRegistration = 'Вы успешно зарегистрировались!';
+const successProfile = 'Ваши данные успешно сохранены!';
 const duplicateEmailError = 'Пользователь с таким email уже существует';
 const wrongCredentialsError = 'Неверный адрес электронной почты или пароль!';
+const wrongValidation = 'Ошибка в имени или email';
 const DEVICE_SIZE = {
   desktop: {
     width: 1024,
@@ -39,4 +41,6 @@ export {
   duplicateEmailError,
   wrongCredentialsError,
   successRegistration,
+  wrongValidation,
+  successProfile,
 };

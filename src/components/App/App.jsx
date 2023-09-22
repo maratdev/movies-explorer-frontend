@@ -27,7 +27,6 @@ const App = () => {
   // --------------------------- Пользователь -------------------------------- /
   const [currentUser, setCurrentUser] = useState({}); // User data
   const [loggedIn, setLoggedIn] = useState(false);
-
   // Аутинфикация
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
@@ -53,7 +52,7 @@ const App = () => {
         loadApiMovies();
       }
     },
-    [updatedUserMovieList, currentUser],
+    [updatedUserMovieList, currentUser], 
   );
 
   // --------------------------- Инициализация User -------------------------------- /
@@ -63,7 +62,7 @@ const App = () => {
         .then((user) => setCurrentUser(user))
         .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
     }
-  }, [loggedIn]);
+  }, [loggedIn, serverInfo]);
 
   // --------------------------- Удаление из избранного -------------------------------- /
   const handleDeleteFavoriteMovie = (movie) => {
@@ -71,8 +70,8 @@ const App = () => {
       .find((userMovie) => userMovie.movieId === movie.id || userMovie.movieId === movie.movieId);
     deleteSavedMovies(savedUserMovie._id)
       .then(() => {
-        const newUserMovieList =
-          localMovieList.filter((userMovie) => userMovie.movieId !== movie.movieId);
+        const newUserMovieList = localMovieList
+          .filter((userMovie) => userMovie.movieId !== movie.movieId);
         setLocalMovieList(newUserMovieList);
         setUpdatedUserMovieList(newUserMovieList);
       })
@@ -98,34 +97,43 @@ const App = () => {
     </Header>
     <Routes>
       <Route path="/" element={<Main/>}/>
-      <Route path="/movies" element={<Movies
-        loggedIn={loggedIn}
-        setIsInfoTooltip={setIsInfoTooltip}
-        isInfoTooltip={isInfoTooltip}
-        toDelete={handleDeleteFavoriteMovie}
-        toSaved={handleFavoriteMovie}
-        localMovieList={localMovieList}
-        serverInfo={serverInfo}
-      />}/>
+      <Route path="/movies" element={
+        <Movies
+          loggedIn={loggedIn}
+          setIsInfoTooltip={setIsInfoTooltip}
+          isInfoTooltip={isInfoTooltip}
+          toDelete={handleDeleteFavoriteMovie}
+          toSaved={handleFavoriteMovie}
+          localMovieList={localMovieList}
+          serverInfo={serverInfo}
+        />}/>
 
-      <Route path="/saved-movies" element={<SavedMovies
-        setIsInfoTooltip={setIsInfoTooltip}
-        isInfoTooltip={isInfoTooltip}
-        toDelete={handleDeleteFavoriteMovie}
-        toSaved={handleFavoriteMovie}
-        localMovieList={localMovieList}
-      />}/>
-      <Route path="/profile" element={<Profile/>}/>
-      <Route path="/signup" element={<Register
-        serverInfo={serverInfo}
-        setServerInfo={setServerInfo}
-      />}/>
-      <Route path="/signin" element={<Login
-        setLoggedIn={setLoggedIn}
-        serverInfo={serverInfo}
-        setServerInfo={setServerInfo}
-        setIsInfoTooltip={setIsInfoTooltip}
-      />}/>
+      <Route path="/saved-movies" element={
+        <SavedMovies
+          setIsInfoTooltip={setIsInfoTooltip}
+          isInfoTooltip={isInfoTooltip}
+          toDelete={handleDeleteFavoriteMovie}
+          toSaved={handleFavoriteMovie}
+          localMovieList={localMovieList}
+        />}/>
+      <Route path="/profile" element={
+        <Profile
+          setServerInfo={setServerInfo}
+          currentUser={currentUser}
+          serverInfo={serverInfo}
+        />}/>
+      <Route path="/signup" element={
+        <Register
+          serverInfo={serverInfo}
+          setServerInfo={setServerInfo}
+        />}/>
+      <Route path="/signin" element={
+        <Login
+          setLoggedIn={setLoggedIn}
+          serverInfo={serverInfo}
+          setServerInfo={setServerInfo}
+          setIsInfoTooltip={setIsInfoTooltip}
+        />}/>
       {/* <Route path="/*" element={<NotFound/>}/> */}
       <Route path="/404" element={<NotFound/>}/>
     </Routes>

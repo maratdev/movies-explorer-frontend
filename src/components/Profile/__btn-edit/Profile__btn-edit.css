@@ -15,6 +15,18 @@
   margin-top: 16px;
 }
 
+.Profile__btn-edit_err {
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: normal;
+  background-color: transparent;
+  color: var(--line);
+  border: none;
+  outline: none;
+  cursor: auto;
+  transition: opacity 0.7s ease;
+}
+
 .Profile__btn-edit:hover {
   opacity: 0.7;
 }

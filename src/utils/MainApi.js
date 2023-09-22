@@ -64,6 +64,16 @@ export const deleteSavedMovies = (movieId) => _request(`${_api.BASE_URL}/movies/
   },
 });
 
+// Редактирование профиля
+export const saveDataInfo = (name, email) => _request(`${_api.BASE_URL}/users/me`, {
+  method: 'PATCH',
+  headers: {
+    ..._api.HEADERS,
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  },
+  body: JSON.stringify({ name, email }),
+});
+
 export default {
-  addToSavedMovies, getSavedMovies, getUserData, deleteSavedMovies,
+  addToSavedMovies, getSavedMovies, getUserData, deleteSavedMovies, saveDataInfo,
 };

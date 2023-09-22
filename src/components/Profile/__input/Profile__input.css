@@ -4,13 +4,26 @@
   text-align: right;
   font-size: 0.6875rem;
   font-weight: normal;
+  color: var(--line);
+  border: none;
+  outline: none;
+  padding: 16px 0 17px 0;
+  transition: 0.4s;
+}
+
+.Profile__input_edit {
+  background-color: transparent;
+  width: 80%;
+  text-align: right;
+  font-size: 0.75rem;
+  font-weight: normal;
   color: #fff;
   border: none;
   outline: none;
   padding: 16px 0 17px 0;
+  transition: 0.4s;
 }
 
-.Profile__input:focus {
-  border: none;
-  outline: none;
+.Profile__input:focus, .Profile__input_edit:focus {
+  border-bottom: 1px solid var(--line);
 }

@@ -2,3 +2,27 @@
   font-size: 0.6875rem;
   font-weight: 500;
 }
+
+.Profile__label-text_err {
+  color: #EE3465;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+.Profile__label-text_info {
+  color: #EE3465;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 55px;
+}
+
+.Profile__label-text_ok {
+  color: var(--color-green);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 55px;
+  transition: color ease 0.4s;
+}
+
