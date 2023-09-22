@@ -1,48 +1,15 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
-import { authorizeUser } from '../../utils/auth';
-import {
-  SERVER_REQUEST_BAD, SERVER_REQUEST_ERROR,
-  wrongCredentialsError,
-} from '../../utils/constants';
 
-const Login = ({ serverInfo, setServerInfo, setLoggedIn }) => {
-  const navigate = useNavigate();
+const Login = ({ serverInfo, handleAuthorizeUser }) => {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation({
     password: '',
     email: '',
   });
-
-  // --------------------- Авторизация пользователя ---------------- /
-  const handleAuthorizeUser = ({ password, email }) => {
-    authorizeUser(password, email)
-      .then((res) => {
-        const jwt = localStorage.getItem('jwt');
-        setLoggedIn(true);
-        if (jwt !== null) {
-          localStorage.clear();
-        }
-        localStorage.setItem('jwt', res.token);
-        navigate('/movies', { replace: true });
-        setServerInfo('');
-      })
-      .catch((err) => {
-        if (err.message === '401') {
-          setServerInfo({ errorStatus: 'wrongCredentialsError', text: wrongCredentialsError });
-          return;
-        }
-        if (err.message === '400') {
-          setServerInfo({ errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD });
-          return;
-        }
-        setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
-      });
-  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

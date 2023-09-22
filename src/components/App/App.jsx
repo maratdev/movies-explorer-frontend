@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import {
+  Route, Routes, useLocation, useNavigate,
+} from 'react-router-dom';
 import Main from '../Main/Main.jsx';
 import Header from '../Header/Header.jsx';
 import NavBar from '../NavBar/NavBar.jsx';
@@ -11,31 +13,40 @@ import Profile from '../Profile/Profile.jsx';
 import Register from '../Register/Register.jsx';
 import Login from '../Login/Login.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
+import ProtectedRoute from '../../hooks/ProtectedRoute';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import {
   addToSavedMovies, deleteSavedMovies, getUserData, getSavedMovies,
 } from '../../utils/MainApi';
-import { checkTokenUser } from '../../utils/auth';
-import { SERVER_REQUEST_ERROR, SERVER_REQUEST_BAD, REQUEST_USERDATA_ERROR } from '../../utils/constants';
+import { authorizeUser, checkTokenUser, registerUser } from '../../utils/auth';
+import {
+  SERVER_REQUEST_ERROR,
+  SERVER_REQUEST_BAD,
+  REQUEST_USERDATA_ERROR,
+  successRegistration, duplicateEmailError, wrongCredentialsError,
+} from '../../utils/constants';
 
 const App = () => {
-  // -----------------------------------Подсказки-----------------/
+  // --------------------------- Видимость элементов-------------------------------- /
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [visibleComponent, setVisibleComponent] = useState('');
+  const visibleElement = pathname === '/signin' || pathname === '/signup' || pathname === `${visibleComponent}`;
+
+  // -----------------------------------Подсказки--------------------------------------/
   const [isInfoTooltip, setIsInfoTooltip] = useState(''); // ошибки сервера
   const [serverInfo, setServerInfo] = useState({ errorStatus: '', text: '' }); // ошибки при регистрации и авторизации
   // --------------------------- Фильмы добавленые в сохраненые -------------------------------- /
   const [updatedUserMovieList, setUpdatedUserMovieList] = useState([]); // Trigger render
   const [localMovieList, setLocalMovieList] = useState([]); // фильмы сохраненые пользователем
   // --------------------------- Пользователь -------------------------------- /
-  const [currentUser, setCurrentUser] = useState({}); // User data
+  const [currentUser, setCurrentUser] = useState({
+    isLoggedIn: undefined,
+    _id: '',
+    name: '',
+    email: '',
+  }); // User data
   const [loggedIn, setLoggedIn] = useState(false);
-  // Аутинфикация
-  useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      checkTokenUser(jwt)
-        .then(() => setLoggedIn(true))
-        .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
-    }
-  }, []);
 
   // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
   const loadApiMovies = () => {
@@ -59,7 +70,12 @@ const App = () => {
   useEffect(() => {
     if (loggedIn && currentUser) {
       getUserData()
-        .then((user) => setCurrentUser(user))
+        .then((user) => setCurrentUser({
+          _id: user._id,
+          isLoggedIn: true,
+          name: user.name,
+          email: user.email,
+        }))
         .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
     }
   }, [loggedIn, serverInfo]);
@@ -91,8 +107,82 @@ const App = () => {
     }
   };
 
+  // --------------------- Авторизация пользователя ---------------- /
+  const handleAuthorizeUser = ({ password, email }) => {
+    authorizeUser(password, email)
+      .then((res) => {
+        const jwt = localStorage.getItem('jwt');
+        setLoggedIn(true);
+        if (jwt !== null) {
+          localStorage.clear();
+        }
+        localStorage.setItem('jwt', res.token);
+        setCurrentUser({
+          isLoggedIn: true,
+        });
+        navigate('/movies', { replace: true });
+        setServerInfo('');
+      })
+      .catch((err) => {
+        if (err.message === '401') {
+          setServerInfo({ errorStatus: 'wrongCredentialsError', text: wrongCredentialsError });
+          return;
+        }
+        if (err.message === '400') {
+          setServerInfo({ errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD });
+          return;
+        }
+        setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
+      });
+  };
+
+  // --------------------- Регистрация пользователя ---------------- /
+  const handleRegisterUser = ({ name, password, email }) => {
+    registerUser(name, password, email)
+      .then((user) => {
+        if (user.email) {
+          setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
+          setTimeout(() => {
+            handleAuthorizeUser({ email, password });
+          }, 2000);
+        }
+      })
+      .catch((err) => {
+        if (err.message === '409') {
+          setServerInfo({ errorStatus: 'duplicateEmailError', text: duplicateEmailError });
+          setTimeout(() => {
+            setServerInfo({});
+          }, 3000);
+          return;
+        }
+        if (err.message === '400') {
+          setServerInfo({ errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD });
+          return;
+        }
+        setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
+      });
+  };
+
+  // Аутинфикация
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      checkTokenUser(jwt)
+        .then(() => {
+          setLoggedIn(true);
+        })
+        .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
+    } else {
+      setCurrentUser({
+        isLoggedIn: false,
+        _id: '',
+        name: '',
+        email: '',
+      });
+    }
+  }, [currentUser.isLoggedIn]);
+
   // --------------------------- Выход из аккаунта-------------------------------- /
-  const navigate = useNavigate();
   const fullLogout = () => {
     localStorage.clear();
     setLoggedIn(!loggedIn);
@@ -100,55 +190,77 @@ const App = () => {
     navigate('/');
   };
 
-  return (<>
-    <Header>
-      {loggedIn ? <NavBarMovie/> : <NavBar/>}
-    </Header>
-    <Routes>
-      <Route path="/" element={<Main/>}/>
-      <Route path="/movies" element={
-        <Movies
-          loggedIn={loggedIn}
-          setIsInfoTooltip={setIsInfoTooltip}
-          isInfoTooltip={isInfoTooltip}
-          toDelete={handleDeleteFavoriteMovie}
-          toSaved={handleFavoriteMovie}
-          localMovieList={localMovieList}
-          serverInfo={serverInfo}
-        />}/>
-
-      <Route path="/saved-movies" element={
-        <SavedMovies
-          setIsInfoTooltip={setIsInfoTooltip}
-          isInfoTooltip={isInfoTooltip}
-          toDelete={handleDeleteFavoriteMovie}
-          toSaved={handleFavoriteMovie}
-          localMovieList={localMovieList}
-        />}/>
-      <Route path="/profile" element={
-        <Profile
-          setServerInfo={setServerInfo}
-          currentUser={currentUser}
-          serverInfo={serverInfo}
-          fullLogout={fullLogout}
-        />}/>
-      <Route path="/signup" element={
-        <Register
-          serverInfo={serverInfo}
-          setServerInfo={setServerInfo}
-        />}/>
-      <Route path="/signin" element={
-        <Login
-          setLoggedIn={setLoggedIn}
-          serverInfo={serverInfo}
-          setServerInfo={setServerInfo}
-          setIsInfoTooltip={setIsInfoTooltip}
-        />}/>
-      {/* <Route path="/*" element={<NotFound/>}/> */}
-      <Route path="/404" element={<NotFound/>}/>
-    </Routes>
-    <Footer date={new Date().getFullYear()}/>
-  </>);
+  return (
+    <CurrentUserContext.Provider value={currentUser}>
+      <Header
+        visibleElement={visibleElement}
+      >
+        {loggedIn ? <NavBarMovie/> : <NavBar/>}
+      </Header>
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route element={<ProtectedRoute/>}>
+          <Route path='/movies' element={
+            <Movies
+              setIsInfoTooltip={setIsInfoTooltip}
+              isInfoTooltip={isInfoTooltip}
+              toDelete={handleDeleteFavoriteMovie}
+              toSaved={handleFavoriteMovie}
+              localMovieList={localMovieList}
+              serverInfo={serverInfo}
+            />
+          }/>
+          <Route path='/saved-movies' element={
+            <SavedMovies
+              element={SavedMovies}
+              setIsInfoTooltip={setIsInfoTooltip}
+              isInfoTooltip={isInfoTooltip}
+              toDelete={handleDeleteFavoriteMovie}
+              toSaved={handleFavoriteMovie}
+              localMovieList={localMovieList}
+            />
+          }/>
+          <Route path='/profile' element={
+            <Profile
+              element={Profile}
+              setServerInfo={setServerInfo}
+              currentUser={currentUser}
+              serverInfo={serverInfo}
+              fullLogout={fullLogout}
+            />
+          }/>
+        </Route>
+        <Route path="/signup" element={
+          <Register
+            serverInfo={serverInfo}
+            setServerInfo={setServerInfo}
+            setLoggedIn={setLoggedIn}
+            handleRegisterUser={handleRegisterUser}
+          />}/>
+        <Route path="/signin" element={
+          <Login
+            handleAuthorizeUser={handleAuthorizeUser}
+            setCurrentUser={setCurrentUser}
+            setLoggedIn={setLoggedIn}
+            serverInfo={serverInfo}
+            setServerInfo={setServerInfo}
+            setIsInfoTooltip={setIsInfoTooltip}
+          />}/>
+        <Route
+          path="/*"
+          element={
+            <NotFound
+              visibleElement={visibleElement}
+              setVisibleComponent={setVisibleComponent}
+              visibleComponent={visibleComponent}
+            />}/>
+      </Routes>
+      <Footer
+        visibleElement={visibleElement}
+        date={new Date().getFullYear()
+        }/>
+    </CurrentUserContext.Provider>
+  );
 };
 
 export default App;

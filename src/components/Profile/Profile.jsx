@@ -5,7 +5,9 @@ import useFormWithValidation from '../../hooks/useFormWithValidation';
 import './Profile.css';
 import { wrongValidation, successProfile } from '../../utils/constants';
 
-const Profile = ({ currentUser, setServerInfo, serverInfo, fullLogout }) => {
+const Profile = ({
+  currentUser, setServerInfo, serverInfo, fullLogout,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
   const {
@@ -63,7 +65,6 @@ const Profile = ({ currentUser, setServerInfo, serverInfo, fullLogout }) => {
       });
     }
   };
-
 
   const handleOnSignOut = () => {
     fullLogout();

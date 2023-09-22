@@ -1,13 +1,12 @@
 import { useLocation } from 'react-router-dom';
 import './Footer.css';
 
-const Footer = ({ date }) => {
+const Footer = ({ date, visibleElement }) => {
   const { pathname } = useLocation();
-  const visibleFooter = pathname === '/profile' || pathname === '/signin' || pathname === '/profile' || pathname === '/signup' || pathname === '/404';
   return (
     <>
       {
-        !visibleFooter && (
+        !visibleElement && pathname !== '/profile' && (
           <footer className="Footer">
             <div className="Footer__wrap">
               <h3 className="Footer__title list">Учебный проект Яндекс.Практикум х BeatFilm.</h3>

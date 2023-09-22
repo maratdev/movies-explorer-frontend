@@ -1,17 +1,9 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
-import { registerUser } from '../../utils/auth';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
-import {
-  duplicateEmailError,
-  successRegistration,
-  SERVER_REQUEST_BAD, SERVER_REQUEST_ERROR,
-} from '../../utils/constants';
 
-const Register = ({ serverInfo, setServerInfo }) => {
-  const navigate = useNavigate();
+const Register = ({ serverInfo, handleRegisterUser }) => {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation({
@@ -19,32 +11,6 @@ const Register = ({ serverInfo, setServerInfo }) => {
     password: '',
     email: '',
   });
-
-  // --------------------- Регистрация пользователя ---------------- /
-  function handleRegisterUser({ name, password, email }) {
-    registerUser(name, password, email)
-      .then(() => {
-        setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
-        setTimeout(() => {
-          navigate('/signin', { replace: false });
-          setServerInfo({});
-        }, 2000);
-      })
-      .catch((err) => {
-        if (err.message === '409') {
-          setServerInfo({ errorStatus: 'duplicateEmailError', text: duplicateEmailError });
-          setTimeout(() => {
-            setServerInfo({});
-          }, 3000)
-          return;
-        }
-        if (err.message === '400') {
-          setServerInfo({ errorStatus: 'SERVER_REQUEST_BAD', text: SERVER_REQUEST_BAD });
-          return;
-        }
-        setServerInfo({ errorStatus: 'SERVER_REQUEST_ERROR', text: SERVER_REQUEST_ERROR });
-      });
-  }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
