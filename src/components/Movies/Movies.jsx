@@ -1,13 +1,13 @@
-import { useCallback, useState, useEffect } from 'react';
+import {useCallback, useState, useEffect} from 'react';
 import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
-import { NOTHING_FOUND, SERVER_REQUEST_ERROR } from '../../utils/constants';
-import { getAllMovies } from '../../utils/MoviesApi';
-import { filterShortMovies, filterMovies } from '../../utils/utilities';
+import {NOTHING_FOUND, SERVER_REQUEST_ERROR} from '../../utils/constants';
+import {getAllMovies} from '../../utils/MoviesApi';
+import {filterShortMovies, filterMovies} from '../../utils/utilities';
 
 const Movies = ({
-  setIsInfoTooltip, isInfoTooltip, toDelete, toSaved, localMovieList, serverInfo,
-}) => {
+                  setIsInfoTooltip, isInfoTooltip, toDelete, toSaved, localMovieList, serverInfo,
+                }) => {
 // ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
@@ -16,24 +16,23 @@ const Movies = ({
   const [filteredMovies, setFilteredMovies] = useState([]); // отфильтрованные по чекбоксу
 
   const storageMovies = localStorage.getItem('movies');
+  const storageSearchMovies = localStorage.getItem('searchMovies');
   const storageSearch = localStorage.getItem('search');
   const storageShort = localStorage.getItem('short');
 
-  // console.log(triggerValue)
   // ---------------------Инициализация MoviesApi------------------------/
   const [movieListAll, setMovieListAll] = useState([]);
+
   const loadUserAndMovie = () => {
     getAllMovies()
       .then((newMovie) => {
         setMovieListAll(newMovie);
+        localStorage.setItem('movies', JSON.stringify(newMovie));
       })
       .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
   };
 
-  useEffect(() => {
-    loadUserAndMovie();
-  }, []);
-
+  console.log(initialMovies)
   // ----------------------- Состояние чекбокса --------------------------------/
   const handleShortFilms = useCallback(() => {
     setIsLoader(true);
@@ -44,7 +43,7 @@ const Movies = ({
       } else {
         setFilteredMovies(initialMovies);
       }
-      localStorage.setItem('short', JSON.stringify({ check: !shortMovies }));
+      localStorage.setItem('short', JSON.stringify({check: !shortMovies}));
       setIsLoader(false);
     }, 600);
   }, [shortMovies, initialMovies]);
@@ -60,8 +59,8 @@ const Movies = ({
           shortMovies ? filterShortMovies(moviesList) : moviesList,
         );
         if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
-        localStorage.setItem('movies', JSON.stringify(moviesList));
-        localStorage.setItem('search', JSON.stringify({ query }));
+        localStorage.setItem('searchMovies', JSON.stringify(moviesList));
+        localStorage.setItem('search', JSON.stringify({query}));
       }
       setIsLoader(false);
     }, 600);
@@ -69,19 +68,24 @@ const Movies = ({
 
   // ----------------------------Вывод фильмов из localStorage --------------------------------- /
   useEffect(() => {
+    if (storageMovies === null) {
+      loadUserAndMovie();
+    }
     let arr = [];
     if (storageMovies !== null) {
-      arr = JSON.parse(storageMovies); // отфильтрованые фильмы
-      setInitialMovies(arr);
-      setFilteredMovies(arr);
+      arr = JSON.parse(storageSearchMovies); // отфильтрованые фильмы
+      setMovieListAll(JSON.parse(storageMovies) || []);
+      setFilteredMovies(arr|| []);
+      setInitialMovies(arr || [])
     }
+
     if (storageSearch !== null) {
-      const { query } = JSON.parse(storageSearch); // поисковый запрос
+      const {query} = JSON.parse(storageSearch); // поисковый запрос
       setSearchText(query || '');
       setIsInfoTooltip(NOTHING_FOUND);
     }
     if (storageShort !== null) {
-      const { check } = JSON.parse(storageShort); // чекбокс true/false
+      const {check} = JSON.parse(storageShort); // чекбокс true/false
       setShortMovies(check);
       if (check) {
         setFilteredMovies(filterShortMovies(arr));

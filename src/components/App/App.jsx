@@ -40,14 +40,12 @@ const App = () => {
   const [updatedUserMovieList, setUpdatedUserMovieList] = useState([]); // Trigger render
   const [localMovieList, setLocalMovieList] = useState([]); // фильмы сохраненые пользователем
   // --------------------------- Пользователь -------------------------------- /
-  const [currentUser, setCurrentUser] = useState({
-    isLoggedIn: undefined,
+  const [currentUser, setCurrentUser] = useState({ // Данные пользователя
     _id: '',
     name: '',
     email: '',
-  }); // User data
-  const [loggedIn, setLoggedIn] = useState(false);
-
+  });
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('jwt') );
   // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
   const loadApiMovies = () => {
     getSavedMovies()
@@ -117,11 +115,8 @@ const App = () => {
           localStorage.clear();
         }
         localStorage.setItem('jwt', res.token);
-        setCurrentUser({
-          isLoggedIn: true,
-        });
         navigate('/movies', { replace: true });
-        setServerInfo('');
+        setServerInfo(null);
       })
       .catch((err) => {
         if (err.message === '401') {
@@ -151,7 +146,7 @@ const App = () => {
         if (err.message === '409') {
           setServerInfo({ errorStatus: 'duplicateEmailError', text: duplicateEmailError });
           setTimeout(() => {
-            setServerInfo({});
+            setServerInfo(null);
           }, 3000);
           return;
         }
@@ -172,21 +167,14 @@ const App = () => {
           setLoggedIn(true);
         })
         .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
-    } else {
-      setCurrentUser({
-        isLoggedIn: false,
-        _id: '',
-        name: '',
-        email: '',
-      });
     }
-  }, [currentUser.isLoggedIn]);
+  }, []);
 
   // --------------------------- Выход из аккаунта-------------------------------- /
   const fullLogout = () => {
     localStorage.clear();
-    setLoggedIn(!loggedIn);
-    setCurrentUser({});
+    setLoggedIn(false);
+    setCurrentUser(null);
     navigate('/');
   };
 
@@ -199,7 +187,7 @@ const App = () => {
       </Header>
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route element={<ProtectedRoute/>}>
+        <Route element={<ProtectedRoute loggedIn={loggedIn}/>}>
           <Route path='/movies' element={
             <Movies
               setIsInfoTooltip={setIsInfoTooltip}
@@ -212,7 +200,6 @@ const App = () => {
           }/>
           <Route path='/saved-movies' element={
             <SavedMovies
-              element={SavedMovies}
               setIsInfoTooltip={setIsInfoTooltip}
               isInfoTooltip={isInfoTooltip}
               toDelete={handleDeleteFavoriteMovie}
@@ -222,7 +209,6 @@ const App = () => {
           }/>
           <Route path='/profile' element={
             <Profile
-              element={Profile}
               setServerInfo={setServerInfo}
               currentUser={currentUser}
               serverInfo={serverInfo}
@@ -232,16 +218,16 @@ const App = () => {
         </Route>
         <Route path="/signup" element={
           <Register
+            loggedIn={loggedIn}
             serverInfo={serverInfo}
             setServerInfo={setServerInfo}
-            setLoggedIn={setLoggedIn}
             handleRegisterUser={handleRegisterUser}
           />}/>
         <Route path="/signin" element={
           <Login
+            loggedIn={loggedIn}
             handleAuthorizeUser={handleAuthorizeUser}
             setCurrentUser={setCurrentUser}
-            setLoggedIn={setLoggedIn}
             serverInfo={serverInfo}
             setServerInfo={setServerInfo}
             setIsInfoTooltip={setIsInfoTooltip}

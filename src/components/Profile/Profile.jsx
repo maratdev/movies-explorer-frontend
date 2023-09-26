@@ -114,7 +114,7 @@ const Profile = ({
               <span className="Profile__label-text_err">{errors.email}</span>
             </div>
             <p
-              className={`Profile__label-text_${serverInfo.errorStatus === 'successProfile' ? 'ok' : 'info'}`}>{serverInfo.text}</p>
+              className={`Profile__label-text_${serverInfo?.errorStatus === 'successProfile' ? 'ok' : 'info'}`}>{serverInfo?.text}</p>
             <div className="Profile__btn-wrap">
               {
                 isEditing

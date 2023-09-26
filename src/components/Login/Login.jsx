@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
 
-const Login = ({ serverInfo, handleAuthorizeUser }) => {
+const Login = ({ serverInfo, handleAuthorizeUser, loggedIn }) => {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation({
@@ -25,7 +26,9 @@ const Login = ({ serverInfo, handleAuthorizeUser }) => {
     resetForm();
   }, []);
 
+
   return (
+    !loggedIn ?
     <FormList
       nameForm={'login'}
       nameTitle={'Рады видеть!'}
@@ -53,7 +56,7 @@ const Login = ({ serverInfo, handleAuthorizeUser }) => {
         handleChange={handleChange}
         errors={errors.password}
         required/>
-    </FormList>
+    </FormList> :  <Navigate to='/movies' />
   );
 };
 export default Login;

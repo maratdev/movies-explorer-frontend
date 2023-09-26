@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
+import {Navigate} from "react-router-dom";
 import FormList from '../FormList/FormList.jsx';
 import FormComponent from '../FormComponent/FormComponent.jsx';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
 
-const Register = ({ serverInfo, handleRegisterUser }) => {
+const Register = ({ serverInfo, handleRegisterUser, loggedIn }) => {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation({
@@ -28,6 +29,7 @@ const Register = ({ serverInfo, handleRegisterUser }) => {
   }, []);
 
   return (
+    !loggedIn ?
     <FormList
       nameForm={'register'}
       nameTitle={'Добро пожаловать!'}
@@ -68,7 +70,7 @@ const Register = ({ serverInfo, handleRegisterUser }) => {
         minLength={2}
         errors={errors.password}
         required/>
-    </FormList>
+    </FormList> : <Navigate to='/movies' />
   );
 };
 
