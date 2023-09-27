@@ -60,6 +60,8 @@
 - [Бэкенд](https://api.voredev.nomoreparties.co/)
 - IP адрес сервера `158.160.66.2`
 
+**🛠️ GIT:**
+- [Pull request](https://github.com/maratdev/movies-explorer-frontend/pull/2)
 ---
 
 #### Установка и запуск приложения на локальной машине:
