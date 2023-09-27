@@ -34,6 +34,7 @@ const Profile = ({
       .then((newUser) => {
         setServerInfo({ errorStatus: 'successProfile', text: successProfile });
         setCurrentUser({
+          _id: newUser._id,
           name: newUser.name,
           email: newUser.email,
         });

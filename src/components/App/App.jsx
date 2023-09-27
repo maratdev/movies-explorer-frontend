@@ -65,6 +65,7 @@ const App = () => {
   // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
 
   const loadApiMovies = () => {
+    console.log(currentUser)
     getSavedMovies()
       .then((savedMovie) => setLocalMovieList(
         savedMovie.filter((userMovie) => userMovie.owner._id === currentUser._id)
