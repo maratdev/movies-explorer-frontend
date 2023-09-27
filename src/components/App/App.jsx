@@ -55,14 +55,11 @@ const App = () => {
       .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
   };
 
-  useEffect(
-    () => {
+  useEffect(() => {
       if (loggedIn && currentUser) {
         loadApiMovies();
       }
-    },
-    [updatedUserMovieList, currentUser],
-  );
+    },[updatedUserMovieList]);
 
   // --------------------------- Инициализация User -------------------------------- /
   useEffect(() => {
@@ -75,7 +72,7 @@ const App = () => {
         }))
         .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
     }
-  }, [loggedIn, serverInfo]);
+  }, [loggedIn]);
 
   // --------------------------- Удаление из избранного -------------------------------- /
   const handleDeleteFavoriteMovie = (movie) => {
@@ -211,7 +208,7 @@ const App = () => {
               currentUser={currentUser}
               serverInfo={serverInfo}
               fullLogout={fullLogout}
-              loggedIn={loggedIn}
+              setCurrentUser={setCurrentUser}
             />
           }/>
         </Route>

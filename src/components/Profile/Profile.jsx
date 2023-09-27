@@ -9,7 +9,7 @@ import {
 import { escapeRegExp } from '../../utils/utilities';
 
 const Profile = ({
-  currentUser, setServerInfo, serverInfo, fullLogout, loggedIn,
+  currentUser, setServerInfo, serverInfo, fullLogout, setCurrentUser
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
@@ -32,8 +32,12 @@ const Profile = ({
   // --------------------- Обновление данных пользователя ---------------- /
   const handleUpdateProfile = ({ user, email }) => {
     saveDataInfo(user, email)
-      .then(() => {
+      .then((user) => {
         setServerInfo({ errorStatus: 'successProfile', text: successProfile });
+        setCurrentUser({
+          name: user.name,
+          email: user.email
+        });
         setTimeout(() => {
           setServerInfo('');
           setIsEditing(false);
@@ -43,7 +47,7 @@ const Profile = ({
         if (err.message === '400') {
           setServerInfo({ errorStatus: 'wrongValidation', text: wrongValidation });
         }
-      });
+      })
   };
 
   // --------------------- Иницализация данных пользователя ---------------- /
@@ -54,17 +58,17 @@ const Profile = ({
         email: currentUser.email,
       });
     }
-  }, [currentUser, loggedIn]);
+  }, [currentUser]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if ((regexName.test(values.user) && currentUser.name === values.user)
-      && (regexEmail.test(values.email) && currentUser.email === values.email)) {
+    if ((regexName.test(values.user) && currentUser.name === values.user) && (regexEmail.test(values.email) && currentUser.email === values.email)) {
       setServerInfo({ errorStatus: 'wrongEmpty', text: wrongEmpty });
       setTimeout(() => {
         setServerInfo('');
         setIsEditing(false);
       }, 2000);
+
     } else {
       handleUpdateProfile({
         user: values.user,
