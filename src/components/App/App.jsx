@@ -46,6 +46,8 @@ const App = () => {
     email: '',
   });
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('jwt'));
+  // -------------------------Состояние отправки форм--------------------------*
+  const [btnDisabled, setBtnDisabled] = useState(false);
   // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
   const loadApiMovies = () => {
     getSavedMovies()
@@ -56,10 +58,10 @@ const App = () => {
   };
 
   useEffect(() => {
-      if (loggedIn && currentUser) {
-        loadApiMovies();
-      }
-    },[updatedUserMovieList]);
+    if (loggedIn && currentUser) {
+      loadApiMovies();
+    }
+  }, [updatedUserMovieList]);
 
   // --------------------------- Инициализация User -------------------------------- /
   useEffect(() => {
@@ -107,6 +109,7 @@ const App = () => {
       .then((res) => {
         const jwt = localStorage.getItem('jwt');
         setLoggedIn(true);
+        setBtnDisabled(false);
         if (jwt !== null) {
           localStorage.clear();
         }
@@ -129,16 +132,18 @@ const App = () => {
 
   // --------------------- Регистрация пользователя ---------------- /
   const handleRegisterUser = ({ name, password, email }) => {
+    setBtnDisabled(true);
     registerUser(name, password, email)
       .then((user) => {
         if (user.email) {
           setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
           setTimeout(() => {
             handleAuthorizeUser({ email, password });
-          }, 1500);
+          }, 2000);
         }
       })
       .catch((err) => {
+        setBtnDisabled(false);
         if (err.message === '409') {
           setServerInfo({ errorStatus: 'duplicateEmailError', text: duplicateEmailError });
           setTimeout(() => {
@@ -209,6 +214,8 @@ const App = () => {
               serverInfo={serverInfo}
               fullLogout={fullLogout}
               setCurrentUser={setCurrentUser}
+              setBtnDisabled={setBtnDisabled}
+              btnDisabled={btnDisabled}
             />
           }/>
         </Route>
@@ -218,6 +225,7 @@ const App = () => {
             serverInfo={serverInfo}
             setServerInfo={setServerInfo}
             handleRegisterUser={handleRegisterUser}
+            btnDisabled={btnDisabled}
           />}/>
         <Route path="/signin" element={
           <Login

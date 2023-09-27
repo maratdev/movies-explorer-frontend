@@ -6,7 +6,9 @@ import useFormWithValidation from '../../hooks/useFormWithValidation';
 import { regexEmail, regexName } from '../../utils/constants';
 import { escapeRegExp } from '../../utils/utilities';
 
-const Register = ({ serverInfo, handleRegisterUser, loggedIn }) => {
+const Register = ({
+  serverInfo, handleRegisterUser, loggedIn, btnDisabled,
+}) => {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation();
@@ -21,11 +23,9 @@ const Register = ({ serverInfo, handleRegisterUser, loggedIn }) => {
       });
     }
   };
-
   useEffect(() => {
     resetForm();
   }, []);
-
   return (
     !loggedIn
       ? <FormList
@@ -37,6 +37,7 @@ const Register = ({ serverInfo, handleRegisterUser, loggedIn }) => {
         toLink={'/signin'}
         handleSubmit={handleSubmit}
         isValid={isValid}
+        btnDisabled={btnDisabled}
         serverInfo={serverInfo}
       >
 

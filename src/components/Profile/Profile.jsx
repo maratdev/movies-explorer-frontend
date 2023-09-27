@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { saveDataInfo } from '../../utils/MainApi';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
@@ -9,10 +9,9 @@ import {
 import { escapeRegExp } from '../../utils/utilities';
 
 const Profile = ({
-  currentUser, setServerInfo, serverInfo, fullLogout, setCurrentUser
+  currentUser, setServerInfo, serverInfo, fullLogout, setCurrentUser, setBtnDisabled, btnDisabled,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [btnDisabled, setBtnDisabled] = useState(false);
   const {
     values, handleChange, errors, setValues,
   } = useFormWithValidation({
@@ -32,11 +31,11 @@ const Profile = ({
   // --------------------- Обновление данных пользователя ---------------- /
   const handleUpdateProfile = ({ user, email }) => {
     saveDataInfo(user, email)
-      .then((user) => {
+      .then((newUser) => {
         setServerInfo({ errorStatus: 'successProfile', text: successProfile });
         setCurrentUser({
-          name: user.name,
-          email: user.email
+          name: newUser.name,
+          email: newUser.email,
         });
         setTimeout(() => {
           setServerInfo('');
@@ -47,7 +46,7 @@ const Profile = ({
         if (err.message === '400') {
           setServerInfo({ errorStatus: 'wrongValidation', text: wrongValidation });
         }
-      })
+      });
   };
 
   // --------------------- Иницализация данных пользователя ---------------- /
@@ -62,13 +61,13 @@ const Profile = ({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if ((regexName.test(values.user) && currentUser.name === values.user) && (regexEmail.test(values.email) && currentUser.email === values.email)) {
+    if ((regexName.test(values.user) && currentUser.name === values.user)
+      && (regexEmail.test(values.email) && currentUser.email === values.email)) {
       setServerInfo({ errorStatus: 'wrongEmpty', text: wrongEmpty });
       setTimeout(() => {
         setServerInfo('');
         setIsEditing(false);
       }, 2000);
-
     } else {
       handleUpdateProfile({
         user: values.user,

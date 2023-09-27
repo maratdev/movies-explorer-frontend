@@ -21,7 +21,6 @@ const Movies = ({
   const storageShort = localStorage.getItem('short');
 
   const [searchValue, setSearchValue] = useState('');
-  console.log(searchValue)
   // ---------------------Инициализация MoviesApi------------------------/
   const [movieListAll, setMovieListAll] = useState([]);
 
@@ -96,7 +95,7 @@ const Movies = ({
 
   useEffect(() => {
     if (filteredMovies !== null) {
-      movieQuery(searchValue.trim())
+      movieQuery(searchValue.trim());
     }
   }, [shortMovies]);
 

@@ -1,17 +1,14 @@
 import './SearchForm.css';
 
 const SearchForm = ({
-  movieQuery, shortMovies, handleShortFilms, searchText, searchValue, setSearchValue
+  movieQuery, shortMovies, handleShortFilms, searchText, searchValue, setSearchValue,
 }) => {
-
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (!searchValue) return;
     movieQuery(searchValue.trim());
   };
   const onChangeSearchInput = (evt) => setSearchValue(evt.target.value);
-
 
   return (
     <section className="SearchForm">
