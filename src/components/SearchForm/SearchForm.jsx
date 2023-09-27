@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import './SearchForm.css';
 
 const SearchForm = ({
-  movieQuery, shortMovies, handleShortFilms, searchText,
+  movieQuery, shortMovies, handleShortFilms, searchText, searchValue, setSearchValue
 }) => {
-  const [searchValue, setSearchValue] = useState('');
+
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -12,6 +11,7 @@ const SearchForm = ({
     movieQuery(searchValue.trim());
   };
   const onChangeSearchInput = (evt) => setSearchValue(evt.target.value);
+
 
   return (
     <section className="SearchForm">

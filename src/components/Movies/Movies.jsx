@@ -20,6 +20,8 @@ const Movies = ({
   const storageSearch = localStorage.getItem('search');
   const storageShort = localStorage.getItem('short');
 
+  const [searchValue, setSearchValue] = useState('');
+  console.log(searchValue)
   // ---------------------Инициализация MoviesApi------------------------/
   const [movieListAll, setMovieListAll] = useState([]);
 
@@ -92,6 +94,12 @@ const Movies = ({
     }
   }, []);
 
+  useEffect(() => {
+    if (filteredMovies !== null) {
+      movieQuery(searchValue.trim())
+    }
+  }, [shortMovies]);
+
   return (
     <main>
       <SearchForm
@@ -99,6 +107,8 @@ const Movies = ({
         shortMovies={shortMovies}
         handleShortFilms={handleShortFilms}
         movieQuery={movieQuery}
+        setSearchValue={setSearchValue}
+        searchValue={searchValue}
       />
       <MoviesCardList
         serverInfo={serverInfo}
