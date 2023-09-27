@@ -13,7 +13,7 @@ import Profile from '../Profile/Profile.jsx';
 import Register from '../Register/Register.jsx';
 import Login from '../Login/Login.jsx';
 import NotFound from '../NotFound/NotFound.jsx';
-import ProtectedRoute from '../../hooks/ProtectedRoute';
+import ProtectedRoute from '../../hooks/useProtectedRoute';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import {
   addToSavedMovies, deleteSavedMovies, getUserData, getSavedMovies,
@@ -45,7 +45,7 @@ const App = () => {
     name: '',
     email: '',
   });
-  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('jwt') );
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('jwt'));
   // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
   const loadApiMovies = () => {
     getSavedMovies()
@@ -70,7 +70,6 @@ const App = () => {
       getUserData()
         .then((user) => setCurrentUser({
           _id: user._id,
-          isLoggedIn: true,
           name: user.name,
           email: user.email,
         }))
@@ -139,7 +138,7 @@ const App = () => {
           setServerInfo({ errorStatus: 'successRegistration', text: successRegistration });
           setTimeout(() => {
             handleAuthorizeUser({ email, password });
-          }, 2000);
+          }, 1500);
         }
       })
       .catch((err) => {
@@ -174,7 +173,6 @@ const App = () => {
   const fullLogout = () => {
     localStorage.clear();
     setLoggedIn(false);
-    setCurrentUser(null);
     navigate('/');
   };
 
@@ -213,6 +211,7 @@ const App = () => {
               currentUser={currentUser}
               serverInfo={serverInfo}
               fullLogout={fullLogout}
+              loggedIn={loggedIn}
             />
           }/>
         </Route>

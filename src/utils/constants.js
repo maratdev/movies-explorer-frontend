@@ -6,8 +6,14 @@ const REQUEST_USERDATA_ERROR = 'Ошибка получения данных о 
 const successRegistration = 'Вы успешно зарегистрировались!';
 const successProfile = 'Ваши данные успешно сохранены!';
 const duplicateEmailError = 'Пользователь с таким email уже существует';
-const wrongCredentialsError = 'Неверный адрес электронной почты или пароль!';
+const wrongCredentialsError = 'Неверный адрес электронной почты или пароль';
 const wrongValidation = 'Ошибка в имени или email';
+const wrongEmpty = 'Данные не сохранены:  Вы не изменяли данные';
+
+const regexEmail = /^[0-9A-Za-z_!.+]+@[0-9A-Za-z_]+.[a-z_]{2,}/;
+// Chrome и Firefox трубуют экранирования символа -
+const regexName = /^[A-Za-zА-Яа-яЁё_\-]{2,}/; // eslint-disable-line
+
 const DEVICE_SIZE = {
   desktop: {
     width: 1024,
@@ -43,4 +49,7 @@ export {
   successRegistration,
   wrongValidation,
   successProfile,
+  regexEmail,
+  regexName,
+  wrongEmpty,
 };

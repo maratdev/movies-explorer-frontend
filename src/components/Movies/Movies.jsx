@@ -1,13 +1,13 @@
-import {useCallback, useState, useEffect} from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm.jsx';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.jsx';
-import {NOTHING_FOUND, SERVER_REQUEST_ERROR} from '../../utils/constants';
-import {getAllMovies} from '../../utils/MoviesApi';
-import {filterShortMovies, filterMovies} from '../../utils/utilities';
+import { NOTHING_FOUND, SERVER_REQUEST_ERROR } from '../../utils/constants';
+import { getAllMovies } from '../../utils/MoviesApi';
+import { filterShortMovies, filterMovies } from '../../utils/utilities';
 
 const Movies = ({
-                  setIsInfoTooltip, isInfoTooltip, toDelete, toSaved, localMovieList, serverInfo,
-                }) => {
+  setIsInfoTooltip, isInfoTooltip, toDelete, toSaved, localMovieList, serverInfo,
+}) => {
 // ----------------------------------Поиск фильмов-----------------------------------------------/
   const [isLoader, setIsLoader] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
@@ -32,7 +32,6 @@ const Movies = ({
       .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
   };
 
-  console.log(initialMovies)
   // ----------------------- Состояние чекбокса --------------------------------/
   const handleShortFilms = useCallback(() => {
     setIsLoader(true);
@@ -43,7 +42,7 @@ const Movies = ({
       } else {
         setFilteredMovies(initialMovies);
       }
-      localStorage.setItem('short', JSON.stringify({check: !shortMovies}));
+      localStorage.setItem('short', JSON.stringify({ check: !shortMovies }));
       setIsLoader(false);
     }, 600);
   }, [shortMovies, initialMovies]);
@@ -60,7 +59,7 @@ const Movies = ({
         );
         if (filteredMovies.length === 0) setIsInfoTooltip(NOTHING_FOUND);
         localStorage.setItem('searchMovies', JSON.stringify(moviesList));
-        localStorage.setItem('search', JSON.stringify({query}));
+        localStorage.setItem('search', JSON.stringify({ query }));
       }
       setIsLoader(false);
     }, 600);
@@ -75,17 +74,17 @@ const Movies = ({
     if (storageMovies !== null) {
       arr = JSON.parse(storageSearchMovies); // отфильтрованые фильмы
       setMovieListAll(JSON.parse(storageMovies) || []);
-      setFilteredMovies(arr|| []);
-      setInitialMovies(arr || [])
+      setFilteredMovies(arr || []);
+      setInitialMovies(arr || []);
     }
 
     if (storageSearch !== null) {
-      const {query} = JSON.parse(storageSearch); // поисковый запрос
+      const { query } = JSON.parse(storageSearch); // поисковый запрос
       setSearchText(query || '');
       setIsInfoTooltip(NOTHING_FOUND);
     }
     if (storageShort !== null) {
-      const {check} = JSON.parse(storageShort); // чекбокс true/false
+      const { check } = JSON.parse(storageShort); // чекбокс true/false
       setShortMovies(check);
       if (check) {
         setFilteredMovies(filterShortMovies(arr));

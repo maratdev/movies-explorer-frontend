@@ -15,4 +15,9 @@ export const filterMovies = (moviesArr, userQuery) => moviesArr.filter((movie) =
 export const findFavoriteMovies = (userMoviesArr, movie) => userMoviesArr
   .find((item) => item.movieId === movie.id);
 
-export default { filterShortMovies, filterMovies, findFavoriteMovies };
+// -----------------удаление - // ---------------------------------//
+export const escapeRegExp = (string) => string.replace(/\//g, '');
+
+export default {
+  filterShortMovies, filterMovies, findFavoriteMovies, escapeRegExp,
+};

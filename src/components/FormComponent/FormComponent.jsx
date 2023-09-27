@@ -2,7 +2,7 @@ import './FormComponent.css';
 
 const FormComponent = ({
   name, type, nameInput, required, errors,
-  maxLength, minLength, handleChange, value,
+  maxLength, minLength, handleChange, value, regexInput,
 }) => (
   <>
     <label className="FormComponent">
@@ -16,6 +16,7 @@ const FormComponent = ({
              onChange={handleChange}
              required={required}
              autoComplete="on"
+             pattern={regexInput}
       />
 
       <span className="FormComponent__err-txt">{errors}</span>

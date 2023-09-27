@@ -328,5 +328,5 @@ _
 /src/components/FormList/__err/FormList__err.css,2\c\2c72d030dceb0b37a9efa9278b7d7e2f0194af69
 R
 "src/contexts/CurrentUserContext.js,9\d\9d817d353d7ec3cdb04b3cbdee2ddf985277dbb3
-K
-src/hooks/ProtectedRoute.js,a\5\a55766de472a42c9f26c34885105bd5666dceba9
+N
+src/hooks/useProtectedRoute.js,3\1\316adf96c3824409254d3c49579969875f91030e

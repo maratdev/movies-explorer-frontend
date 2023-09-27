@@ -328,5 +328,5 @@ R
 "src/hooks/useFormWithValidation.js,d\8\d860d07ad3dc6eaae2ca9f0fcdd359d57fa84928
 R
 "src/contexts/CurrentUserContext.js,9\d\9d817d353d7ec3cdb04b3cbdee2ddf985277dbb3
-K
-src/hooks/ProtectedRoute.js,a\5\a55766de472a42c9f26c34885105bd5666dceba9
+N
+src/hooks/useProtectedRoute.js,3\1\316adf96c3824409254d3c49579969875f91030e

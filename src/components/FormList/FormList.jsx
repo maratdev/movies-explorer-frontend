@@ -19,7 +19,7 @@ const FormList = ({
           {children}
         </div>
         <p
-          className={`FormList__err${serverInfo.errorStatus === 'successRegistration' ? '_success' : ''} list`}>{serverInfo.text}</p>
+          className={`FormList__err${serverInfo?.errorStatus === 'successRegistration' ? '_success' : ''} list`}>{serverInfo?.text}</p>
         <button disabled={!isValid} className={`FormList__btn${!isValid ? '_disabled' : ''}`} type="submit"
                 aria-label="Регистрация">{buttonText}</button>
       </form>

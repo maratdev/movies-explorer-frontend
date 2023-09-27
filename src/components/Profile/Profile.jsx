@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import { saveDataInfo } from '../../utils/MainApi';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
 import './Profile.css';
-import { wrongValidation, successProfile } from '../../utils/constants';
+import {
+  wrongValidation, successProfile, wrongEmpty, regexEmail, regexName,
+} from '../../utils/constants';
+import { escapeRegExp } from '../../utils/utilities';
 
 const Profile = ({
-  currentUser, setServerInfo, serverInfo, fullLogout,
+  currentUser, setServerInfo, serverInfo, fullLogout, loggedIn,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(false);
@@ -18,9 +21,6 @@ const Profile = ({
   });
 
   // --------------------- Проверка данных пользователя ---------------- /
-  const regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-  const regexName = /^[a-zA-Zа-яА-ЯёЁ\s_-]{2,}$/;
-
   useEffect(() => {
     if (regexName.test(values.user) && regexEmail.test(values.email)) {
       setBtnDisabled(false);
@@ -48,17 +48,24 @@ const Profile = ({
 
   // --------------------- Иницализация данных пользователя ---------------- /
   useEffect(() => {
-    if (currentUser.name && currentUser.email) {
+    if (currentUser?.name && currentUser?.email) {
       setValues({
         user: currentUser.name,
         email: currentUser.email,
       });
     }
-  }, [currentUser]);
+  }, [currentUser, loggedIn]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if (regexName.test(values.user) && regexEmail.test(values.email)) {
+    if ((regexName.test(values.user) && currentUser.name === values.user)
+      && (regexEmail.test(values.email) && currentUser.email === values.email)) {
+      setServerInfo({ errorStatus: 'wrongEmpty', text: wrongEmpty });
+      setTimeout(() => {
+        setServerInfo('');
+        setIsEditing(false);
+      }, 2000);
+    } else {
       handleUpdateProfile({
         user: values.user,
         email: values.email,
@@ -74,7 +81,7 @@ const Profile = ({
     <main>
       <section className="Profile">
         <div className="Profile__wrap">
-          <h1 className="Profile__title list">Привет, {currentUser.name}</h1>
+          <h1 className="Profile__title list">Привет, {currentUser?.name}</h1>
           <form name="profile" className="Profile__form" onSubmit={handleSubmit}>
             <div className="Profile__labels">
               <label className="Profile__label">
@@ -89,6 +96,7 @@ const Profile = ({
                   minLength='2'
                   maxLength='30'
                   required
+                  pattern={escapeRegExp(`${regexName}`)}
                   autoFocus={true}
                   autoComplete="on"
                   disabled={!isEditing}
@@ -107,14 +115,26 @@ const Profile = ({
                   minLength="2"
                   maxLength="50"
                   required
+                  pattern={escapeRegExp(`${regexEmail}`)}
                   disabled={!isEditing}
                   autoComplete="on"
                 />
               </label>
               <span className="Profile__label-text_err">{errors.email}</span>
             </div>
-            <p
-              className={`Profile__label-text_${serverInfo?.errorStatus === 'successProfile' ? 'ok' : 'info'}`}>{serverInfo?.text}</p>
+            {
+              serverInfo?.errorStatus === 'successProfile'
+              && <p className={'Profile__label-text_ok'}>{serverInfo.text}</p>
+            }
+            {
+              serverInfo?.errorStatus === 'wrongEmpty'
+              && <p className={'Profile__label-text_empty'}>{serverInfo.text}</p>
+            }
+            {
+              serverInfo?.errorStatus === 'wrongValidation'
+              && <p className={'Profile__label-text_info'}>{serverInfo.text}</p>
+            }
+
             <div className="Profile__btn-wrap">
               {
                 isEditing
