@@ -13,6 +13,8 @@ const SavedMovies = ({
   const [shortMovies, setShortMovies] = useState(false); // чекбокс
   const [initialMovies, setInitialMovies] = useState([]); // фильмы полученные с запроса
 
+  const [searchValue, setSearchValue] = useState('');
+
   // ---------------------Инициализация MainApi------------------------/
   const [savedMovies, setSavedMovies] = useState([]);
   useEffect(() => {
@@ -51,12 +53,20 @@ const SavedMovies = ({
     }, 600);
   };
 
+  useEffect(() => {
+    if (searchValue) {
+      movieQuery(searchValue.trim());
+    }
+  }, [shortMovies]);
+
   return (
     <main>
       <SearchForm
         shortMovies={shortMovies}
         handleShortFilms={handleShortFilms}
         movieQuery={movieQuery}
+        setSearchValue={setSearchValue}
+        searchValue={searchValue}
       />
       <MoviesCardList
         toDelete={toDelete}

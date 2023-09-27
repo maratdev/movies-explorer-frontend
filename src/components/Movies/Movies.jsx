@@ -92,9 +92,8 @@ const Movies = ({
       }
     }
   }, []);
-
   useEffect(() => {
-    if (filteredMovies !== null) {
+    if (searchValue) {
       movieQuery(searchValue.trim());
     }
   }, [shortMovies]);

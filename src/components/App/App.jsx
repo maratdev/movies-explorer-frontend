@@ -48,24 +48,10 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('jwt'));
   // -------------------------Состояние отправки форм--------------------------*
   const [btnDisabled, setBtnDisabled] = useState(false);
-  // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
-  const loadApiMovies = () => {
-    getSavedMovies()
-      .then((savedMovie) => setLocalMovieList(
-        savedMovie.filter((userMovie) => userMovie.owner._id === currentUser._id),
-      ))
-      .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
-  };
-
-  useEffect(() => {
-    if (loggedIn && currentUser) {
-      loadApiMovies();
-    }
-  }, [updatedUserMovieList]);
 
   // --------------------------- Инициализация User -------------------------------- /
   useEffect(() => {
-    if (loggedIn && currentUser) {
+    if (loggedIn) {
       getUserData()
         .then((user) => setCurrentUser({
           _id: user._id,
@@ -75,6 +61,22 @@ const App = () => {
         .catch(() => setIsInfoTooltip(REQUEST_USERDATA_ERROR));
     }
   }, [loggedIn]);
+
+  // --------------------------- Загрузка сохраненых фильмов -------------------------------- /
+
+  const loadApiMovies = () => {
+    getSavedMovies()
+      .then((savedMovie) => setLocalMovieList(
+        savedMovie.filter((userMovie) => userMovie.owner._id === currentUser._id)
+      ))
+      .catch(() => setIsInfoTooltip(SERVER_REQUEST_ERROR));
+  };
+
+  useEffect(() => {
+    if (loggedIn && currentUser) {
+      loadApiMovies();
+    }
+  }, [updatedUserMovieList, currentUser]);
 
   // --------------------------- Удаление из избранного -------------------------------- /
   const handleDeleteFavoriteMovie = (movie) => {
