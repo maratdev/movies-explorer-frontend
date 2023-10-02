@@ -6,7 +6,7 @@ const Footer = ({ date, visibleElement }) => {
   return (
     <>
       {
-        !visibleElement && pathname !== '/profile' &&  pathname !== '/' && (
+        !visibleElement && pathname !== '/profile' && pathname !== '/' && (
           <footer className="Footer">
             <div className="Footer__wrap">
               <h3 className="Footer__title list">Учебный проект Яндекс.Практикум х BeatFilm.</h3>
