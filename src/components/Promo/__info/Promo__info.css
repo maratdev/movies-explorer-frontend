@@ -1,0 +1,27 @@
+.Promo__info {
+  text-align: center;
+  font-size: 1.025rem;
+  line-height: 3.25rem;
+  margin: 15px auto 0;
+}
+
+@media (min-width: 769px) and (max-width: 1150px) {
+  .Promo__info {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .Promo__info {
+    font-size: 0.9rem;
+    max-width: calc(100% - 14px * 2);
+  }
+}
+
+@media (max-width: 425px) {
+  .Promo__info {
+    font-size: 0.75rem;
+    width: 100%;
+    line-height: 1.1rem;
+  }
+}

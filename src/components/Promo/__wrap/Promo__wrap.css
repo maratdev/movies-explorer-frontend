@@ -1,12 +1,14 @@
 .Promo__wrap {
+  display: flex;
+  flex-direction: column;
   width: 93.75vw;
+  height: calc(100vh - 127px);
   margin: 0 auto;
-  min-height: 510px;
   padding: 127px 0 0;
   max-width: 1140px;
   background-image: url(../../../images/landing-logo.svg);
   background-repeat: no-repeat;
-  background-position: bottom 60px right 102px;
+  background-position: center top 40%;
 }
 
 @media (max-width: 1024px) {
@@ -17,9 +19,8 @@
 
 @media (max-width: 768px) {
   .Promo__wrap {
-    min-height: 794px;
     background-size: 680px 230px;
-    background-position: center bottom 70px;
+    background-position: center top 45%;
   }
 }
 
@@ -28,7 +29,13 @@
     width: 100%;
     min-height: 580px;
     background-size: 680px 230px;
-    background-position: center bottom 40px;
+  }
+}
+
+@media (max-width: 375px) {
+  .Promo__wrap {
+    width: 100%;
+    min-height: 580px;
   }
 }
 

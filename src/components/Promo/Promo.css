@@ -1,7 +1,14 @@
 @import url('./__title/Promo__title.css');
+@import url('./__info/Promo__info.css');
 @import url('./__wrap/Promo__wrap.css');
 
 .Promo {
   margin-top: -77px;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--bg-header);
+  background-image: url(../../../src/images/bg-promo.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
