@@ -1,6 +1,6 @@
 const beatfilm = 'https://api.nomoreparties.co';
 const _api = {
-  BASE_URL: 'https://api.voredev.nomoreparties.co',
+  BASE_URL: 'https://explorer-movies.ru/api',
   HEADERS: {
     'Content-Type': 'application/json',
   },
