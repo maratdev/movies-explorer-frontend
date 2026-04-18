@@ -252,3 +252,6 @@ N
 src/hooks/useProtectedRoute.js,3\1\316adf96c3824409254d3c49579969875f91030e
 [
 +src/components/Promo/__info/Promo__info.css,e\a\ea3c7ef02418b2ed60abdd27574b047bb13df3c5
+:
+
+index.html,f\6\f6013a00b362253c64368d6eebc50ea2131754e2

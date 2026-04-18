@@ -1,5 +1,5 @@
 const _api = {
-  BASE_URL: 'https://api.voredev.nomoreparties.co',
+  BASE_URL: 'https://explorer-movies.ru/api',
   HEADERS: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
